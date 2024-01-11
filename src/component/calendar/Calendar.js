@@ -37,37 +37,56 @@ const Calendar = ({ onSelectDate }) => {
   );
 
   return (
-    <div className='w-full flex justify-center '>
-      <div className=" w-[82%] container mx-auto p-4">
-      <h2 className="text-2xl font-semibold mb-4">{format(currentMonth, 'MMMM yyyy')}</h2>
-      <div className="flex justify-between mb-4">
-        <button className="bg-blue-500 text-white px-2 py-1 rounded" onClick={prevMonth}>
-          Previous Month
-        </button>
-        <button className="bg-blue-500 text-white px-2 py-1 rounded" onClick={nextMonth}>
-          Next Month
-        </button>
-      </div>
-      <table className="table-auto ">
-        <thead>
-          <tr>
-            {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-              <th key={day} className="border px-4 py-2">
-                {day}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {groupedDays.map((week, weekIndex) => (
-            <tr key={weekIndex}>
-              {week.map((day) => (
-                <Day key={day} date={day} currentMonth={currentMonth} onClick={handleDayClick} />
+    <div className='w-full py-5 flex justify-center overflow-auto  '>
+      <div className="container  mx-auto ">
+      
+      
+      
+          <h2 className="text-2xl font-semibold mb-4 text-center">{format(currentMonth, 'MMMM yyyy')}</h2>
+
+
+
+
+          <div className="flex justify-center gap-10 mb-4 ">
+            <button className="bg-blue-500 text-white px-2 py-1 rounded" onClick={prevMonth}>
+              Previous Month
+            </button>
+            <button className="bg-blue-500 text-white px-2 py-1 rounded" onClick={nextMonth}>
+              Next Month
+            </button>
+          </div>
+
+
+
+
+        <div className='w-full justify-center flex '>
+          <table className="table-auto shadow-xl">
+            <thead>
+              <tr>
+                {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
+                  <th key={day} className="border px-0 py-1 sm:px-4 sm:py-2">
+                    {day}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {groupedDays.map((week, weekIndex) => (
+                <tr key={weekIndex}>
+                  {week.map((day) => (
+                    <Day key={day} date={day} currentMonth={currentMonth} onClick={handleDayClick} />
+                  ))}
+                </tr>
               ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+            </tbody>
+          </table>
+        </div>
+      
+      
+      
+      
+      
+      
     </div>
     </div>
   );

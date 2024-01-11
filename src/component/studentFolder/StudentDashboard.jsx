@@ -6,15 +6,20 @@ import Updates from '../calendar/Updates';
 function StudentDashboard() {
 
   const [selectedDate, setSelectedDate] = useState(null);
+  const [wrap,setWrap] = useState('false');
+
+  const design = () => {
+    
+  }
 
   const handleDateSelect = (date) => {
     setSelectedDate(date);
   };
 
   return (
-    <div className='w-full flex flex-wrap py-4 gap-4'>
-      <div className='h-screen w-1/2 flex flex-col gap-4'>
-        <div className='w-full h-[29%] bg-white py-8 px-10 flex gap-7 rounded-lg shadow-lg text-xl'>
+    <div className='sm:w-full sm:h-full bg-green-600 flex lg:flex-row flex-wrap py-4 overflow-scroll'>
+      <div className='h-full w-full xl:w-1/2 flex flex-col gap-4 p-2'>
+        <div className='w-full h-[29%] bg-white py-8 px-10 flex gap-7 rounded-lg shadow-lg text-xl overflow-y-auto'>
           <div className='px-7 py-3 bg-slate-400'>Profile</div>
           <div className=''>
             <p>Name : Pranav Hansraj Kale</p>
@@ -53,8 +58,8 @@ function StudentDashboard() {
           </div>
         </div>
       </div>
-      <div className='w-1/2 flex flex-col gap-4'>
-        {/* <div className='w-full bg-white rounded-lg p-3'><Calendar onSelectDate={handleDateSelect}/></div> */}
+      <div className='w-full xl:w-1/2 flex flex-col gap-4 p-2'>
+        <div className='w-full bg-white rounded-lg p-3'><Calendar onSelectDate={handleDateSelect}/></div>
         <div className='w-full h-[40%] bg-white rounded-lg p-3'><Updates selectedDate={selectedDate}/></div>
       </div>
     </div>
