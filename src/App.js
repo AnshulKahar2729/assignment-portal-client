@@ -1,10 +1,11 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import IndexPage from './Components/Pages/IndexPage';
-import LoginPage from './Components/Pages/LoginPage';
-import SignUpPage from './Components/Pages/SignUpPage';
-import StudentPageLayout from './Components/Pages/StudentPageLayout';
-import TeacherPageLayout from './Components/Pages/TeacherLayoutPage';
+import IndexPage from './component/pages/landingPage/IndexPage';
+import LoginPage from './component/pages/Loginpage/LoginPage';
+import SignUpPage from './component/pages/SignUpPage';
+import StudentPageLayout from './component/pages/StudentPageLayout';
+import TeacherPageLayout from './component/pages/TeacherLayoutPage';
+import Calendar from './component/calendar/Calendar';
 
 function App() {
   return (
@@ -13,10 +14,11 @@ function App() {
       <div className="App">
       <Routes>
         <Route path='/' element={<IndexPage/>} />
-        <Route path='/login' element={<LoginPage/>} />
-        <Route path='/signup' element={<SignUpPage/>} />
+        <Route path='/loginpage' element={<LoginPage/>} />
+        <Route path='/signuppage' element={<SignUpPage/>} />
         <Route path='/studentlayoutpage' element={<StudentPageLayout/>} />
         <Route path='/teacherlayoutpage' element={<TeacherPageLayout/>} />
+        <Route path='/calendar' element={<Calendar/>} />
       </Routes>
     </div>
     </Router>

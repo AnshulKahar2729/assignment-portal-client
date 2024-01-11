@@ -9,6 +9,8 @@ import Settings from './StudentSettings';
 
 function StudentSectionContainer({section}) {
 
+  
+
     function selectSection()
     {
       switch(section) {
@@ -26,12 +28,11 @@ function StudentSectionContainer({section}) {
           return <Settings/>
         default :
           return <Dashboard/>
-          
       }
     }
 
   return (
-    <div className='bg-[#B1B3BB] h-full  px-5 py-3 border'>
+    <div className='bg-[#B1B3BB] w-4/5 h-full  px-5 overflow-hidden'>
       {selectSection()}
     </div>
   )

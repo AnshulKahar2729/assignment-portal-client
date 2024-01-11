@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { BiBoltCircle } from "react-icons/bi";
+import { CgProfile } from "react-icons/cg";
+import { AiOutlineBarChart } from "react-icons/ai";
+import { AiFillFolder } from "react-icons/ai";
+import { AiFillSetting } from "react-icons/ai";
+import { BsFillPeopleFill } from "react-icons/bs";
+import { BsChatLeftFill } from "react-icons/bs";
+
 
 function TeacherSidebar({section,setSection}) {
 
@@ -53,7 +60,7 @@ function TeacherSidebar({section,setSection}) {
       style={{
         // WebkitBorderTopRightRadius: "50px",
         // WebkitBorderBottomRightRadius: "50px",
-        backgroundColor:"#625F85",
+        backgroundColor:"#0955ad",
       }}
       className={`w-full sm:w-[20%] sm:h-full gap-2 xl:gap-5 lg:gap-3 md:gap-2 sm:gap-1 flex ${hammer ?'flex-col' : ''} justify-between px-8 py-4 sm:flex-col  sm:pt-10 sm:pb-9 xl:text-1xl lg:text-lg md:text-md sm:text-sm items-center sm:overflow-x-hidden sm:justify-between `}
     >
@@ -91,7 +98,7 @@ function TeacherSidebar({section,setSection}) {
                   onClick={handleClick}
                 >
                   <div className='text-4xl'>
-                    <BiBoltCircle/>
+                  <AiOutlineBarChart />
                   </div> 
                   { condition && ('Dashboard')}
                 </button>
@@ -103,7 +110,7 @@ function TeacherSidebar({section,setSection}) {
                   onClick={handleClick}
                 >
                   <div className='text-4xl'>
-                    <BiBoltCircle/>
+                  <BsChatLeftFill />
                   </div> 
                   {condition && ('Submission')}
                 </button>
@@ -115,7 +122,7 @@ function TeacherSidebar({section,setSection}) {
                   onClick={handleClick}
                 >
                   <div className='text-4xl'>
-                    <BiBoltCircle/>
+                  <BsFillPeopleFill />
                   </div> 
                   {condition && ('Discussion')}
                 </button>
@@ -127,7 +134,7 @@ function TeacherSidebar({section,setSection}) {
                   onClick={handleClick}
                 >
                   <div className='text-4xl'>
-                    <BiBoltCircle/>
+                  <AiFillFolder />
                   </div> 
                   {condition && ('Courses')}
                 </button>
@@ -139,7 +146,7 @@ function TeacherSidebar({section,setSection}) {
                   onClick={handleClick}
                 >
                   <div className='text-4xl'>
-                    <BiBoltCircle/>
+                  <CgProfile />
                   </div> 
                   {condition && ('Faculty')}
                 </button>
@@ -152,7 +159,7 @@ function TeacherSidebar({section,setSection}) {
                   onClick={handleClick}
                 >
                   <div className='text-4xl'>
-                    <BiBoltCircle/>
+                  <AiFillSetting />
                   </div> 
                   {condition && ('Settings')}
                 </button>

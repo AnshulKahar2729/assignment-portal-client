@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Sidebar from '../TeacherFolder/TeacherSidebar';
-import SectionContainer from '../TeacherFolder/TeacherSectionContainer';
+import Sidebar from '../teacherFolder/TeacherSidebar';
+import SectionContainer from '../teacherFolder/TeacherSectionContainer';
 
 function TeacherLayoutPage() {
 
@@ -8,7 +8,7 @@ function TeacherLayoutPage() {
 
 
     return (
-      <div className='w-full h-screen sm:flex sm:flex-row flex flex-col'>
+      <div className='w-full h-full sm:flex sm:flex-row flex flex-col'>
           <Sidebar section={section} setSection={setSection}/>
           <SectionContainer section={section}/>
           
