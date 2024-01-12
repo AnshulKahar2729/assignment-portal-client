@@ -7,12 +7,17 @@ import Discussion from './TeacherDiscussion';
 import Settings from './TeacherSettings';
 import CourseDetails from './Courses/CourseDetails';
 import { Data } from './Datas/Data';
+import FilesPage from './Courses/FilesPage';
+import UploadPage from './Courses/UploadPage';
+
 
 
 function TeacherSectionContainer({section}) {
 
   const [courseDirectId,setCourseDirectId] = useState(null);
-  const [filePage,setFilePage] = useState('');
+  const [filePage,setFilePage] = useState(null);
+  const [upload,setUpload] = useState(false);
+  const [file,setFile] = useState([]);
 
 
   useEffect(() => {
@@ -35,15 +40,15 @@ function TeacherSectionContainer({section}) {
            return <Discussion/>
 
 
-
-
-
         case 'Courses' :
-          return courseDirectId === null ? (
-            <Courses setCourseDirectId={setCourseDirectId} Data={Data} />
-          ) : (
-            <CourseDetails courseDirectId={courseDirectId} setCourseDirectId={setCourseDirectId} Data={Data} setFilePage={setFilePage}/>
-          );
+          return         (courseDirectId === null && filePage === null && upload === false) ? <Courses setCourseDirectId={setCourseDirectId} Data={Data} /> :
+                         (courseDirectId !== null && filePage === null && upload === false) ? <CourseDetails courseDirectId={courseDirectId} setCourseDirectId={setCourseDirectId} Data={Data} setFilePage={setFilePage}/> :
+                         (filePage !== null && upload === false) ? <FilesPage setFilePage={setFilePage} filePage={filePage} Data={Data} courseDirectId={courseDirectId} setUpload={setUpload} file={file}/> : 
+                         (upload !== false) ? <UploadPage setUpload={setUpload} file={file} setFile={setFile}/> : 'Not Found !!!'
+
+
+
+
         case 'Faculty' :
           return <Faculty/>
         case 'Settings' :
@@ -53,6 +58,8 @@ function TeacherSectionContainer({section}) {
           
       }
     }
+
+    console.log('file : ',file)
 
   return (
     <div className='bg-[#d4ddff] w-[100%] sm:w-4/5 h-full  px-5  m-auto sm:m-0'>

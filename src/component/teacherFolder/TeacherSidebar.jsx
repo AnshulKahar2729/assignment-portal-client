@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { CgProfile } from "react-icons/cg";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineBarChart } from "react-icons/ai";
 import { AiFillSetting } from "react-icons/ai";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { BiCalendarMinus } from "react-icons/bi";
+import { FaFolder } from "react-icons/fa";
 
 
 function TeacherSidebar({section,setSection}) {

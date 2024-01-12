@@ -21,7 +21,7 @@ function TeacherCourses({setCourseDirectId,Data}) {
   return (
     <div className=' sm:w-full sm:h-full  py-4 overflow-y-scroll gap-10 flex flex-col'>
       <div className='h-56'>
-      <div className='w-full text-2xl flex justify-between items-center py-4 px-7 bg-slate-400 rounded-lg'>
+      <div className='w-full text-xl sm:text-2xl flex justify-between items-center py-4 px-7 bg-slate-400 rounded-lg'>
         <h2>Course</h2>
         <div className='flex items-center gap-3 '>
           <p className=''>Name of Professor</p>
@@ -29,7 +29,7 @@ function TeacherCourses({setCourseDirectId,Data}) {
         </div>
       </div>
       </div>
-      <div className='grid grid-cols-3 gap-32 m-auto'>
+      <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-24 xl:gap-28 m-auto'>
           {
             courses.map((course) => <CourseCard key={course.id} setSelectedCourseID={setSelectedCourseID} course={course} />)
           }

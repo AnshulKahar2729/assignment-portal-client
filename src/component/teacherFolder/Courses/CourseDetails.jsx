@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 function CourseDetails({courseDirectId,setCourseDirectId,Data,setFilePage}) {
 
   const [courseName,setCourseName] = useState('');
-  const [courseImg,setCourseImg] = useState('');
+  // const [courseImg,setCourseImg] = useState('');
 
   function handleBackBtn () {
     setCourseDirectId(null);
@@ -14,7 +14,7 @@ function CourseDetails({courseDirectId,setCourseDirectId,Data,setFilePage}) {
     if(selectedCourse)
     {
       setCourseName(selectedCourse.courseName);
-      setCourseImg(selectedCourse.backgroundImage);
+      // setCourseImg(selectedCourse.backgroundImage);
     }
   },[Data,courseDirectId])
 
