@@ -10,7 +10,7 @@ function IndexPage() {
           <span className="text-4xl text-black mx-6 font-bold">Logo</span>
           <div className="lg:flex md:flex lg:flex-1 gap-5 justify-end font-normal">
             <Link to="SignUpPage"><button className=" bg-blue-500 text-white hover:bg-blue-700  py-1 px-3 rounded">Sign Up</button></Link>
-            <button className=" border-black border text-white  hover:bg-gray-200  hover:border-gray-200 text-black py-1 px-3 rounded"><Link to="LoginPage">Login</Link></button>
+            <button className=" border-black border  hover:bg-gray-200  hover:border-gray-200 text-black py-1 px-3 rounded"><Link to="LoginPage">Login</Link></button>
           </div>
         </div>
       </div>

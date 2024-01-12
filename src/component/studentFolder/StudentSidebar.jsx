@@ -6,7 +6,7 @@ import { AiFillSetting } from "react-icons/ai";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { BiCalendarMinus } from "react-icons/bi";
-
+import { GiHamburgerMenu } from "react-icons/gi";
 
 
 
@@ -86,7 +86,7 @@ function StudentSidebar({section,setSection}) {
 
         {
           windowWidth < 640 && (
-            <div onClick={handleHammerClick} className='p-2 bg-slate-500'>O</div>
+            <div onClick={handleHammerClick} className='p-2 font-bold text-3xl'><GiHamburgerMenu/></div>
           )
         }
          </div>

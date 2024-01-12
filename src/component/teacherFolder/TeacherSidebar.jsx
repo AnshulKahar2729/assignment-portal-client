@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineBarChart } from "react-icons/ai";
-import { AiFillFolder } from "react-icons/ai";
 import { AiFillSetting } from "react-icons/ai";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { BiCalendarMinus } from "react-icons/bi";
@@ -32,13 +31,8 @@ function TeacherSidebar({section,setSection}) {
 
   const design1 = (selected) => ({
     backgroundColor: selected ? '#B38378' : '#ffffff92',
-    // width: selected ? '' :'',
     textAlign : "center",
     borderRadius : '25px',
-    // WebkitBorderTopLeftRadius : selected ?  '25px' : "25px",
-    // WebkitBorderBottomLeftRadius : selected ?  '25px' : "25px",
-    // WebkitBorderTopRightRadius : selected ?  '0px' : "25px",
-    // WebkitBorderBottomRightRadius : selected ?  '0px' : "25px",
   })
 
   function handleClick (e) {
@@ -55,7 +49,7 @@ function TeacherSidebar({section,setSection}) {
 
 
   return (
-    <div
+    <div 
       style={{
         // WebkitBorderTopRightRadius: "50px",
         // WebkitBorderBottomRightRadius: "50px",
@@ -75,13 +69,13 @@ function TeacherSidebar({section,setSection}) {
          <div className='w-full flex sm:flex-col justify-between items-center'>
          <div style={{ fontFamily: "Rajdhani,sans-serif" }} className="text-xl xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl  flex sm:justify-center sm:items-center">
               <p className='p-4 xl:w-28 xl:h-28 lg:w-24 lg:h-24 md:w-20 md:h-20 sm:w-16 sm:h-16 rounded-md shadow-xl bg-gray-400 items-center flex justify-center' style={{ fontFamily: "Rajdhani, sans-serif", fontWeight: 500 }}>
-                Logo
+                
               </p>
           </div>
 
         {
           windowWidth < 640 && (
-            <div onClick={handleHammerClick} className='p-2 bg-slate-500'>O</div>
+            <div onClick={handleHammerClick} className='p-2 font-bold text-3xl'><GiHamburgerMenu/></div>
           )
         }
          </div>
@@ -137,24 +131,28 @@ function TeacherSidebar({section,setSection}) {
                   onClick={handleClick}
                 >
                   <div className='text-4xl'>
-                  <AiFillFolder />
+                  <FaFolder />
                   </div> 
                   {condition && ('Courses')}
                 </button>
 
                 <button
-                  style={design1(section === "Faculty")}
+                  style={design1(section === "Students")}
                   className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%]"
-                  value="Faculty"
+                  value="Students"
                   onClick={handleClick}
                 >
                   <div className='text-4xl'>
-                  <CgProfile />
+                  <BsFillPeopleFill />
                   </div> 
-                  {condition && ('Faculty')}
+                  {condition && ('Students')}
                 </button>
+
+                
+
+                
             </div>
-            <div className='flex justify-center text-[10px] sm:text-sm md:text-md lg:text-lg xl:text-xl'>
+            <div className='flex justify-center text-[10px] sm:text-sm md:text-md lg:text-lg xl:text-xl mb-[3px]'>
                 <button
                 style={design1(section === "Settings")}
                   className=" xl:p-3 lg:p-4 md:p-3 sm:p-3 p-2 shadow-2xl bg-[#ffffff92] rounded-3xl flex justify-center items-center gap-2 w-[100%]"
