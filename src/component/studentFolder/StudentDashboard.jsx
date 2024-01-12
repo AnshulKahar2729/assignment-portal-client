@@ -1,26 +1,22 @@
 import React, { useState } from 'react';
 import Calendar from '../calendar/Calendar';
-import Updates from '../calendar/Updates';
+import Deadline from '../calendar/Deadline';
 
 
 function StudentDashboard() {
 
   const [selectedDate, setSelectedDate] = useState(null);
-  const [wrap,setWrap] = useState('false');
 
-  const design = () => {
-    
-  }
 
   const handleDateSelect = (date) => {
     setSelectedDate(date);
   };
 
   return (
-    <div className='sm:w-full sm:h-full bg-green-600 flex lg:flex-row flex-wrap py-4 overflow-scroll'>
+    <div className='sm:w-full sm:h-full flex lg:flex-row flex-wrap py-4 overflow-scroll'>
       <div className='h-full w-full xl:w-1/2 flex flex-col gap-4 p-2'>
-        <div className='w-full h-[29%] bg-white py-8 px-10 flex gap-7 rounded-lg shadow-lg text-xl overflow-y-auto'>
-          <div className='px-7 py-3 bg-slate-400'>Profile</div>
+        <div className='w-full h-[29%] bg-white p-2 sm:p-0 flex justify-center items-center gap-7 rounded-lg shadow-lg text-xl overflow-y-auto'>
+          <div className='w-28 h-28 bg-slate-400'>Profile</div>
           <div className=''>
             <p>Name : Pranav Hansraj Kale</p>
             <p>Branch : E&TC</p>
@@ -60,7 +56,7 @@ function StudentDashboard() {
       </div>
       <div className='w-full xl:w-1/2 flex flex-col gap-4 p-2'>
         <div className='w-full bg-white rounded-lg p-3'><Calendar onSelectDate={handleDateSelect}/></div>
-        <div className='w-full h-[40%] bg-white rounded-lg p-3'><Updates selectedDate={selectedDate}/></div>
+        <div className='w-full h-[40%] bg-white rounded-lg p-3'><Deadline selectedDate={selectedDate}/></div>
       </div>
     </div>
   )

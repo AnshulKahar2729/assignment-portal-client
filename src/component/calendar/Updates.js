@@ -1,11 +1,8 @@
 import React from 'react'
 
-function Updates({ selectedDate }) {
+function Updates() {
   return (
-    <div className="selected-date">
-        <h3>Deadlines Date</h3>
-        <p>{selectedDate ? selectedDate.toDateString() : 'No date selected'}</p>
-  </div>
+    <div>Updates</div>
   )
 }
 

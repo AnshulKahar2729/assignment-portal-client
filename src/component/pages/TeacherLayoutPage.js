@@ -8,11 +8,10 @@ function TeacherLayoutPage() {
 
 
     return (
-      <div className='w-full h-full sm:flex sm:flex-row flex flex-col'>
-          <Sidebar section={section} setSection={setSection}/>
-          <SectionContainer section={section}/>
-          
-      </div>
+      <div className='sm:w-screen sm:h-screen sm:flex sm:flex-row flex flex-col w-full h-full'>
+        <Sidebar section={section} setSection={setSection}/>
+        <SectionContainer section={section}/>
+    </div>
   )
 }
 

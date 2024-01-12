@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { BiBoltCircle } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineBarChart } from "react-icons/ai";
 import { AiFillFolder } from "react-icons/ai";
 import { AiFillSetting } from "react-icons/ai";
 import { BsFillPeopleFill } from "react-icons/bs";
-import { BsChatLeftFill } from "react-icons/bs";
+import { BiCalendarMinus } from "react-icons/bi";
 
 
 function TeacherSidebar({section,setSection}) {
@@ -60,9 +59,12 @@ function TeacherSidebar({section,setSection}) {
       style={{
         // WebkitBorderTopRightRadius: "50px",
         // WebkitBorderBottomRightRadius: "50px",
-        backgroundColor:"#0955ad",
+        color:"black",
+        backgroundColor: "#0017e9",
+        backgroundImage: "linear-gradient(225deg, #0017e9 21%, #4d0cdb 54%, #765ee1 100%, #ffffff 100%)",
+
       }}
-      className={`w-full sm:w-[20%] sm:h-full gap-2 xl:gap-5 lg:gap-3 md:gap-2 sm:gap-1 flex ${hammer ?'flex-col' : ''} justify-between px-8 py-4 sm:flex-col  sm:pt-10 sm:pb-9 xl:text-1xl lg:text-lg md:text-md sm:text-sm items-center sm:overflow-x-hidden sm:justify-between `}
+      className={`xl:w-1/5 sm:w-[20%] sm:h-full gap-2 xl:gap-5 lg:gap-3 md:gap-2 sm:gap-1 bg-[#001aff]  flex ${hammer ?'flex-col' : ''} justify-between px-8 py-4 sm:flex-col  sm:pt-10 sm:pb-9 xl:text-1xl lg:text-lg md:text-md sm:text-sm items-center sm:overflow-x-hidden sm:justify-between `}
     >
           <Helmet>
             <link
@@ -110,7 +112,8 @@ function TeacherSidebar({section,setSection}) {
                   onClick={handleClick}
                 >
                   <div className='text-4xl'>
-                  <BsChatLeftFill />
+                  <BiCalendarMinus />
+
                   </div> 
                   {condition && ('Submission')}
                 </button>
