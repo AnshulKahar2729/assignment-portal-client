@@ -34,10 +34,10 @@ function TeacherSectionContainer({section}) {
       switch(section) {
         case 'Dashboard' :
           return <Dashboard/>
-        case 'Submission' :
-          return <Submission/>
-        case 'Discussion' :
-           return <Discussion/>
+        // case 'Submission' :
+        //   return <Submission/>
+        // case 'Discussion' :
+        //    return <Discussion/>
 
 
         case 'Courses' :
@@ -49,8 +49,8 @@ function TeacherSectionContainer({section}) {
 
 
 
-        case 'Faculty' :
-          return <Faculty/>
+        // case 'Faculty' :
+        //   return <Faculty/>
         case 'Settings' :
           return <Settings/>
         default :

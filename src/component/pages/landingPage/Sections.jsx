@@ -1,5 +1,6 @@
 import React from 'react';
 import rocket from '../../../assets/rocket.png'
+import { Link } from 'react-router-dom';
 
 function Sections() {
   return (
@@ -16,9 +17,7 @@ function Sections() {
           management solution for students and teachers
         </h3>
         <div className="flex flex-row items-center justify-center">
-          <button className=" bg-blue-500 hover:bg-blue-700 text-white text-2xl font-serif py-3 px-10 rounded">
-            Demo
-          </button>
+        <Link to='/loginpage'><button className=" bg-blue-500 hover:bg-blue-700 text-white text-2xl font-serif py-3 px-10 rounded">Demo</button></Link>
         </div>
       </div>
 

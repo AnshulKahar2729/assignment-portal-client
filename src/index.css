@@ -1,7 +1,10 @@
 html{
-    background-color: #B1B3BB;
+    background-color: rgb(185, 183, 179);
+    
 }
 
 ::-webkit-scrollbar {
     display: none;
   }
+
+

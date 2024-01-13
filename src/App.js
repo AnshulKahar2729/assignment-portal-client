@@ -5,7 +5,6 @@ import LoginPage from './component/pages/Loginpage/LoginPage';
 import SignUpPage from './component/pages/SignUpPage';
 import StudentPageLayout from './component/pages/StudentPageLayout';
 import TeacherPageLayout from './component/pages/TeacherLayoutPage';
-import Calendar from './component/calendar/Calendar';
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
         <Route path='/signuppage' element={<SignUpPage/>} />
         <Route path='/studentlayoutpage' element={<StudentPageLayout/>} />
         <Route path='/teacherlayoutpage' element={<TeacherPageLayout/>} />
-        <Route path='/calendar' element={<Calendar/>} />
       </Routes>
     </div>
     </Router>

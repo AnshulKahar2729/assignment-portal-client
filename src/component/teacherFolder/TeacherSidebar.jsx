@@ -36,10 +36,13 @@ function TeacherSidebar({section,setSection}) {
     borderRadius : '25px',
   })
 
-  function handleClick (e) {
-      e.preventDefault();
-      setSection(e.target.value);
+  function handleClick(e) {
+    e.preventDefault();
+    const clickedElement = e.target;
+    const buttonValue = clickedElement.value || clickedElement.closest('button').value;
+    setSection(buttonValue);
   }
+  
 
   function handleHammerClick () {
     setHammer(!hammer);
@@ -59,7 +62,7 @@ function TeacherSidebar({section,setSection}) {
         backgroundImage: "linear-gradient(225deg, #0017e9 21%, #4d0cdb 54%, #765ee1 100%, #ffffff 100%)",
 
       }}
-      className={`xl:w-1/5 sm:w-[20%] sm:h-full gap-2 xl:gap-5 lg:gap-3 md:gap-2 sm:gap-1 bg-[#001aff]  flex ${hammer ?'flex-col' : ''} justify-between px-8 py-4 sm:flex-col  sm:pt-10 sm:pb-9 xl:text-1xl lg:text-lg md:text-md sm:text-sm items-center sm:overflow-x-hidden sm:justify-between `}
+      className={`xl:w-1/5 sm:w-[20%] sm:h-full gap-2 xl:gap-5 lg:gap-3 md:gap-2 sm:gap-1 bg-[#001aff] flex ${hammer ?'flex-col' : ''} justify-between px-8 py-4 sm:flex-col  sm:pt-10 sm:pb-9 xl:text-1xl lg:text-lg md:text-md sm:text-sm items-center sm:overflow-x-hidden sm:justify-between `}
     >
           <Helmet>
             <link
@@ -90,7 +93,7 @@ function TeacherSidebar({section,setSection}) {
           >
                 <button
                   style={design1(section === "Dashboard")}
-                  className="xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%]"
+                  className="xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%] text-black "
                   value="Dashboard"
                   onClick={handleClick}
                 >
@@ -100,9 +103,9 @@ function TeacherSidebar({section,setSection}) {
                   { condition && ('Dashboard')}
                 </button>
 
-                <button
+                {/* <button
                   style={design1(section === "Submission")}
-                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%]"
+                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%] text-black "
                   value="Submission"
                   onClick={handleClick}
                 >
@@ -111,11 +114,11 @@ function TeacherSidebar({section,setSection}) {
 
                   </div> 
                   {condition && ('Submission')}
-                </button>
+                </button> */}
 
-                <button
+                {/* <button
                   style={design1(section === "Discussion")}
-                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%]"
+                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%] text-black "
                   value="Discussion"
                   onClick={handleClick}
                 >
@@ -123,11 +126,11 @@ function TeacherSidebar({section,setSection}) {
                   <BsFillPeopleFill />
                   </div> 
                   {condition && ('Discussion')}
-                </button>
+                </button> */}
 
                 <button
                   style={design1(section === "Courses")}
-                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%]"
+                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%] text-black "
                   value="Courses"
                   onClick={handleClick}
                 >
@@ -137,9 +140,9 @@ function TeacherSidebar({section,setSection}) {
                   {condition && ('Courses')}
                 </button>
 
-                <button
+                {/* <button
                   style={design1(section === "Students")}
-                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%]"
+                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%] text-black "
                   value="Students"
                   onClick={handleClick}
                 >
@@ -147,7 +150,7 @@ function TeacherSidebar({section,setSection}) {
                   <BsFillPeopleFill />
                   </div> 
                   {condition && ('Students')}
-                </button>
+                </button> */}
 
                 
 
@@ -156,7 +159,7 @@ function TeacherSidebar({section,setSection}) {
             <div className='flex justify-center text-[10px] sm:text-sm md:text-md lg:text-lg xl:text-xl mb-[3px]'>
                 <button
                 style={design1(section === "Settings")}
-                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-3 p-2 shadow-2xl bg-[#ffffff92] rounded-3xl flex justify-center items-center gap-2 w-[100%]"
+                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-3 p-2 shadow-2xl bg-[#ffffff92] rounded-3xl flex justify-center items-center gap-2 w-[100%] text-black "
                   value="Settings"
                   onClick={handleClick}
                 >

@@ -29,11 +29,7 @@ function StudentSidebar({section,setSection}) {
       window.removeEventListener('resize',handleResize);
     }
 
-
-
   },[]);
-
-
 
   const design1 = (selected) => ({
     backgroundColor: selected ? '#B38378' : '#ffffff92',
@@ -46,9 +42,11 @@ function StudentSidebar({section,setSection}) {
     // WebkitBorderBottomRightRadius : selected ?  '0px' : "25px",
   })
 
-  function handleClick (e) {
-      e.preventDefault();
-      setSection(e.target.value);
+  function handleClick(e) {
+    e.preventDefault();
+    const clickedElement = e.target;
+    const buttonValue = clickedElement.value || clickedElement.closest('button').value;
+    setSection(buttonValue);
   }
 
   function handleHammerClick () {
@@ -100,7 +98,7 @@ function StudentSidebar({section,setSection}) {
           >
                 <button
                   style={design1(section === "Dashboard")}
-                  className="xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%]"
+                  className="xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%] text-black"
                   value="Dashboard"
                   onClick={handleClick}
                 >
@@ -112,7 +110,7 @@ function StudentSidebar({section,setSection}) {
 
                 <button
                   style={design1(section === "Submission")}
-                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%]"
+                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%] text-black"
                   value="Submission"
                   onClick={handleClick}
                 >
@@ -120,12 +118,12 @@ function StudentSidebar({section,setSection}) {
                   <BiCalendarMinus />
 
                   </div> 
-                  {condition && ('Submission')}
+                  {condition && ('Submission')} 
                 </button>
 
-                <button
+                {/* <button
                   style={design1(section === "Discussion")}
-                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%]"
+                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%] text-black"
                   value="Discussion"
                   onClick={handleClick}
                 >
@@ -133,11 +131,11 @@ function StudentSidebar({section,setSection}) {
                   <BsFillPeopleFill />
                   </div> 
                   {condition && ('Discussion')}
-                </button>
+                </button> */}
 
                 <button
                   style={design1(section === "Courses")}
-                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%]"
+                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%] text-black"
                   value="Courses"
                   onClick={handleClick}
                 >
@@ -149,7 +147,7 @@ function StudentSidebar({section,setSection}) {
 
                 <button
                   style={design1(section === "Faculty")}
-                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%]"
+                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%] text-black"
                   value="Faculty"
                   onClick={handleClick}
                 >
@@ -162,7 +160,7 @@ function StudentSidebar({section,setSection}) {
             <div className='flex justify-center text-[10px] sm:text-sm md:text-md lg:text-lg xl:text-xl'>
                 <button
                 style={design1(section === "Settings")}
-                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-3 p-2 shadow-2xl bg-[#ffffff92] rounded-3xl flex justify-center items-center gap-2 w-[100%]"
+                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-3 p-2 shadow-2xl bg-[#ffffff92] rounded-3xl flex justify-center items-center gap-2 w-[100%] text-black"
                   value="Settings"
                   onClick={handleClick}
                 >
