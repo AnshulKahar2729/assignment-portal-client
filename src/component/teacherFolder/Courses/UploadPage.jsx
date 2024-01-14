@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 
 const BASE_URL = 
-'https://assignment-portal-server.onrender.com/'
+'https://assignment-portal-server.onrender.com'
 //  || 
 // 'http://localhost:4000/';
 
@@ -23,7 +23,7 @@ const UploadPage = () => {
 
     try {
       const response = await fetch(
-        `${BASE_URL}api/assignment/?role=teacher`,
+        `${BASE_URL}/api/assignment/?role=teacher`,
         {
           // mode: 'no-cors',
           method: "POST",
