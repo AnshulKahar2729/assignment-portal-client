@@ -56,7 +56,6 @@ function StudentSidebar({section,setSection}) {
 
   let condition = (windowWidth > 940 || windowWidth < 640);
 
-
   return (
     <div
       style={{
@@ -65,9 +64,9 @@ function StudentSidebar({section,setSection}) {
         color:"black",
         backgroundColor: "#0017e9",
         backgroundImage: "linear-gradient(225deg, #0017e9 21%, #4d0cdb 54%, #765ee1 100%, #ffffff 100%)",
-
+        
       }}
-      className={`xl:w-1/5 sm:w-[20%] sm:h-full gap-2 xl:gap-5 lg:gap-3 md:gap-2 sm:gap-1 bg-[#001aff]  flex ${hammer ?'flex-col' : ''} justify-between px-8 py-4 sm:flex-col  sm:pt-10 sm:pb-9 xl:text-1xl lg:text-lg md:text-md sm:text-sm items-center sm:overflow-x-hidden sm:justify-between `}
+      className={`xl:w-1/6 sm:w-[20%] sm:h-full gap-2 xl:gap-5 lg:gap-3 md:gap-2 sm:gap-1 bg-[#001aff]  flex ${hammer ?'flex-col' : ''} justify-between px-2 py-4 sm:flex-col  sm:pt-10 sm:pb-9 xl:text-1xl lg:text-lg md:text-md sm:text-sm items-center sm:overflow-x-hidden sm:justify-between rounded-2xl`}
     >
           <Helmet>
             <link

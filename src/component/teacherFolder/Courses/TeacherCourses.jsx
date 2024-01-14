@@ -28,6 +28,12 @@ function TeacherCourses({setCourseDirectId,Data}) {
           <CgProfile className="text-5xl"/>
         </div>
       </div>
+
+      <form>
+        <input type='text' placeholder='Course Name' />
+        
+      </form>
+
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-24 xl:gap-28 m-auto'>
           {

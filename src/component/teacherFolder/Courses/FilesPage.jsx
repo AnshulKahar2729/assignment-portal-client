@@ -1,10 +1,20 @@
 import React , {useState,useEffect} from 'react';
 import { CgAddR } from "react-icons/cg";
+import UploadPage from './UploadPage';
+
+// title: ""
+// 	file: "",
+// 	startDate: "",
+// 	endDate: "",
+// 	createdBy: [], //teacher details
+// 	submissions: [{},{},....], //Array of students who submitted assignment
 
 
 
 function FilesPage({Data,filePage,setFilePage,courseDirectId,setUpload,file}) {
   const [name,setName] = useState();
+  const [assignments, setAssignments] = useState([]);
+  const [title,setTitle] = useState();
   
 
   function handleBackBtn () {
@@ -20,7 +30,24 @@ function FilesPage({Data,filePage,setFilePage,courseDirectId,setUpload,file}) {
     setName(selectedCourse.courseName);
   },[courseDirectId,filePage])
 
-  console.log('file : ',file)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:4000/api/assignment");
+        const data = await response.json();
+        setAssignments(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error getting Assignments : ", error);
+      }
+    }
+    fetchData();
+  }
+,[])
+
+  // console.log('file : ',file)
+  console.log('Assignments',assignments);
 
 
   return (
@@ -30,9 +57,20 @@ function FilesPage({Data,filePage,setFilePage,courseDirectId,setUpload,file}) {
         <button className='text-3xl' onClick={handleUploadBtn}><CgAddR/></button>
       </div>
 
-      <div className='w-full flex flex-col p-4 rounded-lg gap-5 bg-slate-400'>
+      <div>
+        <UploadPage setAssignments={setAssignments}/>
+      </div>
+
+      <div className='w-full flex flex-col p-4 rounded-lg gap-5 bg-slate-400 overflow-y-auto'>
         <p className='w-full text-center font-bold '>Uploaded {filePage}</p>
-        <div>{filePage}s will be shown here {file}</div>
+        {
+          assignments.map((item) => (
+            <div key={item._id} className='w-full flex justify-center'>
+              <p>{item.title}</p>
+              <a href={item.file}>View</a>
+            </div>
+          ))
+        }
       </div>
 
       <button onClick={handleBackBtn}>Back</button>

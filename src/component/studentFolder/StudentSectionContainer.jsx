@@ -58,7 +58,8 @@ function StudentSectionContainer({section}) {
 
   return (
     // <div className='bg-[#B1B3BB] w-4/5 h-full  px-5  overflow-hidden '>
-    <div className='bg-[#d4ddff] w-[100%] sm:w-4/5 h-full  px-5  m-auto sm:m-0'>
+    // <div className='bg-[#d4ddff] w-[100%] sm:w-4/5 h-full  px-5  m-auto sm:m-0'>
+    <div className='w-[100%] sm:w-4/5 h-full  px-5  m-auto sm:m-0'>
       {selectSection()}
     </div>
   )
