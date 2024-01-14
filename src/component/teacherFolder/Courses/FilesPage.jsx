@@ -69,7 +69,7 @@ function FilesPage({Data,filePage,setFilePage,courseDirectId,setUpload,file}) {
           assignments.map((item) => (
             <div key={item._id} className='w-full flex justify-center'>
               <p>{item.title}</p>
-              <a href={item.file}>View</a>
+              <a href={item.file} target="blank">View</a>
             </div>
           ))
         }
