@@ -10,7 +10,7 @@ import UploadPage from './UploadPage';
 // 	submissions: [{},{},....], //Array of students who submitted assignment
 
 
-const BASE_URL = 'https://assignment-portal-server.onrender.com/' || 'http://localhost:4000/';
+const BASE_URL ='https://assignment-portal-server.onrender.com/';
 
 
 function FilesPage({Data,filePage,setFilePage,courseDirectId,setUpload,file}) {
