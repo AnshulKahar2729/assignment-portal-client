@@ -20,7 +20,7 @@ const UploadPage = () => {
 
     try {
       const response = await fetch(
-        `${BASE_URL}api/assignment/?role=teacher`,
+        `https://assignment-portal-server.onrender.com/api/assignment/?role=teacher`,
         {
           method: "POST",
           body: formData,
