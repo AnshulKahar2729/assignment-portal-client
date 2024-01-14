@@ -36,7 +36,7 @@ function FilesPage({Data,filePage,setFilePage,courseDirectId,setUpload,file}) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${BASE_URL}api/assignment`);
+        const response = await fetch(`${BASE_URL}/api/assignment`);
         const data = await response.json();
         setAssignments(data);
         console.log(data);
