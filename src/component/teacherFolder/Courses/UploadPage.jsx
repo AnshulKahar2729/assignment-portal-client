@@ -1,4 +1,6 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useState} from 'react';
+
+const BASE_URL = 'https://assignment-portal-server.onrender.com/' || 'http://localhost:4000/';
 
 const UploadPage = () => {
     const [file, setFile] = useState(null);
@@ -18,7 +20,7 @@ const UploadPage = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:4000/api/assignment/?role=teacher",
+        `${BASE_URL}/api/assignment/?role=teacher`,
         {
           method: "POST",
           body: formData,
