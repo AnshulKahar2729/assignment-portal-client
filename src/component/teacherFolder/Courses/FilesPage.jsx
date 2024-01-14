@@ -10,6 +10,8 @@ import UploadPage from './UploadPage';
 // 	submissions: [{},{},....], //Array of students who submitted assignment
 
 
+const BASE_URL = 'https://assignment-portal-server.onrender.com/' || 'http://localhost:4000/';
+
 
 function FilesPage({Data,filePage,setFilePage,courseDirectId,setUpload,file}) {
   const [name,setName] = useState();
@@ -34,7 +36,7 @@ function FilesPage({Data,filePage,setFilePage,courseDirectId,setUpload,file}) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/assignment");
+        const response = await fetch(`${BASE_URL}api/assignment`);
         const data = await response.json();
         setAssignments(data);
         console.log(data);
