@@ -76,7 +76,7 @@ function StudentSidebar({section,setSection}) {
       </Helmet>
       <div className="w-full flex sm:flex-col justify-between items-center pr-8">
         <div className="w-full flex sm:justify-start sm:pl-2 sm:items-center">
-          <img className='sm:w-28 lg:w-48' src={DpuLogo} alt='DpuLogo' />
+          <img className='w-20 sm:w-28 lg:w-48' src={DpuLogo} alt='DpuLogo' />
         </div>
 
         {windowWidth < 640 && (
