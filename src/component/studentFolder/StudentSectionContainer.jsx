@@ -12,7 +12,7 @@ import Assignments from './Assignments';
 import UploadPage from './submission/UploadPage';
 
 
-function StudentSectionContainer({section}) {
+function StudentSectionContainer({section,windowWidth}) {
 
   const [courseDirectId,setCourseDirectId] = useState(null);
   const [filePage,setFilePage] = useState(null);
@@ -64,12 +64,14 @@ function StudentSectionContainer({section}) {
       }
     }
 
+
   return (
-    // <div className='bg-[#B1B3BB] w-4/5 h-full  px-5  overflow-hidden '>
-    // <div className='bg-[#d4ddff] w-[100%] sm:w-4/5 h-full  px-5  m-auto sm:m-0'>
-    <div className='w-[100%] sm:w-5/6 h-full px-1 sm:px-5  m-auto sm:m-0'>
+    <div 
+      style={windowWidth <= 640 ? { backgroundColor: "blue" } : {}}
+      className=' absolute sm:static w-[100%] sm:w-5/6 h-full px-1 sm:px-5 m-auto sm:m-0 mt-20 sm:mt-0 '>
       {selectSection()}
     </div>
+
   )
 }
 

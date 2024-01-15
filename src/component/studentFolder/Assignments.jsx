@@ -2,7 +2,7 @@ import React from 'react'
 
 function Assignments() {
   return (
-    <div className=' w-full h-full flex flex-col items-center gap-5 overflow-y-scroll py-3 '>
+    <div className=' w-full sm:h-full flex flex-col items-center gap-5 overflow-y-scroll py-3 '>
 
         <div className='bg-white w-[95%] h-fit rounded-lg border border-[#245DE1]'>
             <div className='h-14 p-5  flex items-center bg-[#245DE1] text-white rounded-t-lg'>
