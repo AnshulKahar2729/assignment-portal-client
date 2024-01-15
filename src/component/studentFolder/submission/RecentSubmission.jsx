@@ -21,10 +21,10 @@ function RecentSubmission() {
   useEffect(() => {}, [assignments]);
 
   return (
-    <div className="w-full rounded-lg bg-[#245DE1] flex flex-col gap-3 overflow-hidden border shadow-lg px-4">
+    <div className="w-full rounded-lg bg-white flex flex-col gap-3 overflow-hidden border shadow-lg ">
       <div className="w-full rounded-lg ">
-        <p className="w-full text-center font-bold  text-white p-[15px] border-b">Recent Submissions</p>
-        <div className="hideScrollbar flex flex-col gap-3 w-full  rounded-lg overflow-y-scroll h-[300px] sm:h-[450px] xl:h-[620px]">
+        <p className="w-full text-center font-bold  text-white p-[15px] bg-[#245DE1] border-b">Recent Submissions</p>
+        <div className="hideScrollbar flex flex-col px-4 gap-3 w-full  rounded-lg overflow-y-scroll h-[300px] sm:h-[450px] xl:h-[620px]">
           {/* {assignments.map((item) => (
             <div className="w-[95%] rounded-xl flex sm:flex-row flex-wrap justify-between p-2 bg-[#9c9c9c8e]">
               <div className="flex flex-col gap-1">
@@ -37,7 +37,7 @@ function RecentSubmission() {
 
 
 
-            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2 bg-[#245DE1] text-white border-b">
+            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2  text-[#245DE1] border-b border-[#245DE1]">
               <div className="flex flex-col gap-1">
                 <p>Submitted : Item Title</p>
                 <p>Course : Course Name</p>
@@ -46,7 +46,7 @@ function RecentSubmission() {
             </div>
 
 
-            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2 bg-[#245DE1] text-white border-b">
+            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2  text-[#245DE1] border-b border-[#245DE1]">
               <div className="flex flex-col gap-1">
                 <p>Submitted : Item Title</p>
                 <p>Course : Course Name</p>
@@ -55,7 +55,7 @@ function RecentSubmission() {
             </div>
 
 
-            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2 bg-[#245DE1] text-white border-b">
+            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2  text-[#245DE1] border-b border-[#245DE1]">
               <div className="flex flex-col gap-1">
                 <p>Submitted : Item Title</p>
                 <p>Course : Course Name</p>
@@ -64,70 +64,10 @@ function RecentSubmission() {
             </div>
 
 
-            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2 bg-[#245DE1] text-white border-b">
-              <div className="flex flex-col gap-1">
-                <p>Submitted : Item Title</p>
-                <p>Course : Course Name</p>
-              </div>
-              <p>Date : Date of Submission</p>
-            </div>
 
 
-            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2 bg-[#245DE1] text-white border-b">
-              <div className="flex flex-col gap-1">
-                <p>Submitted : Item Title</p>
-                <p>Course : Course Name</p>
-              </div>
-              <p>Date : Date of Submission</p>
-            </div>
 
-
-            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2 bg-[#245DE1] text-white border-b">
-              <div className="flex flex-col gap-1">
-                <p>Submitted : Item Title</p>
-                <p>Course : Course Name</p>
-              </div>
-              <p>Date : Date of Submission</p>
-            </div>
-
-
-            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2 bg-[#245DE1] text-white border-b">
-              <div className="flex flex-col gap-1">
-                <p>Submitted : Item Title</p>
-                <p>Course : Course Name</p>
-              </div>
-              <p>Date : Date of Submission</p>
-            </div>
-
-
-            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2 bg-[#245DE1] text-white border-b">
-              <div className="flex flex-col gap-1">
-                <p>Submitted : Item Title</p>
-                <p>Course : Course Name</p>
-              </div>
-              <p>Date : Date of Submission</p>
-            </div>
-
-
-            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2 bg-[#245DE1] text-white border-b">
-              <div className="flex flex-col gap-1">
-                <p>Submitted : Item Title</p>
-                <p>Course : Course Name</p>
-              </div>
-              <p>Date : Date of Submission</p>
-            </div>
-
-
-            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2 bg-[#245DE1] text-white border-b">
-              <div className="flex flex-col gap-1">
-                <p>Submitted : Item Title</p>
-                <p>Course : Course Name</p>
-              </div>
-              <p>Date : Date of Submission</p>
-            </div>
-
-
-            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2 bg-[#245DE1] text-white border-b">
+            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2  text-[#245DE1] border-b border-[#245DE1]">
               <div className="flex flex-col gap-1">
                 <p>Submitted : Item Title</p>
                 <p>Course : Course Name</p>

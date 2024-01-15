@@ -13,9 +13,9 @@ import DpuLogo from '../../assets/DpuLogo.png';
 
 function StudentSidebar({section,setSection}) {
 
-  const [windowWidth,setWindowWidth] = useState(window.innerWidth);
   const [hammer,setHammer] = useState(false);
   const [selected,setSelected] = useState(false);
+  const [windowWidth,setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {
@@ -34,8 +34,11 @@ function StudentSidebar({section,setSection}) {
 
   const design1 = (selected) => ({
     textAlign : "center",
-    backgroundColor: selected ? "rgba(252, 252, 252, 0.192)" : 'transparent',
+    backgroundColor: selected ? "#245DE1" : 'transparent',
+    borderRadius:'0px',
+    color: selected ? "white" : '#245DE1',
   })
+
 
 
 
@@ -77,7 +80,7 @@ function StudentSidebar({section,setSection}) {
         </div>
 
         {windowWidth < 640 && (
-          <div onClick={handleHammerClick} className="p-2 font-bold text-4xl text-white">
+          <div onClick={handleHammerClick} className="p-2 font-bold text-4xl text-[#245DE1]">
             {
               hammer ? <GrClose/> : <GiHamburgerMenu />
             }
@@ -130,7 +133,7 @@ function StudentSidebar({section,setSection}) {
               value="Assignments"
               onClick={handleClick}
             >
-              <div className="text-4xl md:w-fit flex  sm:justify-start lg:w-fit">
+              <div className="text-4xl md:w-fit flex  sm:justify-start lg:w-fit ">
                 <BsFillPeopleFill />
               </div>
               {condition && "Assignments"}
@@ -142,7 +145,7 @@ function StudentSidebar({section,setSection}) {
               value="Courses"
               onClick={handleClick}
             >
-              <div className="text-4xl md:w-fit flex  sm:justify-start lg:w-fit">
+              <div className="text-4xl md:w-fit flex  sm:justify-start lg:w-fit ">
                 <AiFillFolder />
               </div>
               {condition && "Courses"}
@@ -154,7 +157,7 @@ function StudentSidebar({section,setSection}) {
               value="Faculty"
               onClick={handleClick}
             >
-              <div className="text-4xl md:w-fit flex  sm:justify-start lg:w-fit">
+              <div className="text-4xl md:w-fit flex  sm:justify-start lg:w-fit ">
                 <CgProfile />
               </div>
               {condition && "Faculty"}
@@ -165,7 +168,7 @@ function StudentSidebar({section,setSection}) {
               value="Settings"
               onClick={handleClick}
             >
-              <div className="text-4xl md:w-fit flex  sm:justify-start lg:w-fit">
+              <div className="text-4xl md:w-fit flex  sm:justify-start lg:w-fit ">
                 <AiFillSetting />
               </div>
               {condition && "Settings"}
