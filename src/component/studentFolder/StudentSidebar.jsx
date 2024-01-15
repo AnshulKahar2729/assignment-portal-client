@@ -63,7 +63,7 @@ function StudentSidebar({section,setSection}) {
       }}
       className={`hideScrollbar xl:w-1/6 sm:w-fit sm:h-full gap-2 lg:gap-1 md:gap-2 sm:gap-1 flex ${
         hammer ? "flex-col" : ""
-      } justify-between sm:flex-col  sm:pt-6 sm:pb-9 xl:text-1xl lg:text-lg md:text-md sm:text-sm items-center sm:overflow-x-hidden sm:justify-between bg-[#245DE1]`}
+      } justify-between sm:flex-col  sm:pt-6 sm:pb-9 xl:text-1xl lg:text-lg md:text-md sm:text-sm items-center sm:overflow-x-hidden sm:justify-between bg-white`}
     >
       <Helmet>
         <link
@@ -87,13 +87,7 @@ function StudentSidebar({section,setSection}) {
 
       {(windowWidth >= 640 || hammer === true) && (
         <>
-          <div className="h-full text-[10px] sm:text-sm md:text-md lg:text-lg xl:text-xl flex flex-col xl:gap-5 lg:gap-4 md:gap-3 sm:gap-2 gap-2 mt-10 xl:mt-6 lg:mt-6 md:mt-5 sm:mt-4 w-full items-center ">
-            
-            
-            
-            
-            
-            
+          <div className="h-full text-[10px] sm:text-sm md:text-md lg:text-lg xl:text-xl flex flex-col xl:gap-5 lg:gap-4 md:gap-3 sm:gap-2 gap-2 mt-10 xl:mt-6 lg:mt-6 md:mt-5 sm:mt-4 w-full items-center text-[#245DE1]">          
             <button
               style={design1(section === "Dashboard" ? true : false)} 
               className="xl:py-3 xl:px-9 lg:p-4 md:p-3 sm:p-4 p-5  flex sm:justify-center lg:justify-start items-center gap-2 w-[100%] "
