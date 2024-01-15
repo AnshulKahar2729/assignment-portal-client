@@ -14,6 +14,8 @@ import UploadPage from './Courses/UploadPage';
 
 function TeacherSectionContainer({section}) {
 
+  
+
   const [courseDirectId,setCourseDirectId] = useState(null);
   const [filePage,setFilePage] = useState(null);
   const [upload,setUpload] = useState(false);

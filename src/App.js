@@ -5,8 +5,11 @@ import LoginPage from './component/pages/Loginpage/LoginPage';
 import SignUpPage from './component/pages/SignUpPage';
 import StudentPageLayout from './component/pages/StudentPageLayout';
 import TeacherPageLayout from './component/pages/TeacherLayoutPage';
+import FileDropZone from './component/FileDropZone';
 
 function App() {
+
+
   return (
 
     <Router>
@@ -17,6 +20,8 @@ function App() {
         <Route path='/signuppage' element={<SignUpPage/>} />
         <Route path='/studentlayoutpage' element={<StudentPageLayout/>} />
         <Route path='/teacherlayoutpage' element={<TeacherPageLayout/>} />
+        <Route path='/upload' element={<FileDropZone/>} />
+
       </Routes>
     </div>
     </Router>
