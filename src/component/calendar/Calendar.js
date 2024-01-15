@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { format, addMonths, subMonths, startOfMonth, eachDayOfInterval, isSameMonth, isToday } from 'date-fns';
+import { format, addMonths, subMonths, startOfMonth, eachDayOfInterval, isSameMonth, isToday, startOfWeek } from 'date-fns';
 
 const Day = ({ date, currentMonth, onClick }) => (
   <td
-    className={`border px-4 py-2 ${isSameMonth(date, currentMonth) ? '' : 'text-gray-400'} ${
-      isToday(date) ? 'bg-blue-200' : ''
+    className={`border px-4 py-2 ${isSameMonth(date, currentMonth) ? '' : 'text-gray-900'} ${
+      isToday(date) ? 'bg-blue-600 text-white' : ''
     }`}
     onClick={() => onClick(date)}
   >
@@ -27,8 +27,10 @@ const Calendar = ({ onSelectDate }) => {
     onSelectDate(date);
   };
 
+  const firstDayOfWeek = startOfWeek(startOfMonth(currentMonth));
+
   const daysInMonth = eachDayOfInterval({
-    start: startOfMonth(currentMonth),
+    start: firstDayOfWeek,
     end: addMonths(startOfMonth(currentMonth), 1),
   });
 
@@ -39,32 +41,21 @@ const Calendar = ({ onSelectDate }) => {
   return (
     <div className='w-full py-5 flex justify-center overflow-auto  '>
       <div className="container  mx-auto ">
-      
-      
-      
-          <h2 className="text-2xl font-semibold mb-4 text-center">{format(currentMonth, 'MMMM yyyy')}</h2>
-
-
-
-
-          <div className="flex justify-center gap-10 mb-4 ">
-            <button className="bg-blue-500 text-white px-2 py-1 rounded" onClick={prevMonth}>
-              Previous Month
-            </button>
-            <button className="bg-blue-500 text-white px-2 py-1 rounded" onClick={nextMonth}>
-              Next Month
-            </button>
-          </div>
-
-
-
-
+        <h2 className="text-2xl font-semibold mb-4 text-center">{format(currentMonth, 'MMMM yyyy')}</h2>
+        <div className="flex justify-center gap-10 mb-4 ">
+          <button className="bg-blue-500 text-white px-2 py-1 rounded" onClick={prevMonth}>
+            Previous Month
+          </button>
+          <button className="bg-blue-500 text-white px-2 py-1 rounded" onClick={nextMonth}>
+            Next Month
+          </button>
+        </div>
         <div className='w-full justify-center flex '>
           <table className="table-auto shadow-xl">
             <thead>
               <tr>
                 {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-                  <th key={day} className="border px-0 py-1 sm:px-4 sm:py-2">
+                  <th key={day} className="border px-0 py-1 xl:px-4 xl:py-2">
                     {day}
                   </th>
                 ))}
@@ -81,38 +72,9 @@ const Calendar = ({ onSelectDate }) => {
             </tbody>
           </table>
         </div>
-      
-      
-      
-      
-      
-      
-    </div>
+      </div>
     </div>
   );
 };
 
 export default Calendar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

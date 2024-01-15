@@ -4,10 +4,25 @@
 
 
 button{
-    font-size: 25px;
-    background-color: rgb(52, 101, 248);
+    font-size: 20px;
     padding: 5px 20px;
-    color: rgb(255, 255, 255);
+    color: #245DE1;
+    background-color: #245DE1;
     border-radius: 5px;
+}
+
+/* from-blue-600 to-blue-800 */
+
+.upload{
+    background: #245DE1;
+    color: white;
+    width: fit-content;
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+.upload:hover{
+    background-color: #0143de;
+
 }
 

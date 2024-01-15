@@ -8,6 +8,8 @@ import Settings from './StudentSettings';
 import FilesPage from './Courses/FilesPage';
 import CourseDetails from './Courses/CourseDetails';
 import { Data } from './datas/Data';
+import Assignments from './Assignments';
+import UploadPage from './submission/UploadPage';
 
 
 function StudentSectionContainer({section}) {
@@ -16,6 +18,7 @@ function StudentSectionContainer({section}) {
   const [filePage,setFilePage] = useState(null);
   // const [upload,setUpload] = useState(false);
   const [file,setFile] = useState([]);
+  const [openUploadPage,setOpenUploadPage] = useState(false);
 
 
   useEffect(() => {
@@ -32,10 +35,15 @@ function StudentSectionContainer({section}) {
       switch(section) {
         case 'Dashboard' :
           return <Dashboard/>
+
         case 'Submission' :
-          return <Submission/>
+          return (openUploadPage === true) ? <UploadPage setOpenUploadPage={setOpenUploadPage}/> : <Submission setOpenUploadPage={setOpenUploadPage}/>
+          // return <Submission setOpenUploadPage={setOpenUploadPage}/>
+
         case 'Discussion' :
-           return <Discussion/>
+          return <Discussion/>
+        case 'Assignments' :
+          return <Assignments/>
 
 
 
@@ -59,7 +67,7 @@ function StudentSectionContainer({section}) {
   return (
     // <div className='bg-[#B1B3BB] w-4/5 h-full  px-5  overflow-hidden '>
     // <div className='bg-[#d4ddff] w-[100%] sm:w-4/5 h-full  px-5  m-auto sm:m-0'>
-    <div className='w-[100%] sm:w-4/5 h-full  px-5  m-auto sm:m-0'>
+    <div className='w-[100%] sm:w-5/6 h-full px-1 sm:px-5  m-auto sm:m-0'>
       {selectSection()}
     </div>
   )

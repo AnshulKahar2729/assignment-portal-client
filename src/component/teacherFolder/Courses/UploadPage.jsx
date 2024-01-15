@@ -56,7 +56,7 @@ const UploadPage = () => {
       <form onSubmit={handleFormSubmit}>
         <input type="file" name="file" onChange={handleFileChange} />
         <input type="text" placeholder='Assignment Title' name="file" onChange={(e) => {setTitle(e.target.value)}} />
-        <button onClick={handleUploadClick} type="submit">Upload</button>
+        <button className='upload' onClick={handleUploadClick} type="submit">Upload</button>
       </form>
 
       {displayFile && <a target='_blank' href={displayFile}> DOWNLOAD FILE </a>}

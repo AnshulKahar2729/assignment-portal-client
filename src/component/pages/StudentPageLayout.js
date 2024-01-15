@@ -7,9 +7,9 @@ function StudentPageLayout() {
 
 
   return (
-    <div className='sm:w-screen sm:h-screen sm:flex sm:flex-row flex flex-col w-full h-full p-4'>
+    <div className='sm:w-screen sm:h-screen sm:flex sm:flex-row flex flex-col w-full h-full'>
         <Sidebar section={section} setSection={setSection}/>
-        <SectionContainer section={section}/>
+        <SectionContainer section={section} />
     </div>
   )
 }
