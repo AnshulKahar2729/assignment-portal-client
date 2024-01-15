@@ -11,29 +11,14 @@ import { GrClose } from "react-icons/gr";
 import DpuLogo from '../../assets/DpuLogo.png';
 
 
-function StudentSidebar({section,setSection}) {
+function StudentSidebar({section,setSection,windowWidth}) {
 
   const [hammer,setHammer] = useState(false);
   const [selected,setSelected] = useState(false);
-  const [windowWidth,setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize',handleResize);
-
-    return () => {
-      window.removeEventListener('resize',handleResize);
-    }
-
-  },[]);
-
-
 
   const design1 = (selected) => ({
     textAlign : "center",
+    // backgroundColor: selected ? "#245DE1" : 'transparent',
     backgroundColor: selected ? "#245DE1" : 'transparent',
     borderRadius:'0px',
     color: selected ? "white" : '#245DE1',
@@ -47,7 +32,8 @@ function StudentSidebar({section,setSection}) {
     const clickedElement = e.target;
     const buttonValue = clickedElement.value || clickedElement.closest('button').value;
     setSection(buttonValue);
-    setSelected(buttonValue)
+    setSelected(buttonValue);
+    setHammer(!hammer);
   }
 
   function handleHammerClick () {
@@ -55,7 +41,9 @@ function StudentSidebar({section,setSection}) {
     console.log("hammer clicked")
   }
 
-  
+  if(windowWidth <= 640){
+
+  }
 
   let condition = (windowWidth > 1023 || windowWidth < 640);
 
@@ -64,17 +52,11 @@ function StudentSidebar({section,setSection}) {
       style={{
         color: "black",
       }}
-      className={`hideScrollbar xl:w-1/6 sm:w-fit sm:h-full gap-2 lg:gap-1 md:gap-2 sm:gap-1 flex ${
+      className={`z-30 absolute sm:static w-screen hideScrollbar xl:w-1/6 sm:w-fit sm:h-full gap-2 lg:gap-1 md:gap-2 sm:gap-1 flex ${
         hammer ? "flex-col" : ""
       } justify-between sm:flex-col  sm:pt-6 sm:pb-9 xl:text-1xl lg:text-lg md:text-md sm:text-sm items-center sm:overflow-x-hidden sm:justify-between bg-white`}
     >
-      <Helmet>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Gloock&family=Rajdhani:wght@500&display=swap"
-        />
-      </Helmet>
-      <div className="w-full flex sm:flex-col justify-between items-center pr-8">
+      <div className="w-full flex sm:flex-col justify-between items-center p-3 sm:p-0 pr-8 ">
         <div className="w-full flex sm:justify-start sm:pl-2 sm:items-center">
           <img className='w-20 sm:w-28 lg:w-48' src={DpuLogo} alt='DpuLogo' />
         </div>
@@ -85,7 +67,8 @@ function StudentSidebar({section,setSection}) {
               hammer ? <GrClose/> : <GiHamburgerMenu />
             }
           </div>
-        )}
+          )
+        }
       </div>
 
       {(windowWidth >= 640 || hammer === true) && (
