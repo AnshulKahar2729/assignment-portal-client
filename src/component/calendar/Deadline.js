@@ -2,9 +2,9 @@ import React from 'react'
 
 function Deadline({ selectedDate }) {
     return (
-        <div className='h-[350px] w-full flex flex-col gap-4 '>
+        <div className='h-[350px] w-full flex flex-col gap-4 text-[#245DE1] text-xl'>
             <div className="selected-date w-full ">
-                <h3 className='w-full text-center'><b>Deadlines Date : {selectedDate ? selectedDate.toDateString() : 'No date selected'}</b></h3>
+                <h3 className='w-full text-center border-b border-[#245de153] text-2xl'><b>Deadlines Date : <br/>{selectedDate ? selectedDate.toDateString() : 'No date selected'}</b></h3>
             </div>
             <div className='hideScrollbar flex flex-col overflow-y-auto '>
                 <div className='border-b grid gap-2 rounded-md p-3'>

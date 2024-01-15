@@ -2,14 +2,18 @@ import React from 'react'
 import { FaRegUserCircle } from "react-icons/fa";
 import ProImg from '../../../assets/ProfImg.png';
 
-const FacultyBar = () => {
+const FacultyBar = ({windowWidth}) => {
   return (
     <>
         <div className=''>
           <div className='h-20 px-8 flex items-center justify-between border-b border-[#245DE1]'>
             <img className='w-24' src={ProImg} alt='ProImg'/>
             <p className='text-[#245DE1] text-md font-semibold'>NAME_OF_PROFESSOR</p>
-            <p className='text-[#245DE1] text-md font-semibold'>NAME_OF_COURSE</p> 
+            {
+              (windowWidth >= 800) && (
+                <p className='text-[#245DE1] text-md font-semibold'>NAME_OF_COURSE</p> 
+              )
+            }
           </div>
       </div>
     </>
