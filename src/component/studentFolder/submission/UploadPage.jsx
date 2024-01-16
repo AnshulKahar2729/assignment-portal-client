@@ -30,7 +30,7 @@ function UploadPage({setOpenUploadPage}) {
   
       try {
         const response = await fetch(
-          "http://localhost:4000/api/submittedassignment/65a3c73d9cd39855243038b7?role=student",
+          "https://assignment-portal-server.onrender.com/api/assignment?role=teacher",
           {
             method: "POST",
             body: formData,
@@ -53,6 +53,8 @@ function UploadPage({setOpenUploadPage}) {
       console.log("Upload Clicked");
       setOpenUploadPage(false);
     }
+
+    console.log("File ----->",file)
 
 
   return (
@@ -103,8 +105,6 @@ function UploadPage({setOpenUploadPage}) {
             }}
           />
         </div>
-
-        {/* <FileDropZone/> */}
 
         <div className="w-full h-fit justify-center flex">
           <button

@@ -12,7 +12,7 @@ import UploadPage from './Courses/UploadPage';
 
 
 
-function TeacherSectionContainer({section}) {
+function TeacherSectionContainer({section,windowWidth}) {
 
   
 
@@ -20,6 +20,7 @@ function TeacherSectionContainer({section}) {
   const [filePage,setFilePage] = useState(null);
   const [upload,setUpload] = useState(false);
   const [file,setFile] = useState([]);
+  const [openUploadPage,setOpenUploadPage] = useState(false);
 
 
   useEffect(() => {
@@ -64,7 +65,9 @@ function TeacherSectionContainer({section}) {
     console.log('file : ',file)
 
   return (
-    <div className='bg-[#d4ddff] w-[100%] sm:w-4/5 h-full  px-5  m-auto sm:m-0'>
+    <div 
+      style={windowWidth <= 640 ? { backgroundColor: "blue" } : {}}
+      className=' absolute sm:static w-[100%] sm:w-5/6 h-full px-1 sm:px-5 m-auto sm:m-0 mt-20 sm:mt-0 '>
       {selectSection()}
     </div>
   )

@@ -1,187 +1,149 @@
-import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
-import { GiHamburgerMenu } from "react-icons/gi";
+import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { AiOutlineBarChart } from "react-icons/ai";
+import { AiFillFolder } from "react-icons/ai";
 import { AiFillSetting } from "react-icons/ai";
 import { BsFillPeopleFill } from "react-icons/bs";
+import { CgProfile } from "react-icons/cg";
 import { BiCalendarMinus } from "react-icons/bi";
-import { FaFolder } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { GrClose } from "react-icons/gr";
+import DpuLogo from "../../assets/DpuLogo.png";
 
-
-function TeacherSidebar({section,setSection}) {
-
-  const [windowWidth,setWindowWidth] = useState(window.innerWidth);
-  const [hammer,setHammer] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize',handleResize);
-
-    return () => {
-      window.removeEventListener('resize',handleResize);
-    }
-
-
-
-  },[]);
-
-
+function TeacherSidebar({ section, setSection, windowWidth }) {
+  const [hammer, setHammer] = useState(false);
+  const [selected, setSelected] = useState(false);
 
   const design1 = (selected) => ({
-    backgroundColor: selected ? '#B38378' : '#ffffff92',
-    textAlign : "center",
-    borderRadius : '25px',
-  })
+    textAlign: "center",
+    // backgroundColor: selected ? "#245DE1" : 'transparent',
+    backgroundColor: selected ? "#245DE1" : "transparent",
+    borderRadius: "0px",
+    color: selected ? "white" : "#245DE1",
+  });
 
   function handleClick(e) {
     e.preventDefault();
     const clickedElement = e.target;
-    const buttonValue = clickedElement.value || clickedElement.closest('button').value;
+    const buttonValue =
+      clickedElement.value || clickedElement.closest("button").value;
     setSection(buttonValue);
-  }
-  
-
-  function handleHammerClick () {
+    setSelected(buttonValue);
     setHammer(!hammer);
-    console.log("hammer clicked")
   }
 
-  let condition = (windowWidth > 940 || windowWidth < 640);
+  function handleHammerClick() {
+    setHammer(!hammer);
+    console.log("hammer clicked");
+  }
 
+  if (windowWidth <= 640) {
+  }
+
+  let condition = windowWidth > 1023 || windowWidth < 640;
 
   return (
-    <div 
+    <div
       style={{
-        // WebkitBorderTopRightRadius: "50px",
-        // WebkitBorderBottomRightRadius: "50px",
-        color:"black",
-        backgroundColor: "#0017e9",
-        backgroundImage: "linear-gradient(225deg, #0017e9 21%, #4d0cdb 54%, #765ee1 100%, #ffffff 100%)",
-
+        color: "black",
       }}
-      className={`xl:w-1/5 sm:w-[20%] sm:h-full gap-2 xl:gap-5 lg:gap-3 md:gap-2 sm:gap-1 bg-[#001aff] flex ${hammer ?'flex-col' : ''} justify-between px-8 py-4 sm:flex-col  sm:pt-10 sm:pb-9 xl:text-1xl lg:text-lg md:text-md sm:text-sm items-center sm:overflow-x-hidden sm:justify-between `}
+      className={`z-30 absolute sm:static w-screen hideScrollbar xl:w-1/6 sm:w-fit sm:h-full gap-2 lg:gap-1 md:gap-2 sm:gap-1 flex ${
+        hammer ? "flex-col" : ""
+      } justify-between sm:flex-col  sm:pt-6 sm:pb-9 xl:text-1xl lg:text-lg md:text-md sm:text-sm items-center sm:overflow-x-hidden sm:justify-between bg-white`}
     >
-          <Helmet>
-            <link
-              rel="stylesheet"
-              href="https://fonts.googleapis.com/css2?family=Gloock&family=Rajdhani:wght@500&display=swap"
-            />
-          </Helmet>
-         <div className='w-full flex sm:flex-col justify-between items-center'>
-         <div style={{ fontFamily: "Rajdhani,sans-serif" }} className="text-xl xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl  flex sm:justify-center sm:items-center">
-              <p className='p-4 xl:w-28 xl:h-28 lg:w-24 lg:h-24 md:w-20 md:h-20 sm:w-16 sm:h-16 rounded-md shadow-xl bg-gray-400 items-center flex justify-center' style={{ fontFamily: "Rajdhani, sans-serif", fontWeight: 500 }}>
-                
-              </p>
-          </div>
+      <div className="w-full flex sm:flex-col justify-between items-center p-3 sm:p-0 pr-8 ">
+        <div className="w-full flex sm:justify-start sm:pl-2 sm:items-center">
+          <img className="w-20 sm:w-28 lg:w-48" src={DpuLogo} alt="DpuLogo" />
+        </div>
 
-        {
-          windowWidth < 640 && (
-            <div onClick={handleHammerClick} className='p-2 font-bold text-3xl'><GiHamburgerMenu/></div>
-          )
-        }
-         </div>
-
-        {
-          (windowWidth >= 640 || hammer===true) && (
-            <>
-            <div
-            style={{ fontFamily: "Rajdhani,sans-serif", fontWeight: "600" }}
-            className="h-full text-[10px] sm:text-sm md:text-md lg:text-lg xl:text-xl flex flex-col xl:gap-5 lg:gap-4 md:gap-3 sm:gap-2 gap-2 mt-10 xl:mt-6 lg:mt-6 md:mt-5 sm:mt-4 w-full items-center "
+        {windowWidth < 640 && (
+          <div
+            onClick={handleHammerClick}
+            className="p-2 font-bold text-4xl text-[#245DE1]"
           >
-                <button
-                  style={design1(section === "Dashboard")}
-                  className="xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%] text-black "
-                  value="Dashboard"
-                  onClick={handleClick}
-                >
-                  <div className='text-4xl'>
-                  <AiOutlineBarChart />
-                  </div> 
-                  { condition && ('Dashboard')}
-                </button>
+            {hammer ? <GrClose /> : <GiHamburgerMenu />}
+          </div>
+        )}
+      </div>
 
-                {/* <button
-                  style={design1(section === "Submission")}
-                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%] text-black "
-                  value="Submission"
-                  onClick={handleClick}
-                >
-                  <div className='text-4xl'>
-                  <BiCalendarMinus />
+      {(windowWidth >= 640 || hammer === true) && (
+        <>
+          <div className="h-full text-[10px] sm:text-sm md:text-md lg:text-lg xl:text-xl flex flex-col xl:gap-5 lg:gap-4 md:gap-3 sm:gap-2 gap-2 mt-10 xl:mt-6 lg:mt-6 md:mt-5 sm:mt-4 w-full items-center text-[#245DE1]">
+            <button
+              style={design1(section === "Dashboard" ? true : false)}
+              className="xl:py-3 xl:px-9 lg:p-4 md:p-3 sm:p-4 p-5  flex sm:justify-center lg:justify-start items-center gap-2 w-[100%] "
+              value="Dashboard"
+              onClick={(e) => handleClick(e)}
+            >
+              <div className="text-4xl md:w-fit flex  sm:justify-start lg:w-fit">
+                <AiOutlineBarChart />
+              </div>
+              {condition && "Dashboard"}
+            </button>
 
-                  </div> 
-                  {condition && ('Submission')}
-                </button> */}
+            {/* <button
+              style={design1(section === "Submission" ? true : false)}
+              className="xl:py-3 xl:px-9 lg:p-4 md:p-3 sm:p-4 p-5  flex sm:justify-center lg:justify-start items-center gap-2 w-[100%] "
+              value="Submission"
+              onClick={handleClick}
+            >
+              <div className="text-4xl md:w-fit flex  sm:justify-start lg:w-fit">
+                <BiCalendarMinus />
+              </div>
+              {condition && "Submission"}
+            </button> */}
 
-                {/* <button
+            {/* <button
                   style={design1(section === "Discussion")}
-                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%] text-black "
+                  className="xl:py-3 xl:px-9 lg:p-4 md:p-3 sm:p-4 p-5  flex sm:justify-center lg:justify-start items-center gap-2 w-[100%] "
                   value="Discussion"
                   onClick={handleClick}
                 >
-                  <div className='text-4xl'>
-                  <BsFillPeopleFill />
+                  <div className="text-4xl md:w-fit flex  sm:justify-start lg:w-fit">
+                    <BsFillPeopleFill />
                   </div> 
                   {condition && ('Discussion')}
                 </button> */}
 
-                <button
-                  style={design1(section === "Courses")}
-                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%] text-black "
-                  value="Courses"
-                  onClick={handleClick}
-                >
-                  <div className='text-4xl'>
-                  <FaFolder />
-                  </div> 
-                  {condition && ('Courses')}
-                </button>
+            <button
+              style={design1(section === "Courses")}
+              className="xl:py-3 xl:px-9 lg:p-4 md:p-3 sm:p-4 p-5  flex sm:justify-center lg:justify-start items-center gap-2 w-[100%] "
+              value="Courses"
+              onClick={handleClick}
+            >
+              <div className="text-4xl md:w-fit flex  sm:justify-start lg:w-fit ">
+                <AiFillFolder />
+              </div>
+              {condition && "Courses"}
+            </button>
 
-                {/* <button
+            {/* <button
                   style={design1(section === "Students")}
-                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-4 p-5 shadow-2xl flex justify-center items-center gap-2 w-[100%] text-black "
-                  value="Students"
-                  onClick={handleClick}
-                >
-                  <div className='text-4xl'>
-                  <BsFillPeopleFill />
-                  </div> 
+                 className="xl:py-3 xl:px-9 lg:p-4 md:p-3 sm:p-4 p-5  flex sm:justify-center lg:justify-start items-center gap-2 w-[100%] "
+              value="Faculty"
+              onClick={handleClick}
+            >
+              <div className="text-4xl md:w-fit flex  sm:justify-start lg:w-fit ">
+                <CgProfile />
+              </div> 
                   {condition && ('Students')}
                 </button> */}
-
-                
-
-                
-            </div>
-            <div className='flex justify-center text-[10px] sm:text-sm md:text-md lg:text-lg xl:text-xl mb-[3px]'>
-                <button
-                style={design1(section === "Settings")}
-                  className=" xl:p-3 lg:p-4 md:p-3 sm:p-3 p-2 shadow-2xl bg-[#ffffff92] rounded-3xl flex justify-center items-center gap-2 w-[100%] text-black "
-                  value="Settings"
-                  onClick={handleClick}
-                >
-                  <div className='text-4xl'>
-                  <AiFillSetting />
-                  </div> 
-                  {condition && ('Settings')}
-                </button>
-            </div>
-            </>
-          )
-        }
-          
+            <button
+              style={design1(section === "Settings")}
+              className="xl:py-3 xl:px-9 lg:p-4 md:p-3 sm:p-4 p-5  flex sm:justify-center lg:justify-start items-center gap-2 w-[100%] "
+              value="Settings"
+              onClick={handleClick}
+            >
+              <div className="text-4xl md:w-fit flex  sm:justify-start lg:w-fit ">
+                <AiFillSetting />
+              </div>
+              {condition && "Settings"}
+            </button> 
+          </div>
+        </>
+      )}
     </div>
   );
 }
 
 export default TeacherSidebar;
-
-
-
-
-
-
-
