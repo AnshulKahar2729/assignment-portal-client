@@ -30,7 +30,7 @@ function UploadPage({setOpenUploadPage}) {
   
       try {
         const response = await fetch(
-          "http://localhost:4000/api/submittedassignment/65a3c73d9cd39855243038b7?role=student",
+          "https://assignment-portal-server.onrender.com/api/submittedassignment/65a3c73d9cd39855243038b7?role=student",
           {
             method: "POST",
             body: formData,
