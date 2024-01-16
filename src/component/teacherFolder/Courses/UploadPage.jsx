@@ -23,7 +23,7 @@ const UploadPage = () => {
 
     try {
       const response = await fetch(
-        `${BASE_URL}/api/assignmentv2/?role=teacher`,
+        `${BASE_URL}/api/assignment/?role=teacher`,
         {
           // mode: 'no-cors',
           method: "POST",
