@@ -14,7 +14,7 @@ function StudentDashboard() {
   };
 
   return (
-    <div className='hideScrollbar w-full sm:h-full flex flex-col overflow-y-scroll text-[#245DE1]'>
+    <div className='hideScrollbar w-full h-full flex flex-col overflow-y-scroll text-[#245DE1]'>
       <div className='w-full  flex flex-col xl:flex-row gap-3 p-2'>
         <div className='w-full xl:w-[49%] text-[#245DE1] p-2 md:px-16 xl:px-20 flex justify-between items-center gap-7 rounded-lg text-xl overflow-y-auto bg-white'>
           <div className='text-[140px] text-[#245DE1]'><FaUserCircle /></div>
