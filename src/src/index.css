@@ -1,0 +1,23 @@
+html{
+    /* background-color: rgb(255, 255, 255); */
+    background-color: #245de119;
+    
+}
+
+/* ::-webkit-scrollbar {
+    display: none;
+  } */
+
+
+  
+.hideScrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  
+    &::-webkit-scrollbar {
+      display: none;
+    }
+}
+  
+
+

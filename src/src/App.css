@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+button{
+    font-size: 20px;
+    padding: 5px 20px;
+    color: white;
+    background-color: #245DE1;
+}
+
+.SidebarBtn{
+    font-size: 25px;
+    padding: 10px 30px;
+    background-color: white;
+    color: #245DE1;
+}
+
+.selectedSidebarBtn{
+    font-size: 25px;
+    padding: 10px 30px;
+    background-color: #245DE1;
+    color: white;
+}
+
+
+.upload{
+    background: #245DE1;
+    color: white;
+    width: fit-content;
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+.upload:hover{
+    background-color: #0143de;
+
+}
+
+/* .PageLayout{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    min-height: 100xh; 
+} */
+
+/* .Sidebar{
+    margin-top: 32px;
+    padding-left: 24px;
+    padding-right: 24px;
+} */
+
+/* .Header{
+    display: none;
+}
+
+.SectionContainerLayout{
+    padding: 24px;
+    border-left: 2px solid rgba(128, 128, 128, 0.2);
+}
+
+@media (max-width: 700px){
+    .PageLayout{
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+    .Sidebar{
+        display: none;
+    }
+    .Header{
+        display: flex;
+    }
+} */
+
