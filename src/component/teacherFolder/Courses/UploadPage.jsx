@@ -59,7 +59,7 @@ function UploadPage({setOpenUploadPage}) {
 
   return (
     <div className="w-full h-full py-1 sm:px-4 sm:py-4  rounded-lg bg-white flex flex-col gap-3 text-[#245DE1]">
-      <form onSubmit={handleFormSubmit} className="w-full h-full grid grid-cols-2 gap-2">
+      <form onSubmit={handleFormSubmit} className="w-full h-full grid md:grid-cols-2 grid-cols-1 gap-2">
         
 
         <div

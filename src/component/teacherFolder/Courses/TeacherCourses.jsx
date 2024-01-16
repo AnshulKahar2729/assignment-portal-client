@@ -20,7 +20,7 @@ function TeacherCourses({setCourseDirectId,Data}) {
 
 
   return (
-    <div className=' sm:w-full sm:h-full  py-4 overflow-y-scroll gap-10 flex flex-col'>
+    <div className=' sm:w-full  py-4 overflow-y-scroll gap-10 flex flex-col'>
       <div className='h-56'>
       <div className='w-full text-xl sm:text-2xl flex flex-col sm:flex-row sm:justify-between sm:items-center px-7 bg-[#245DE1] text-white rounded-lg'>
         <h2>Courses : </h2>

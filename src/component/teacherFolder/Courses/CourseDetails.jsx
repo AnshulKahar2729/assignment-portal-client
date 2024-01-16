@@ -29,7 +29,7 @@ function CourseDetails({courseDirectId,setCourseDirectId,Data,setFilePage}) {
   
 
   return (
-    <div className=' w-full h-full py-5 flex flex-col gap-10 text-3xl '>
+    <div className=' w-full sm:h-full py-5 flex flex-col gap-10 text-3xl '>
       
     <h1 className='w-full h-20 text-[#245DE1] border-b border-[#245DE1] flex  justify-center items-center font-semibold'>Course Name : {courseName}</h1>
       

@@ -39,7 +39,7 @@ function FilesPage({Data,filePage,setFilePage,courseDirectId,setUpload,file}) {
 
 
   return (
-    <div className="w-full h-full flex flex-col py-4 gap-10 overflow-y-scroll">
+    <div className="w-full sm:h-full flex flex-col py-4 gap-10 overflow-y-scroll">
       <div className="w-full flex justify-between bg-white text-[#245DE1] items-center p-4 rounded-lg">
         <div className="w-full flex justify-between px-10 items-center text-xl font-semibold">
           {filePage} : {name}
