@@ -1,111 +1,122 @@
-import React, { useEffect, useState } from 'react'
-import { FcGoogle } from "react-icons/fc";
-import { Link } from 'react-router-dom';
-// import pic from '../../../assets/pic.avif'
+import axios from "axios";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import RegisterImg from "../assets/login.avif";
 
 const LoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
 
-  const [role,setRole] = useState('student');
-  const [forwardTo,setForwardTo] = useState('')
+  const handleSubmit = async (e) => {
+    // e.preventDefault();
+    // console.log(email, password, role);
 
-  function handleLoginClick() {
-    if (role === 'student') {
-      setForwardTo('/studentlayoutpage');
-    } else if (role === 'faculty') {
-      setForwardTo('/teacherlayoutpage');
+    // try {
+    //   const { data } = await axios.post("http://localhost:4000/api/login", {
+    //     email,
+    //     password,
+    //     role,
+    //   });
+
+    //   if (data) {
+    //     localStorage.setItem("token", data.token);
+    //     console.log(data);
+    //   }
+
+    // } catch (error) {
+    //   console.log(error);
     }
-  }
-
-  useEffect(() => {
-    console.log('Role',role)
-  },[role])
-
-  useEffect(() => {
-    if (forwardTo) {
-      window.location.href = forwardTo;
-    }
-  }, [forwardTo]);
-
-
 
   return (
-    <>
-        <section class="bg-gray-400 w-screen h-screen flex items-center justify-center">
-        
-  <div class=" flex w-[60%] bg-white rounded-2xl shadow-lg max-w-3xl  items-center">
-    <div class="md:block hidden w-1/2 text-2xl font-bold gap-2 text-center ">
-        <Link to='/'><p className='text-5xl font-serif text-blue-600'>Logo</p></Link>
-        {/* <img  src={pic} alt="" srcset="" className='rounded-2xl'/> */}
-    </div>
-    <div class="md:w-1/2 rounded-r-xl p-5 md:px-16 bg-blue-500">
-      <h2 class="font-bold text-4xl text-[white]">Login</h2>
-      <p class="text-xs mt-4 text-[white]">If Account Exist, You can Easily Login</p>
-
-      <form action="" className="flex flex-col gap-2">
-            <input
-              className="p-2 mt-8 rounded-xl border"
-              type="email"
-              name="email"
-              placeholder="Email"
-              aria-label="Email"
-            />
-            <div className="relative">
-              <input
-                className="p-2 rounded-xl border w-full"
-                type="password"
-                name="password"
-                placeholder="Password"
-                aria-label="Password"
-              />
+    <div className="min-h-screen bg-white flex items-center justify-center overflow-hidden">
+      <div className="grid shadow-lg shadow-blue-500/50 mx-auto max-w-4xl md:grid-cols-2">
+        <div className="bg-blue-600">
+          <div className="h-full w-full mt-14 text-center overflow-hidden">
+            <div>
+              <h1 className="text-gray-100 text-4xl font-bold">
+                Welcome back to our website
+              </h1>
+              <p className="text-gray-100 text-lg text-center mt-5">
+                Login now to get access to all the cool and great features.
+              </p>
             </div>
-            <div className="m-5">
-              <label htmlFor="role">Role -</label>
-              <select
-                id="role"
-                value={role}
-                onChange={(event) => {
-                  setRole(event.target.value);
-                }}
-                aria-label="Select Role"
-              >
-                <option value="student">Student</option>
-                <option value="faculty">Faculty</option>
-              </select>
+            <div className="hidden md:block -mt-14">
+              <img src={RegisterImg} alt="" className="w-full h-auto" />
             </div>
-            <Link to={forwardTo}>
-              <button
-                className="bg-[#002D74] rounded-xl w-full text-white p-2 hover:scale-105 duration-300"
-                onClick={handleLoginClick}
-                aria-label="Login Button"
+          </div>
+        </div>
+        <div className="bg-white">
+          <div className="w-full overflow-hidden p-6">
+            <div className="flex flex-col md:flex-row items-center gap-5 md:pr-10 w-full text-center md:justify-end">
+              <span className="text-sm text-gray-500">
+                Don't have an account?
+              </span>
+              <NavLink
+                className="text-sm bg-blue-600 text-white px-4 rounded-sm py-2"
+                to={"/register"}
               >
-                Login
-              </button>
-            </Link>
-          </form>
-
-      <div class="mt-6 grid grid-cols-3 items-center text-white">
-        <hr class="border-white" />
-        <p class="text-center text-sm">OR</p>
-        <hr class="border-white" />
-      </div>
-
-      <button class="bg-white border py-2 w-full rounded-xl gap-3 mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 text-[white]">
-        <span className='text-3xl'><FcGoogle/></span>
-        Login with Google
-      </button>
-      <div class="mt-5 text-xs border-b border-[white] py-4 text-[white] cursor-pointer">
-        Forgot Your Password ? 
-      </div>
-
-      <div class="mt-3 text-xs flex justify-between items-center gap-3 text-blue-600">
-        <p className='text-white'>Don't have an account?</p>
-        <Link to="/signuppage"><button class="py-2 bg-white border rounded-xl hover:scale-110 duration-300 text-blue-900 text-xl w-32">Sign Up</button></Link>
+                Register
+              </NavLink>
+            </div>
+            <div className="mb-4">
+              <h1 className="text-4xl font-bold mt-3 text-gray-700">Login</h1>
+            </div>
+            <div className="text-gray-700">
+              <form onSubmit={handleSubmit}>
+                <label htmlFor="email" className="block mb-2 mt-5">
+                  Email address
+                </label>
+                <input
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  className="w-full px-4 py-2 mb-2 border border-gray-400 rounded-md"
+                  type="text"
+                  id="email"
+                  placeholder="Example@email.com"
+                />
+                <label htmlFor="password" className="block mb-2 mt-5">
+                  Password
+                </label>
+                <input
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                  className="w-full px-4 py-2 mb-2 border border-gray-400 rounded-md"
+                  type="text"
+                  id="password"
+                  placeholder="Enter password"
+                />
+                <div className="mt-5">
+                  <label htmlFor="role">Role -</label>
+                  <select
+                    id="role"
+                    value={role}
+                    onChange={(event) => setRole(event.target.value)}
+                    className="w-full px-4 py-2 mb-2 border border-gray-400 rounded-md"
+                  >
+                    <option value="optiona">Faculty</option>
+                    <option value="optionb">Student</option>
+                  </select>
+                </div>
+                <button
+                  type="submit"
+                  className="block bg-blue-600 font-semibold py-3 rounded mt-5 text-sm text-white w-full"
+                >
+                  Login
+                </button>
+              </form>
+            </div>
+            <div className="text-sm mt-4 text-gray-700 mb-4">
+              Don't have an account yet?{" "}
+              <NavLink to={"/register"} className="text-blue-600">
+                Register now
+              </NavLink>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-    </>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;
