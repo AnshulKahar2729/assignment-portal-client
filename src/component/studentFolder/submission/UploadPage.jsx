@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import { SlCloudUpload } from "react-icons/sl";
+import { Link } from 'react-router-dom';
 
 function UploadPage({setOpenUploadPage}) {
     
@@ -48,13 +49,7 @@ function UploadPage({setOpenUploadPage}) {
       }
     };
     
-  
-    function handleUploadClick () {
-      console.log("Upload Clicked");
-      setOpenUploadPage(false);
-    }
 
-    console.log("File ----->",file)
 
 
   return (
@@ -95,25 +90,27 @@ function UploadPage({setOpenUploadPage}) {
         </div>
         <div className='w-full flex flex-col text-center gap-3 mt-2'>
           <label><b>Assignment Name</b></label>
-          <input
-            className="border py-2 px-3 w-full rounded-md outline-none"
-            type="text"
-            placeholder="Assignment Title"
-            name="file"
-            onChange={(e) => {
-              setTitle(e.target.value);
-            }}
-          />
+          <div className='flex gap-2'>
+            <input
+              className="border py-2 px-3 w-full rounded-md outline-none"
+              type="text"
+              placeholder="Assignment Title"
+              name="file"
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
+            />
+            <button
+              className="upload border rounded-md hover:bg-[#0c4adc]"
+              type="submit"
+            >
+              Upload
+            </button>
+          </div>
         </div>
 
         <div className="w-full h-fit justify-center flex">
-          <button
-            className="upload border rounded-md hover:bg-[#0c4adc]"
-            onClick={handleUploadClick}
-            type="submit"
-          >
-            Upload
-          </button>
+          <Link to='/submission'><button className='w-fit py-2 px-6' >Back</button></Link>
         </div>
       </form>
 

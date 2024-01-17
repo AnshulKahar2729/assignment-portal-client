@@ -1,19 +1,32 @@
-import React, { useState } from 'react';
-import { AiOutlineBarChart } from "react-icons/ai";
-import { BiCalendarMinus } from "react-icons/bi";
-import { BsFillPeopleFill } from "react-icons/bs";
-import { AiFillFolder } from "react-icons/ai";
-import { CgProfile } from "react-icons/cg";
-import { AiFillSetting } from "react-icons/ai";
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { AiOutlineBarChart } from 'react-icons/ai';
+import { BiCalendarMinus } from 'react-icons/bi';
+import { BsFillPeopleFill } from 'react-icons/bs';
+import { AiFillFolder } from 'react-icons/ai';
+import { CgProfile } from 'react-icons/cg';
+import { AiFillSetting } from 'react-icons/ai';
+import { Link, useNavigate } from 'react-router-dom';
 import DpuLogo from '../../assets/DpuLogo.png';
 
-function Sidebar({role}) {
-    const [selected,setSelected] = useState('Dashboard');
+import { GiHamburgerMenu } from "react-icons/gi";
+import { GrClose } from "react-icons/gr";
 
-    function handleClick(e) {
-        setSelected(e.target.value)
-    }
+function Sidebar({ role,clickedHamburger,setClickedHamburger }) {
+  const navigate = useNavigate();
+  const [selected, setSelected] = useState(() => {
+    const storedSelected = localStorage.getItem('selectedSidebar');
+    return storedSelected || 'Dashboard';
+  });
+  function handleHamburgerClick () {
+    setClickedHamburger(!clickedHamburger);
+  }
+
+  const handleClick = (title, url) => {
+    setSelected(title);
+    localStorage.setItem('selectedSidebar', title);
+    navigate(url);
+    setClickedHamburger(!clickedHamburger);
+  };
 
     const Navigation = role === 'student' ?
             [
@@ -68,22 +81,41 @@ function Sidebar({role}) {
             ]
 
 
-  return (
-    <div className='h-screen flex flex-col overflow-hidden bg-white '>
-        <div className='w-full'>
-            <img src={DpuLogo} alt='logo'/>
-        </div>
-        <div className='mt-6 w-full grid grid-cols-1 gap-6 '>
-          {Navigation.map((item) => (
-              <Link to={item.url} >
-                <button onClick={handleClick} value={item.title} className={`${selected === item.title ? 'selectedSidebarBtn' : 'SidebarBtn'} SidebarBtn flex items-center w-full p-4 gap-3`}>
-                  <p>{item.icon}</p>{item.title}
-                </button>
-              </Link>
-          ))}
-        </div>
-    </div>
-  )
-}
-
-export default Sidebar
+            useEffect(() => {
+                const storedSelected = localStorage.getItem('selectedSidebar');
+                if (storedSelected) {
+                  setSelected(storedSelected);
+                }
+              }, []);
+            
+              return (
+                <div className="h-full sm:h-full flex flex-col overflow-hidden  items-center bg-white">
+                  <div className="w-full flex justify-between items-center sm:justify-start p-2 ">
+                    <Link to='/'><img className='w-20 sm:w-full' src={DpuLogo} alt="logo" /></Link>
+                    <div onClick={handleHamburgerClick} className="p-2 font-bold text-4xl text-[#245DE1] block sm:hidden">
+                      {clickedHamburger ? <GrClose/> : <GiHamburgerMenu /> }
+                    </div>
+                  </div>
+                  <div className=" w-full sm:grid sm:grid-cols-1 flex flex-col gap-8 justify-center sm:gap-6 h-full sm:h-fit">
+                    {Navigation.map((item) => (
+                      <button
+                        key={item.title}
+                        onClick={() => handleClick(item.title, item.url)}
+                        className={`${clickedHamburger ? 'sm:block' : 'hidden'} sm:block text-sm  md:text-sm lg:text-xl ${
+                          selected === item.title
+                            ? "selectedSidebarBtn"
+                            : "SidebarBtn"
+                        } SidebarBtn flex items-center w-full md:p-2 lg:p-3 xl:p-4 gap-3`}
+                      >
+                        <p className="sm:w-full sm:justify-center md:justify-start flex gap-2 items-center">
+                          {item.icon}
+                          <p className=" sm:hidden md:block">{item.title}</p>
+                        </p>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+            
+            export default Sidebar;

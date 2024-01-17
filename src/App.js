@@ -18,12 +18,17 @@ import TeacherDashboard from './component/teacherFolder/TeacherDashboard';
 import TeacherCourses from './component/teacherFolder/Courses/TeacherCourses';
 import TeacherSettings from './component/teacherFolder/TeacherSettings';
 import CourseDetails from './component/studentFolder/Courses/CourseDetails';
+import FilesPage from './component/studentFolder/Courses/FilesPage';
+import UploadPage from './component/studentFolder/submission/UploadPage';
+import { useState } from 'react';
 
 
 function App() {
 
   const role = 'student';
   const isAuthenticated = true;
+  const [clickedHamburger,setClickedHamburger] = useState(false);
+  
 
   return (
 
@@ -37,20 +42,21 @@ function App() {
           <Route path='/signup' element={<SignUpPage/>} />
          </Routes>
          :
-         <div className='PageLayout flex'>
-          {/* <div className='sm:hidden'><Header/></div> */}
-          <div className='hidden sm:block sm:w-1/5'><Sidebar role={role}/></div>
-          <div className='SectionContainerLayout sm:h-screen w-screen sm:w-4/5'>
+         <div className='relative PageLayout flex flex-col sm:flex-row'>
+          <div className={`${!clickedHamburger ? 'sticky' : 'fixed h-[70vh] sm:h-screen' }  sm:static z-40 w-screen sm:w-1/5`}><Sidebar role={role} clickedHamburger={clickedHamburger} setClickedHamburger={setClickedHamburger}/></div>
+          <div className={`${clickedHamburger ? 'inset-0 opacity-10  sm:opacity-100' : ''}  absolute sm:static mt-16 sm:mt-0 SectionContainerLayout sm:h-screen w-screen sm:w-4/5`}>
             {role === 'student' 
              ?
              <Routes>
               <Route path='/' element={<StudentDashboard/>} />
-              <Route path='/submission' element={<StudentSubmission/>} />
+              <Route path='/submission/*' element={<StudentSubmission/>} />
+              <Route path='/submission/uploadPage' element={<UploadPage/>} />
               <Route path='/assignments' element={<Assignments/>} />
-              <Route path='/courses' element={<StudentCourses/>} />
+              <Route path='/courses/*' element={<StudentCourses/>} />
               <Route path='/facultyinfo' element={<StudentFaculty/>} />
               <Route path='/settings' element={<StudentSettings/>} />
-              {/* <Route path='/coursedetails' element={<CourseDetails/>} /> */}
+              <Route path='/courses/coursedetails' element={<CourseDetails/>} />
+              <Route path='/courses/coursedetails/filespage' element={<FilesPage/>} />
              </Routes>
              :
              <Routes>
