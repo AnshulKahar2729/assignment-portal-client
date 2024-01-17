@@ -32,7 +32,7 @@ function StudentFaculty() {
             )
           }
         </div>
-        <div className='hideScrollbar flex flex-col w-full h-[590px] rounded-b-lg overflow-y-scroll bg-white'>
+        <div className='hideScrollbar flex flex-col w-full h-full rounded-b-lg overflow-y-scroll bg-white'>
           <FacultyBar windowWidth={windowWidth}/>
           <FacultyBar windowWidth={windowWidth}/>
           <FacultyBar windowWidth={windowWidth}/>

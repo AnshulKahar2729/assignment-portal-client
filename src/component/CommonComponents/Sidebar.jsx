@@ -74,6 +74,11 @@ function Sidebar({ role,clickedHamburger,setClickedHamburger }) {
                     title : 'Courses',
                 },
                 {
+                  url : '/assignments',
+                  icon : <BsFillPeopleFill className='text-4xl'/>,
+                  title : 'Assignments',
+                },
+                {
                     url : '/settings',
                     icon : <AiFillSetting className='text-4xl'/>,
                     title : 'Settings',

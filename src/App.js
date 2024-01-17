@@ -1,15 +1,13 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import IndexPage from './component/pages/landingPage/IndexPage';
-import LoginPage from './component/pages/Loginpage/LoginPage';
-import SignUpPage from './component/pages/SignUpPage';
+import IndexPage from './pages/landingPage/IndexPage';
+import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
 import TestApi from './testapi/TestApi';
-import Header from './component/otherComponents/Header';
-import Sidebar from './component/otherComponents/Sidebar';
+import Sidebar from './component/CommonComponents/Sidebar';
 
 import StudentDashboard from './component/studentFolder/StudentDashboard';
 import StudentSubmission from './component/studentFolder/submission/StudentSubmission';
-import Assignments from './component/studentFolder/Assignments';
 import StudentCourses from './component/studentFolder/Courses/StudentCourses';
 import StudentFaculty from './component/studentFolder/faculty/StudentFaculty';
 import StudentSettings from './component/studentFolder/StudentSettings';
@@ -17,10 +15,12 @@ import StudentSettings from './component/studentFolder/StudentSettings';
 import TeacherDashboard from './component/teacherFolder/TeacherDashboard';
 import TeacherCourses from './component/teacherFolder/Courses/TeacherCourses';
 import TeacherSettings from './component/teacherFolder/TeacherSettings';
-import CourseDetails from './component/studentFolder/Courses/CourseDetails';
-import FilesPage from './component/studentFolder/Courses/FilesPage';
+import StudentCourseDetails from './component/studentFolder/Courses/StudentCourseDetails';
 import UploadPage from './component/studentFolder/submission/UploadPage';
 import { useState } from 'react';
+import TeacherCourseDetails from './component/teacherFolder/Courses/TeacherCourseDetails';
+import FilesPage from './component/CommonComponents/FilesPage';
+import Assignments from './component/CommonComponents/Assignment';
 
 
 function App() {
@@ -55,14 +55,17 @@ function App() {
               <Route path='/courses/*' element={<StudentCourses/>} />
               <Route path='/facultyinfo' element={<StudentFaculty/>} />
               <Route path='/settings' element={<StudentSettings/>} />
-              <Route path='/courses/coursedetails' element={<CourseDetails/>} />
-              <Route path='/courses/coursedetails/filespage' element={<FilesPage/>} />
+              <Route path='/courses/coursedetails/*' element={<StudentCourseDetails/>} />
+              <Route path='/courses/coursedetails/files' element={<FilesPage role={role}/>} />
              </Routes>
              :
              <Routes>
               <Route path='/' element={<TeacherDashboard/>} />
-              <Route path='/courses' element={<TeacherCourses/>} />
+              <Route path='/courses/*' element={<TeacherCourses/>} />
               <Route path='/settings' element={<TeacherSettings/>} />
+              <Route path='/courses/coursedetails/*' element={<TeacherCourseDetails/>} />
+              <Route path='/courses/coursedetails/files' element={<FilesPage role={role}/>} />
+              <Route path='/assignments' element={<Assignments/>} />
              </Routes>
             }
           </div>

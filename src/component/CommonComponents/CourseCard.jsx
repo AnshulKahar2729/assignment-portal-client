@@ -1,19 +1,10 @@
 import React from 'react';
-import ProfImg from '../../../assets/ProfImg.png';
-import { Link, useNavigate } from 'react-router-dom';
+import ProfImg from '../../assets/ProfImg.png';
 
-function CourseCard({course}) 
-{
-  const navigate = useNavigate();
-
-  function navigateToCourseDetails() {
-    navigate('/coursedetails')
-  }
-
+function CourseCard({course}) {
   return (
-    // <Link to='/coursedetails' onClick={navigateToCourseDetails}>
-      <>
-      {course ? (
+    <div>
+        {course ? (
         <div
           className="relative w-72 h-72 rounded-lg flex flex-col cursor-pointer overflow-hidden bg-white shadow-lg border"
         >
@@ -28,11 +19,8 @@ function CourseCard({course})
         </div>
       ) : null 
     }
-    {/* </Link> */}
-    </>
-  );
+    </div>
+  )
 }
 
-export default CourseCard;
-
-
+export default CourseCard

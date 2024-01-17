@@ -1,20 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import CourseCard from './CourseCard';
-import { CgProfile } from "react-icons/cg";
+import CourseCard from '../../CommonComponents/CourseCard';
 import StudentImg from '../../../assets/ProfImg.png';
 import {Data} from '../datas/Data';
-import { Link, useNavigate } from 'react-router-dom';
+import React , { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 
 function StudentCourses() {
 
   const [courses,setCourses] = useState(Data);
-  const navigate = useNavigate();
-
-  const navigateToCourseDetails = () => {
-    navigate('/courses/coursedetails')
-  }
 
 
   return (

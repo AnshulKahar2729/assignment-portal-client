@@ -1,5 +1,5 @@
 import React from 'react';
-import rocket from '../../../assets/rocket.png'
+import rocket from '../../assets/rocket.png'
 import { Link } from 'react-router-dom';
 
 function Sections() {
