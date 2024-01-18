@@ -79,6 +79,11 @@ function Sidebar({ role,clickedHamburger,setClickedHamburger }) {
                   title : 'Assignments',
                 },
                 {
+                  url : '/students',
+                  icon : <CgProfile className='text-4xl'/>,
+                  title : 'Students',
+                },
+                {
                     url : '/settings',
                     icon : <AiFillSetting className='text-4xl'/>,
                     title : 'Settings',

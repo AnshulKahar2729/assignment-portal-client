@@ -155,13 +155,8 @@ const SignUpPage = () => {
                     }}
                     className="w-full px-4 py-2 mb-2 border border-gray-400 rounded-md"
                   >
-<<<<<<< HEAD
                     <option value="student">Student</option>
                     <option value="teacher">Teacher</option>
-=======
-                    <option value="faculty">Faculty</option>
-                    <option value="student">Student</option>
->>>>>>> 0d2021ae1a5b3e598a26bfb2e3e3d72bab0ace32
                   </select>
                 </div>
                 {/* added fields */}

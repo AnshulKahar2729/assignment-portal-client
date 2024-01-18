@@ -154,11 +154,14 @@ import { useState } from 'react';
 import TeacherCourseDetails from './component/teacherFolder/Courses/TeacherCourseDetails';
 import FilesPage from './component/CommonComponents/FilesPage';
 import Assignments from './component/CommonComponents/Assignment';
+import Students from './component/teacherFolder/Students/Students';
+import StudentDetails from './component/teacherFolder/Students/faculty/StudentDetails';
+import StudentAssignments from './component/teacherFolder/Students/faculty/StudentAssignments';
 
 
 function App() {
 
-  const role = 'student';
+  const role = 'teacher';
   const isAuthenticated = true;
   const [clickedHamburger,setClickedHamburger] = useState(false);
 
@@ -199,6 +202,9 @@ function App() {
               <Route path='/courses/coursedetails/*' element={<TeacherCourseDetails/>} />
               <Route path='/courses/coursedetails/files' element={<FilesPage role={role}/>} />
               <Route path='/assignments' element={<Assignments/>} />
+              <Route path='/students/*' element={<Students/>} />
+              <Route path='/students/studentdetails/*' element={<StudentDetails/>} />
+              <Route path='/students/studentdetails/studentAssignmentInfo' element={<StudentAssignments/>} />
              </Routes>
             }
           </div>
