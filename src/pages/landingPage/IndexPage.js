@@ -10,19 +10,12 @@ function IndexPage() {
 
   return (
     <div className='w-full bg-white '>
-       <div>
         <Header/>
-       </div>
         <Sections/>
-        <div>
-          <AboutUs/>
-        </div>
-        <div>
-          <Benefits/>
-        </div>
-        <div>
-          <Footer/>
-        </div>
+        <AboutUs/>
+        <Benefits/>
+        <Footer/>
+
     </div>
   );
 }
