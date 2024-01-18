@@ -31,7 +31,9 @@ function UploadPage({setOpenUploadPage}) {
   
       try {
         const response = await fetch(
+
           "https://assignment-portal-server.onrender.com/api/assignment?role=teacher",
+
           {
             method: "POST",
             body: formData,
