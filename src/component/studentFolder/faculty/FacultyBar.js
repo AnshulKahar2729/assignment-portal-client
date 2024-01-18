@@ -6,7 +6,7 @@ const FacultyBar = ({windowWidth}) => {
   return (
     <>
         <div className=''>
-          <div className='h-20 px-8 flex items-center justify-between border-b border-[#245DE1]'>
+          <div className='h-20 px-2 sm:px-8 flex items-center justify-between border-b border-[#245DE1]'>
             <img className='w-24' src={ProImg} alt='ProImg'/>
             <p className='text-[#245DE1] text-md font-semibold'>NAME_OF_PROFESSOR</p>
             {
