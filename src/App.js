@@ -26,7 +26,7 @@ import Assignments from './component/CommonComponents/Assignment';
 function App() {
 
   const role = 'student';
-  const isAuthenticated = true;
+  const isAuthenticated = !true;
   const [clickedHamburger,setClickedHamburger] = useState(false);
   
 
