@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { AiOutlineBarChart } from "react-icons/ai";
-import { AiFillFolder } from "react-icons/ai";
-import { AiFillSetting } from "react-icons/ai";
-import { BsFillPeopleFill } from "react-icons/bs";
-import { CgProfile } from "react-icons/cg";
 import { BiCalendarMinus } from "react-icons/bi";
+import { BsFillPeopleFill } from "react-icons/bs";
+import { AiFillFolder } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
+import { AiFillSetting } from "react-icons/ai";
+
+
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrClose } from "react-icons/gr";
 import DpuLogo from '../../assets/DpuLogo.png';
@@ -164,3 +166,5 @@ function StudentSidebar({section,setSection,windowWidth}) {
 }
 
 export default StudentSidebar;
+
+
