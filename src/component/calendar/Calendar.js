@@ -40,22 +40,22 @@ const Calendar = ({ onSelectDate }) => {
 
   return (
     <div className='w-full py-5 flex justify-center overflow-auto  '>
-      <div className="container  mx-auto ">
+      <div className="container  sm:mx-auto ">
         <h2 className="text-2xl font-semibold mb-4 text-center">{format(currentMonth, 'MMMM yyyy')}</h2>
         <div className="flex justify-center gap-10 mb-4 ">
-          <button className="bg-blue-500 text-white px-2 py-1 rounded" onClick={prevMonth}>
+          <button className="bg-blue-500 text-white px-2 py-1 rounded text-sm sm:text-xl" onClick={prevMonth}>
             Previous Month
           </button>
-          <button className="bg-blue-500 text-white px-2 py-1 rounded" onClick={nextMonth}>
+          <button className="bg-blue-500 text-white px-2 py-1 rounded text-sm sm:text-xl" onClick={nextMonth}>
             Next Month
           </button>
         </div>
-        <div className='w-full justify-center flex '>
-          <table className="table-auto shadow-xl">
+        <div className='sm:w-full justify-center flex '>
+          <table className="w-full table-auto shadow-xl overflow-x-scroll hideScrollbar">
             <thead>
               <tr>
                 {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-                  <th key={day} className="border px-0 py-1 xl:px-4 xl:py-2">
+                  <th key={day} className="border px-0 py-0 xl:px-4 xl:py-2 text-[12px] sm:text-lg">
                     {day}
                   </th>
                 ))}
