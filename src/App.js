@@ -43,8 +43,8 @@ function App() {
          </Routes>
          :
          <div className='relative PageLayout flex flex-col sm:flex-row'>
-          <div className={`${!clickedHamburger ? 'sticky' : 'fixed h-[70vh] sm:h-screen' }  sm:static z-40 w-screen sm:w-1/5`}><Sidebar role={role} clickedHamburger={clickedHamburger} setClickedHamburger={setClickedHamburger}/></div>
-          <div className={`${clickedHamburger ? 'inset-0 opacity-10  sm:opacity-100' : ''}  absolute sm:static mt-16 sm:mt-0 SectionContainerLayout sm:h-screen w-screen sm:w-4/5`}>
+          <div className={`${!clickedHamburger ? 'sticky' : 'fixed sm:h-screen' }  sm:static z-40 w-screen sm:w-1/5`}><Sidebar role={role} clickedHamburger={clickedHamburger} setClickedHamburger={setClickedHamburger}/></div>
+          <div className={`${clickedHamburger ? 'inset-0 opacity-10  sm:opacity-100' : ''}  absolute sm:static mt-20 sm:mt-0 SectionContainerLayout sm:h-screen w-screen sm:w-4/5`}>
             {role === 'student' 
              ?
              <Routes>

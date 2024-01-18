@@ -4,13 +4,15 @@ import About from '../../assets/AboutUsImg.png';
 function AboutUs() {
   return (
     
-    <div className='w-full p-4 flex h-[500px] items-center justify-center'>
-      <div className='w-[40%] h-full bg-[#245DE1] rounded-l-2xl flex justify-center items-center'>
-        <img className='' src={About} alt='pic' />
-      </div>
-      <div className='flex flex-col w-[40%] h-full bg-white border  rounded-r-2xl text-[#245DE1] p-8 justify-center items-center '>
-        <h3 className='text-4xl font-medium font-serif w-full'>About ClassRoomConnect</h3>
-        <p className='text-xl m-2 py-3 '>ClassroomConnect is a groundbreaking project aimed at transforming traditional education by leveraging the power of technology. This comprehensive classroom app is designed to create a seamless and engaging learning experience for both students and educators. With a user-friendly interface and a myriad of features, ClassroomConnect aims to bridge the gap between physical and digital classrooms.</p>
+    <div className=' w-full  sm:px-[1%] md:px-[3%] lg:px-[6%] xl:px-[12.5%]'>
+      <div className=' w-full py-4 flex  sm:h-[200px] md:h-[400px] lg:h-[500px] items-center justify-center'>
+        <div className='w-full lg:w-[50%] bg-gray-300 lg:bg-[#245DE1] rounded-2xl lg:rounded-l-2xl lg:rounded-r-none hidden lg:flex justify-center items-center h-full'>
+          <img className='' src={About} alt='pic' />
+        </div>
+        <div className='flex flex-col z-10  w-full lg:w-[50%] h-full lg:border rounded-2xl lg:rounded-r-2xl lg:rounded-l-none  p-8 justify-center items-center text-center lg:text-left bg-gray-100'>
+          <h3 className='text-[24px] sm:text-2xl md:text-4xl lg:text-[40px] xl:text-[50px] font-medium text-[#245DE1]  w-full'>About Us</h3>
+          <p className='text-[10px] sm:text-sm md:text-md lg:text-lg m-2 py-3 text-gray-500'>ClassroomConnect is a groundbreaking project aimed at transforming traditional education by leveraging the power of technology. This comprehensive classroom app is designed to create a seamless and engaging learning experience for both students and educators. With a user-friendly interface and a myriad of features, ClassroomConnect aims to bridge the gap between physical and digital classrooms.</p>
+        </div>
       </div>
     </div>
   )

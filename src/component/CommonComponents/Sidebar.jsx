@@ -96,12 +96,12 @@ function Sidebar({ role,clickedHamburger,setClickedHamburger }) {
               return (
                 <div className="h-full sm:h-full flex flex-col overflow-hidden  items-center bg-white">
                   <div className="w-full flex justify-between items-center sm:justify-start p-2 ">
-                    <Link to='/'><img className='w-20 sm:w-full' src={DpuLogo} alt="logo" /></Link>
+                    <div className='w-full pl-2 py-5 flex justify-start md:justify-start sm:justify-center'><Link to='/'><img className='w-20 lg:w-32 xl:w-36' src={DpuLogo} alt="logo" /></Link></div>
                     <div onClick={handleHamburgerClick} className="p-2 font-bold text-4xl text-[#245DE1] block sm:hidden">
                       {clickedHamburger ? <GrClose/> : <GiHamburgerMenu /> }
                     </div>
                   </div>
-                  <div className=" w-full sm:grid sm:grid-cols-1 flex flex-col gap-8 justify-center sm:gap-6 h-full sm:h-fit">
+                  <div className=" w-full sm:grid sm:grid-cols-1 flex flex-col gap-2 justify-center sm:gap-6 h-full sm:h-fit">
                     {Navigation.map((item) => (
                       <button
                         key={item.title}

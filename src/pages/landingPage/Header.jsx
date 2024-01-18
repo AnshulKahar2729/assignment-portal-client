@@ -5,8 +5,8 @@ import Logo from '../../assets/DpuLogo.png';
 
 const Header = () => {
   return (
-    <div className="w-full py-5 px-[12.5%] flex items-center">
-        <img className='w-2/12' src={Logo} alt='Logo'/>
+    <div className="w-full py-5 px-1 sm:px-[1%] md:px-[3%] lg:px-[6%] xl:px-[12.5%] flex items-center">
+        <img className='w-20 sm:w-24 md:w-28 lg:w-36' src={Logo} alt='Logo'/>
         <div className='flex flex-1 gap-4 justify-end'>
           <Link to="/signup"><button className="">Sign Up</button></Link>
           <Link to="/login"><button className="">Login</button></Link>
