@@ -32,6 +32,7 @@ function RecentSubmission() {
               <div className="flex flex-col gap-1">
                 <p>Submitted : {item.title}</p>
                 <p>Course : {item.title}</p>
+                <a target="blank" href={item.file}>Download</a>
               </div>
               <p>Date : Date of Submission</p>
             </div>

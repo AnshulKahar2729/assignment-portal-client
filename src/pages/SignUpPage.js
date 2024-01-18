@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import RegisterImg from "../assets/login.avif";
 
@@ -7,8 +7,10 @@ const SignUpPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("proctor");
+  const [role, setRole] = useState("student");
   const navigate = useNavigate();
+
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,7 +44,7 @@ const SignUpPage = () => {
           <div className="h-full w-full mt-14 text-center overflow-hidden">
             <div>
               <h1 className="text-gray-100 text-4xl font-bold">Welcome to our website</h1>
-              <p className="text-gray-100 text-lg mt-4 text-center mt-5">Register now to get access to all the cool and great features.</p>
+              <p className="text-gray-100 text-lg  text-center mt-5">Register now to get access to all the cool and great features.</p>
             </div>
             {/* Conditionally render the image only on larger screens */}
             <div className="hidden md:block -mt-14">
@@ -113,8 +115,8 @@ const SignUpPage = () => {
                     }}
                     className="w-full px-4 py-2 mb-2 border border-gray-400 rounded-md"
                   >
-                    <option value="optiona">Faculty</option>
-                    <option value="optionb">Student</option>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
                   </select>
                 </div>
                 <button
