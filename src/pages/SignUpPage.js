@@ -2,35 +2,75 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import RegisterImg from "../assets/login.avif";
+import Cookies from 'js-cookie';
 
 const SignUpPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("student");
+  const [role, setRole] = useState("");
+  const [year, setYear] = useState("");
+  const [branch, setBranch] = useState("");
+  const [division, setDivision] = useState("");
   const navigate = useNavigate();
 
-  
+  //       name,
+  //       email,
+  //       password: hashedPassword,
+  //       branch,
+  //       year,
+  //       division,
+  //       studentId,
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(name, email, password, role);
+    console.log(name, email, password, role, year, branch, division);
 
     try {
-      const { data } = await axios.post("http://localhost:4000/api/register", {
+      // if role student 
+      if(role == "student"){
+        const { data } = await axios.post("https://assignment-portal-server.onrender.com/api/register", {
         name,
         email,
         password,
         role,
+        year,
+        branch,
+        division
       });
-
       if (data) {
         navigate("/");
-        localStorage.setItem("token", data.token);
-        alert("User created successfully");
+        // localStorage.setItem("token", data.token);
+        Cookies.set('token', data.token, { expires: 1 }); // expires in 1 day
+
+        // Retrieve the token from the cookie (for anshul)
+          // const retrievedToken = Cookies.get('token');
+          // console.log('Retrieved Token:', retrievedToken);
+        alert("Registered Successfully")
+      }
+      console.log('user created Successfully');
+
+      // for teacher 
+      }else{
+        const { data } = await axios.post("https://assignment-portal-server.onrender.com/api/register", {
+        name,
+        email,
+        password,
+        role
+      });
+      if (data) {
+        navigate("/");
+        // localStorage.setItem("token", data.token);
+        Cookies.set('token', data.token, { expires: 1 }); // expires in 1 day
+
+        // Retrieve the token from the cookie (for anshul)
+          // const retrievedToken = Cookies.get('token');
+          // console.log('Retrieved Token:', retrievedToken);
+        alert("Registered Successfully")
+      }
+      console.log('user created Successfully');
       }
 
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -115,10 +155,62 @@ const SignUpPage = () => {
                     }}
                     className="w-full px-4 py-2 mb-2 border border-gray-400 rounded-md"
                   >
+<<<<<<< HEAD
                     <option value="student">Student</option>
                     <option value="teacher">Teacher</option>
+=======
+                    <option value="faculty">Faculty</option>
+                    <option value="student">Student</option>
+>>>>>>> 0d2021ae1a5b3e598a26bfb2e3e3d72bab0ace32
                   </select>
                 </div>
+                {/* added fields */}
+                {role == "student" &&
+                <>
+                  {/* Year  */}
+                  <label htmlFor="year" className="block mb-2 mt-5">
+                    Year
+                  </label>
+                  <input
+                    value={year}
+                    onChange={(event) => {
+                      setYear(event.target.value);
+                    }}
+                    className="w-full px-4 py-2 mb-2 border border-gray-400 rounded-md"
+                    type="text"
+                    id="year"
+                    placeholder="Your Year"
+                  />
+                  {/* branch  */}
+                  <label htmlFor="branch" className="block mb-2 mt-5">
+                    Branch
+                  </label>
+                  <input
+                    value={branch}
+                    onChange={(event) => {
+                      setBranch(event.target.value);
+                    }}
+                    className="w-full px-4 py-2 mb-2 border border-gray-400 rounded-md"
+                    type="text"
+                    id="branch"
+                    placeholder="Your Branch"
+                  />
+                  {/* division  */}
+                  <label htmlFor="division" className="block mb-2 mt-5">
+                    Division
+                  </label>
+                  <input
+                    value={division}
+                    onChange={(event) => {
+                      setDivision(event.target.value);
+                    }}
+                    className="w-full px-4 py-2 mb-2 border border-gray-400 rounded-md"
+                    type="text"
+                    id="division"
+                    placeholder="Your Division"
+                  />
+                </>
+                }
                 <button
                   type="submit"
                   className="block bg-blue-600 font-semibold py-3 rounded mt-5 text-sm text-white w-full"
