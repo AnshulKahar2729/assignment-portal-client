@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import IndexPage from './pages/landingPage/IndexPage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
@@ -17,17 +17,40 @@ import TeacherCourses from './component/teacherFolder/Courses/TeacherCourses';
 import TeacherSettings from './component/teacherFolder/TeacherSettings';
 import StudentCourseDetails from './component/studentFolder/Courses/StudentCourseDetails';
 import UploadPage from './component/studentFolder/submission/UploadPage';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import TeacherCourseDetails from './component/teacherFolder/Courses/TeacherCourseDetails';
 import FilesPage from './component/CommonComponents/FilesPage';
 import Assignments from './component/CommonComponents/Assignment';
-
+import { UserContext, UserProvider } from './store/userContext';
+// import { useNavigate } from 'react-router-dom';
 
 function App() {
-  const role = 'teacher';
-  const isAuthenticated = true;
-  const [clickedHamburger,setClickedHamburger] = useState(false);
+  // const isAuthenticated = true;
+  const [clickedHamburger, setClickedHamburger] = useState(false);
+  // const navigate = useNavigate();
+
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [role, setRole] = useState('');
+  const {user} = useContext(UserContext);
   
+  const handleAuth = () => {
+    setIsAuthenticated(true);
+  }
+
+  useEffect(() => {
+    const chechAuth = () => {
+      if(!user){
+        console.log('not logged In');
+        setIsAuthenticated(false)
+  
+      } else{
+        console.log('logged In');
+        setIsAuthenticated(true)
+        user.teacherId ? setRole('teacher') : setRole('student');
+      }
+    }
+    chechAuth();
+  }, [user]);
 
   return (
 
@@ -65,9 +88,8 @@ function App() {
               <Route path='/courses/coursedetails/*' element={<TeacherCourseDetails/>} />
               <Route path='/courses/coursedetails/files' element={<FilesPage role={role}/>} />
               <Route path='/assignments' element={<Assignments role={role}/>} />
-              <Route path='/students/*' element={<Students/>} />
-              <Route path='/assignments/studentdetails/*' element={<StudentDetails/>} />
-              <Route path='/assignments/studentdetails/studentAssignmentInfo' element={<StudentAssignments/>} />
+              {/* <Route path='/assignments/studentdetails/*' element={<StudentCourseDetails/>} /> */}
+              {/* <Route path='/assignments/studentdetails/studentAssignmentInfo' element={<StudentAssignments/>} /> */}
              </Routes>
             }
           </div>
