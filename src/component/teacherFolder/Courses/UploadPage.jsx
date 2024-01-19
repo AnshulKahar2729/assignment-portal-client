@@ -1,7 +1,8 @@
 import React,{useState} from 'react';
 import { SlCloudUpload } from "react-icons/sl";
+import { IoMdCloudDone } from "react-icons/io";
 
-function UploadPage({setOpenUploadPage}) {
+function UploadPage() {
     
   const [file, setFile] = useState(null);
   const [displayFile, setDisplayFile] = useState(null);
@@ -50,8 +51,8 @@ function UploadPage({setOpenUploadPage}) {
     
   
     function handleUploadClick () {
+      window.location.reload();
       console.log("Upload Clicked");
-      setOpenUploadPage(false);
     }
 
     console.log("File ----->",file)
@@ -71,7 +72,7 @@ function UploadPage({setOpenUploadPage}) {
           onDragLeave={handleDragLeave}
         >
           <div className="flex flex-col items-center justify-center h-full gap-2">
-            <i className="text-5xl"><SlCloudUpload /></i>
+            <i className="text-5xl">{!file ? <SlCloudUpload /> : <IoMdCloudDone />}</i>
             <div className="text-center">Drag and drop your file here</div>
             <span className="mb-3">OR</span>
             <div className="">
