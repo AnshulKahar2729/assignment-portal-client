@@ -161,7 +161,7 @@ import StudentAssignments from './component/teacherFolder/Students/faculty/Stude
 
 function App() {
 
-  const role = 'teacher';
+  const role = 'student';
   const isAuthenticated = true;
   const [clickedHamburger,setClickedHamburger] = useState(false);
 

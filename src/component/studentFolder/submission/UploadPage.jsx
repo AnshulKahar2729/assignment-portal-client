@@ -71,7 +71,7 @@ function UploadPage({setOpenUploadPage}) {
           onDragLeave={handleDragLeave}
         >
           <div className="flex flex-col items-center justify-center h-full gap-2">
-            <i className="text-5xl">{file ? <SlCloudUpload /> : <IoMdCloudDone />}</i>
+            <i className="text-5xl">{!file ? <SlCloudUpload /> : <IoMdCloudDone />}</i>
             <div className="text-center">Drag and drop your file here</div>
             <span className="mb-3">OR</span>
             <div className="">

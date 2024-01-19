@@ -4,29 +4,87 @@ import CourseCard from './CourseCard';
 import StudentImg from '../../../assets/ProfImg.png';
 import { Data } from '../Datas/Data';
 
+import Cookies from 'js-cookie';
+
+
 function Students() {
 
     const [courses,setCourses] = useState(Data);
     const [data,setData] = useState([]);
 
-    console.log('Courses--------->',courses);
+    // console.log('Courses--------->',courses);
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     useEffect(() => {
       const fetchData = async () => {
         try {
+          const token = Cookies.get('token');
           const response = await fetch(
-            "https://assignment-portal-server.onrender.com/api/profile?role=teacher"
+            "https://assignment-portal-server.onrender.com/api/profile?role=teacher", {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
           );
-          const data = await response.json();
-          setData(data);
+          
+          if (response.ok) {
+            const data = await response.json();
+            setData(data);
+          } else {
+            console.error("Error getting data. Status:", response.status);
+          }
         } catch (error) {
-            console.error("Error getting data : ", error);
+          console.error("Error getting data:", error);
         }
-    };
+      };
     fetchData();
 },[])
 
-console.log('Courses Info ---> ',courses);
+console.log('Courses Info ---> ',data);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div className=' w-full sm:h-full  p-2 overflow-y-scroll gap-2 sm:gap-10 flex flex-col'>

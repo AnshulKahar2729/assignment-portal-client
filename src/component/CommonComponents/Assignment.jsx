@@ -1,83 +1,83 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 function Assignments() {
+
+    const [assignment,setAssignment] = useState([]);
+
+    useEffect(() => {
+        try{
+            const fetchData = async () => {
+                try {
+                  const response = await fetch(
+                    "https://assignment-portal-server.onrender.com/api/assignment?role=teacher"
+                  );
+                  const data = await response.json();
+                  setAssignment(data);
+                  console.log(data);
+                } catch (error) {
+                  console.error("Error getting Assignments : ", error);
+                }
+            };
+            fetchData();
+            
+        } catch(error)
+        {
+            console.error('Error : ',error)
+        }
+    },[])
+
+    console.log('Jai Shree Ram ---->',assignment)
+
+
+
+    const getFileTypeFromUrl = (url) => {
+        const extension = url.split('.').pop().toLowerCase();
+    
+        // You can add more file types as needed
+        if (['jpg', 'jpeg', 'png', 'gif'].includes(extension)) {
+          return 'image';
+        } else if (['mp4', 'avi', 'mkv'].includes(extension)) {
+          return 'video';
+        } else if (['pdf'].includes(extension)) {
+          return 'pdf';
+        } else {
+          return 'unknown';
+        }
+      };
+
+
+
   return (
-    <div className=' w-full sm:h-full flex flex-col items-center gap-5 overflow-y-scroll p-2 '>
-
-        <div className='bg-white w-full h-fit rounded-lg border border-[#245DE1]'>
-            <div className='h-14 p-5  flex items-center bg-[#245DE1] text-white rounded-t-lg'>
-                <p className='text-md'>SOMEONE posted a new material : MATERIAL_NAME</p>
-            </div>
-            <div className='p-5 gap-3 grid'>
-                <p className='w-full text-sm font-semibold text-[#245DE1]'>Posted : DATE_OF_POST</p>
-                <div className='w-full p-1 flex flex-col lg:flex-row lg:flex-wrap justify-center gap-x-8 gap-y-4'>
-
-                    <div className='h-20 lg:w-[45%] w-[95%] border rounded-md flex overflow-hidden'>
-                        <div className='w-[35%] h-full border-r flex items-center justify-center bg-[#245DE1] text-white border-[#245DE1]'>Image</div>
-                        <div className='w-[65%] h-full p-3 item-center text-sm flex flex-col justify-between font-semibold text-[#245DE1]'>
-                            <p>NAME_OF_FILE.pdf</p>
-                            <p>Type_OF_FILE</p>
-                        </div>
-                    </div>
-                    
-                    <div className='h-20 lg:w-[45%] w-[95%] border rounded-md flex overflow-hidden'>
-                        <div className='w-[35%] h-full border-r flex items-center justify-center bg-[#245DE1] text-white border-[#245DE1]'>Image</div>
-                        <div className='w-[65%] h-full p-3 item-center'>
-                            <p>NAME_OF_FILE.pdf</p>
-                            <p>Type_OF_FILE</p>
-                        </div>
-                    </div>
-                    
+    <div className=" w-full sm:h-full flex flex-col items-center gap-5 overflow-y-scroll p-2 ">
+      {assignment.map((item) => (
+        <div className="bg-white w-full h-fit rounded-lg border border-[#245DE1]">
+          <div className="h-14 p-5  flex items-center bg-[#245DE1] text-white rounded-t-lg">
+            <p className="text-md">
+              Posted material : {item.title}
+            </p>
+          </div>
+          <div className="p-5 gap-3 grid">
+            <p className="w-full text-sm font-semibold text-[#245DE1]">
+              Posted : DATE_OF_POST
+            </p>
+            <div className="w-full p-1 flex flex-col lg:flex-row lg:flex-wrap justify-center gap-x-8 gap-y-4">
+              <div className="h-20 lg:w-[45%] w-[95%] border rounded-md flex overflow-hidden">
+                  <div className="cursor-pointer w-[35%] h-full border-r  bg-[#245DE1] text-white border-[#245DE1]">
+                <a className='w-full h-full flex items-center justify-center' target='blank' href={item.file}>
+                    Download
+                </a>
+                  </div>
+                <div className="w-[65%] h-full p-3 item-center text-sm flex flex-col justify-between font-semibold text-[#245DE1]">
+                  <p>{item.title}</p>
+                  <p>{getFileTypeFromUrl(item.file)}</p>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-
-        
-        <div className='bg-white w-full h-fit rounded-lg border border-[#245DE1]'>
-            <div className='h-14 p-5  flex items-center bg-[#245DE1] text-white rounded-t-lg'>
-                <p className='text-md'>SOMEONE posted a new material : MATERIAL_NAME</p>
-            </div>
-            <div className='p-5 gap-3 grid'>
-                <p className='w-full text-sm font-semibold text-[#245DE1]'>Posted : DATE_OF_POST</p>
-                <div className='w-full p-1 flex flex-col lg:flex-row lg:flex-wrap justify-center gap-x-8 gap-y-4'>
-
-                    <div className='h-20 lg:w-[45%] w-[95%] border rounded-md flex overflow-hidden'>
-                        <div className='w-[35%] h-full border-r flex items-center justify-center bg-[#245DE1] text-white border-[#245DE1]'>Image</div>
-                        <div className='w-[65%] h-full p-3 item-center text-sm flex flex-col justify-between font-semibold text-[#245DE1]'>
-                            <p>NAME_OF_FILE.pdf</p>
-                            <p>Type_OF_FILE</p>
-                        </div>
-                    </div>
-
-                    <div className='h-20 lg:w-[45%] w-[95%] border rounded-md flex overflow-hidden'>
-                        <div className='w-[35%] h-full border-r flex items-center justify-center bg-[#245DE1] text-white border-[#245DE1]'>Image</div>
-                        <div className='w-[65%] h-full p-3 item-center'>
-                            <p>NAME_OF_FILE.pdf</p>
-                            <p>Type_OF_FILE</p>
-                        </div>
-                    </div>
-
-                    <div className='h-20 lg:w-[45%] w-[95%] border rounded-md flex overflow-hidden'>
-                        <div className='w-[35%] h-full border-r flex items-center justify-center bg-[#245DE1] text-white border-[#245DE1]'>Image</div>
-                        <div className='w-[65%] h-full p-3 item-center'>
-                            <p>NAME_OF_FILE.pdf</p>
-                            <p>Type_OF_FILE</p>
-                        </div>
-                    </div>
-
-                    <div className='h-20 lg:w-[45%] w-[95%] border rounded-md flex overflow-hidden'>
-                        <div className='w-[35%] h-full border-r flex items-center justify-center bg-[#245DE1] text-white border-[#245DE1]'>Image</div>
-                        <div className='w-[65%] h-full p-3 item-center'>
-                            <p>NAME_OF_FILE.pdf</p>
-                            <p>Type_OF_FILE</p>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
+      ))}
     </div>
-  )
+  );
 }
 
 export default Assignments
