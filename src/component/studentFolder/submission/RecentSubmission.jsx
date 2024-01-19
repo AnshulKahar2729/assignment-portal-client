@@ -6,7 +6,7 @@ function RecentSubmission() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://assignment-portal-server.onrender.com/api/assignment?role=student");
+        const response = await fetch("https://assignment-portal-server.onrender.com/api/submittedassignment?role=student");
         const data = await response.json();
         setAssignments(data);
         console.log(data);
