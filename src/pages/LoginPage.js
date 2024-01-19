@@ -9,7 +9,7 @@ const LoginPage = ({handleAuth}) => {
   const [email, setEmail] = useState("");
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState("student");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -25,8 +25,8 @@ const LoginPage = ({handleAuth}) => {
       });
 
       if (data) {
-        navigate("/");
         localStorage.setItem("token", data.token);
+        navigate("/");
         // Cookies.set('token', data.token, { expires: 1 }); // expires in 1 day
         console.log(data);
         

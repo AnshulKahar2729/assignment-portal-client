@@ -39,8 +39,8 @@ const SignUpPage = ({handleAuth}) => {
         division
       });
       if (data) {
-        navigate("/");
         localStorage.setItem("token", data.token);
+        navigate("/");
         // Cookies.set('token', data.token, { expires: 1 }); // expires in 1 day
 
         // Retrieve the token from the cookie (for anshul)

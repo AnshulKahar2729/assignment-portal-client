@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Calendar from '../calendar/Calendar';
 import Deadline from '../calendar/Deadline';
 import { FaUserCircle } from "react-icons/fa";
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { UserContext } from '../../store/userContext';
 
 
 function TeacherDashboard() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [userProfile, setUserProfile] = useState(null);
+  const {user} = useContext(UserContext);
 
   useEffect(() => {
     const fetchUserProfile = async () => {

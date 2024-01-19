@@ -1,7 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 function StudentSettings() {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/');
+  }
   return (
     <div className='w-full sm:h-full  p-2'>
       <div className='w-full h-full rounded-md bg-white p-2'>
