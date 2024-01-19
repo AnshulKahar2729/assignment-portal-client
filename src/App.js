@@ -21,6 +21,7 @@ import { useState, useEffect } from 'react';
 import TeacherCourseDetails from './component/teacherFolder/Courses/TeacherCourseDetails';
 import FilesPage from './component/CommonComponents/FilesPage';
 import Assignments from './component/CommonComponents/Assignment';
+import StudentAssignments from './component/teacherFolder/Students/faculty/StudentAssignments';
 
 
 function App() {
@@ -65,8 +66,7 @@ function App() {
               <Route path='/courses/coursedetails/*' element={<TeacherCourseDetails/>} />
               <Route path='/courses/coursedetails/files' element={<FilesPage role={role}/>} />
               <Route path='/assignments' element={<Assignments role={role}/>} />
-              <Route path='/students/*' element={<Students/>} />
-              <Route path='/assignments/studentdetails/*' element={<StudentDetails/>} />
+              <Route path='/assignments/studentdetails/*' element={<StudentCourseDetails/>} />
               <Route path='/assignments/studentdetails/studentAssignmentInfo' element={<StudentAssignments/>} />
              </Routes>
             }
