@@ -16,6 +16,9 @@ function CourseCard({course}) {
             </div>
           
           <img className='sticky top-11 left-40 right-0 w-32 h-28 ' src={ProfImg}  alt='ProfImg'/>
+          <div className='w-full flex flex-col'>
+  
+          </div>
         </div>
       ) : null 
     }

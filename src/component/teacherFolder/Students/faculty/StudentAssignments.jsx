@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 
 function StudentAssignments() {
   return (
-    <div>
+    <div className=''>
         <RecentSubmission/>
-        <Link to='/students/studentdetails'><button>Back</button></Link>
+        <Link className='m-1 flex items-center justify-center ' to='/assignments/studentdetails'><button className='rounded-md '>Back</button></Link>
     </div>
   )
 }

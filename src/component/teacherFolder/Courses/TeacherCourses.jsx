@@ -3,12 +3,34 @@ import CourseCard from '../../CommonComponents/CourseCard';
 import StudentImg from '../../../assets/ProfImg.png';
 import {Data} from '../Datas/Data';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 
 function TeacherCourses() {
 
   const [courses,setCourses] = useState(Data);
+  const [createCourseName, setCreateCourseName] = useState("");
+  const teacherId = "20678a3c16";
+
+  const handleCourseCreate = async (e) => {
+    e.preventDefault();
+    
+    try {
+      const { data } = await axios.post("https://assignment-portal-server.onrender.com/api/course?role=teacher", {
+        name : createCourseName,
+        teacherId: teacherId
+      });
+
+      if (data) {
+        alert('Course created successfully')
+      }
+      console.log('Course created successfully')
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
 
   return (
@@ -23,11 +45,23 @@ function TeacherCourses() {
         </div>
       </div>
       </div>
+
+      <div className='w-full p-6 bg-white rounded-lg'>
+        <h2 className='w-full text-center text-[#245DE1] text-lg font-bold mb-4'>Create New Course</h2>
+        <form className='w-full flex gap-4' onSubmit={handleCourseCreate}>
+          <input className='outline-none text-[#245DE1] w-full border-2 px-2' type="text" placeholder='Course Name' value={createCourseName} onChange={(event) => setCreateCourseName(event.target.value)} />
+          <button className='rounded-md'>Create</button>
+        </form>
+      </div>
+
       <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-24 xl:gap-28 m-auto'>
           {
             courses.map((course) => <Link to='/courses/coursedetails'><CourseCard key={course.id} course={course} /></Link>)
           }
       </div>
+
+
+
     </div>
   )
 }
