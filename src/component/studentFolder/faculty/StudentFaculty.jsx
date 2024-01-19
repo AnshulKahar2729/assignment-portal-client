@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FacultyBar from './FacultyBar';
+import Cookies from 'js-cookie';
 
 
 function StudentFaculty() {
@@ -18,6 +19,68 @@ function StudentFaculty() {
     }
 
   },[]);
+
+
+
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const token = await Cookies.get('token');
+  //       if (token) {
+  //         console.log('Token------->', token);
+  //       } else {
+  //         console.error('Token not found');
+  //       }
+  //     } catch (error) {
+  //       console.error('Error getting token:', error);
+  //     }
+  //   };
+  
+  //   fetchData();
+  // }, []);
+
+  const [facultyData,setFacultyData] = useState('');
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = Cookies.get('token');
+        const response = await fetch(
+          "https://assignment-portal-server.onrender.com/api/profile?role=teacher", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        
+        if (response.ok) {
+          const data = await response.json();
+          setFacultyData(data);
+        } else {
+          console.error("Error getting data. Status:", response.status);
+        }
+      } catch (error) {
+        console.error("Error getting data:", error);
+      }
+    };
+    fetchData();
+  },[])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   return (

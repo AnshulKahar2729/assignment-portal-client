@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 function FilesPage({ role }) {
   const [assignments, setAssignments] = useState([]);
 
+
   useEffect(() => {
     if (role === "teacher") {
       const fetchData = async () => {
@@ -20,12 +21,26 @@ function FilesPage({ role }) {
         }
       };
       fetchData();
+    } else {
+      const fetchData = async () => {
+        try {
+          const response = await fetch(
+            "https://assignment-portal-server.onrender.com/api/assignment?role=student"
+          );
+          const data = await response.json();
+          setAssignments(data);
+          console.log(data);
+        } catch (error) {
+          console.error("Error getting Assignments : ", error);
+        }
+      };
+      fetchData();
     }
   }, []);
 
-  useEffect(() => {
-    console.log("Assignment ------>", assignments);
-  }, [assignments]);
+  // useEffect(() => {
+  //   console.log("Assignment ------>", assignments);
+  // }, [assignments]);
 
   return (
     <div className="w-full sm:h-full flex flex-col p-2 gap-10 overflow-y-scroll">
@@ -57,6 +72,7 @@ function FilesPage({ role }) {
                 <div className="flex flex-col gap-1">
                   <p>Submitted : {item.title}</p>
                   <p>Course : {item.title}</p>
+                  <a href={item.file} target="blank">Download</a>
                 </div>
                 <p>Date : Date of Submission</p>
               </div>

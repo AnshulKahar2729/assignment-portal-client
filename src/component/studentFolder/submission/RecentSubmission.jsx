@@ -6,7 +6,7 @@ function RecentSubmission() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://assignment-portal-server.onrender.com/api/assignment?role=teacher");
+        const response = await fetch("https://assignment-portal-server.onrender.com/api/submittedassignment?role=student");
         const data = await response.json();
         setAssignments(data);
         console.log(data);
@@ -32,55 +32,12 @@ function RecentSubmission() {
               <div className="flex flex-col gap-1">
                 <p>Submitted : {item.title}</p>
                 <p>Course : {item.title}</p>
+                <a target="blank" href={item.file}>Download</a>
               </div>
               <p>Date : Date of Submission</p>
             </div>
 
           ))}
-
-
-
-            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2  text-[#245DE1] border-b border-[#245DE1]">
-              <div className="flex flex-col gap-1">
-                <p>Submitted : Item Title</p>
-                <p>Course : Course Name</p>
-              </div>
-              <p>Date : Date of Submission</p>
-            </div>
-
-
-            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2  text-[#245DE1] border-b border-[#245DE1]">
-              <div className="flex flex-col gap-1">
-                <p>Submitted : Item Title</p>
-                <p>Course : Course Name</p>
-              </div>
-              <p>Date : Date of Submission</p>
-            </div>
-
-
-            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2  text-[#245DE1] border-b border-[#245DE1]">
-              <div className="flex flex-col gap-1">
-                <p>Submitted : Item Title</p>
-                <p>Course : Course Name</p>
-              </div>
-              <p>Date : Date of Submission</p>
-            </div>
-
-
-
-
-
-            <div className="w-[95%] flex sm:flex-row flex-wrap justify-between p-2  text-[#245DE1] border-b border-[#245DE1]">
-              <div className="flex flex-col gap-1">
-                <p>Submitted : Item Title</p>
-                <p>Course : Course Name</p>
-              </div>
-              <p>Date : Date of Submission</p>
-            </div>
-
-
-
-
         </div>
       </div>
     </div>
