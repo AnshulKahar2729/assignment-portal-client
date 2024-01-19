@@ -17,19 +17,51 @@ import TeacherCourses from './component/teacherFolder/Courses/TeacherCourses';
 import TeacherSettings from './component/teacherFolder/TeacherSettings';
 import StudentCourseDetails from './component/studentFolder/Courses/StudentCourseDetails';
 import UploadPage from './component/studentFolder/submission/UploadPage';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TeacherCourseDetails from './component/teacherFolder/Courses/TeacherCourseDetails';
 import FilesPage from './component/CommonComponents/FilesPage';
 import Assignments from './component/CommonComponents/Assignment';
+import Cookies from 'js-cookie';
+import axios from 'axios';
 
 
 function App() {
-
   const role = 'student';
-  const isAuthenticated = !true;
+  // const isAuthenticated = !true;
   const [clickedHamburger,setClickedHamburger] = useState(false);
+  const [isAuthenticated,setIsAuthenticated] = useState(true);
+  const [userProfile, setUserProfile] = useState(null);
   
+  // useEffect(() => {
+  //     const retrievedToken = Cookies.get('token');
+  //     if(!retrievedToken){
+  //       setIsAuthenticated(false);
+  //     }else{
+  //       console.log(retrievedToken)
+  //       // console.log('all good')
+  //       // const fetchUserProfile = async () => {
+  //         try {
+  //           console.log('all good')
+  //           const response = axios.get('https://assignment-portal-server.onrender.com/api/profile', {
+  //             headers: {
+  //               Authorization: `Bearer ${retrievedToken}`,
+  //             },
+  //           });
 
+  //           setUserProfile(response.data);
+  //           console.log(response.data);
+  //         } catch (error) {
+  //           console.error('Error fetching user profile:', error.message);
+  //         }
+  //         // fetchUserProfile();
+  //       // };
+  //     }
+  // }, []);
+  
+  const handleAuth = () => {
+    setIsAuthenticated(true);
+    console.log('authenticated!')
+  }
   return (
 
     <Router>
@@ -38,8 +70,8 @@ function App() {
          ?
          <Routes>
           <Route path='/' element={<IndexPage/>} />
-          <Route path='/login' element={<LoginPage/>} />
-          <Route path='/signup' element={<SignUpPage/>} />
+          <Route path='/login' element={<LoginPage handleAuth={handleAuth}/>} />
+          <Route path='/signup' element={<SignUpPage handleAuth={handleAuth}/>} />
          </Routes>
          :
          <div className='relative PageLayout flex flex-col sm:flex-row'>

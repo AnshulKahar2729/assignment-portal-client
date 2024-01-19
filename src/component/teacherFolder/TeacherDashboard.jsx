@@ -1,10 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Calendar from '../calendar/Calendar';
 import Deadline from '../calendar/Deadline';
 import { FaUserCircle } from "react-icons/fa";
+import axios from 'axios';
+import Cookies from 'js-cookie';
+
 
 function TeacherDashboard() {
   const [selectedDate, setSelectedDate] = useState(null);
+  const [userProfile, setUserProfile] = useState(null);
+
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const token = Cookies.get('token'); // Replace 'yourTokenCookieName' with your actual cookie name
+        const response = await axios.get('https://assignment-portal-server.onrender.com/api/profile', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        setUserProfile(response.data);
+      } catch (error) {
+        console.error('Error fetching user profile:', error.message);
+      }
+    };
+
+    fetchUserProfile();
+  }, []);
 
   const handleDateSelect = (date) => {
     setSelectedDate(date);

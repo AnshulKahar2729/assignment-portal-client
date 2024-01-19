@@ -1,14 +1,42 @@
-import React, {useState } from 'react';
+import React, {useContext, useState } from 'react';
 import CourseCard from '../../CommonComponents/CourseCard';
 import StudentImg from '../../../assets/ProfImg.png';
 import {Data} from '../Datas/Data';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { UserContext } from '../../../store/userContext';
 
 
 
 function TeacherCourses() {
-
+  
+  // useEffect(() => {
+  const {user} = useContext(UserContext);
+  
   const [courses,setCourses] = useState(Data);
+  const [createCourseName, setCreateCourseName] = useState("");
+  const teacherId = "20678a3c16";
+
+  const handleCourseCreate = async (e) => {
+    e.preventDefault();
+    
+    try {
+      const { data } = await axios.post("https://assignment-portal-server.onrender.com/api/course?role=teacher", {
+        name : createCourseName,
+        teacherId: teacherId
+      });
+
+      if (data) {
+        alert('Course created successfully')
+      }
+      console.log('Course created successfully')
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+  console.log(user)
 
 
   return (
@@ -28,6 +56,15 @@ function TeacherCourses() {
             courses.map((course) => <Link to='/courses/coursedetails'><CourseCard key={course.id} course={course} /></Link>)
           }
       </div>
+      
+      <div className='p-8 bg-white pb-12'>
+        <h2 className='text-lg font-bold mb-4'>Create New Course</h2>
+        <form className='flex gap-4' onSubmit={handleCourseCreate}>
+          <input className='border-2 px-2' type="text" placeholder='Course Name' value={createCourseName} onChange={(event) => setCreateCourseName(event.target.value)} />
+          <button>Create</button>
+        </form>
+      </div>
+
     </div>
   )
 }
