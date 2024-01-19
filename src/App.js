@@ -62,8 +62,8 @@ function App() {
          ?
          <Routes>
           <Route path='/' element={<IndexPage/>} />
-          {/* <Route path='/login' element={<LoginPage handleAuth={handleAuth}/>} /> */}
-          {/* <Route path='/signup' element={<SignUpPage handleAuth={handleAuth}/>} /> */}
+          <Route path='/login' element={<LoginPage handleAuth={handleAuth}/>} />
+          <Route path='/signup' element={<SignUpPage handleAuth={handleAuth}/>} />
          </Routes>
          :
          <div className='relative PageLayout flex flex-col sm:flex-row'>
