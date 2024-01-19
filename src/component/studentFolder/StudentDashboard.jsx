@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Calendar from '../calendar/Calendar';
 import Deadline from '../calendar/Deadline';
 import { FaUserCircle } from "react-icons/fa";
+import axios from 'axios';
+import Cookies from 'js-cookie';
+import { UserContext } from '../../store/userContext';
 
 
 function StudentDashboard() {
 
+  // useEffect(() => {
+    const {user} = useContext(UserContext);
+  // }, []);
   const [selectedDate, setSelectedDate] = useState(null);
 
 
@@ -13,16 +19,21 @@ function StudentDashboard() {
     setSelectedDate(date);
   };
 
+  if (user === null) {
+    // Handle the case when user is still null (loading state)
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className='hideScrollbar w-full sm:h-full flex flex-col overflow-y-scroll text-[#245DE1]'>
       <div className='w-full  flex flex-col xl:flex-row gap-3 p-2'>
         <div className='w-full xl:w-[49%] text-[#245DE1] p-2 md:px-16 xl:px-20 flex justify-center xl:justify-between items-center gap-7 rounded-lg text-xl overflow-y-auto bg-white'>
           <div className='text-[80px] sm:text-[140px] text-[#245DE1]'><FaUserCircle /></div>
           <div className=''>
-            <p className='text-lg sm:text-xl'>Name : Pranav Hansraj Kale</p>
+            <p className='text-lg sm:text-xl'>Name : {user?.name}</p>
             <p className='text-md sm:text-xl'>Branch : E&TC</p>
             <p className='text-md sm:text-xl'>Year (Div) : 2nd Year</p>
-            <p className='text-md sm:text-xl'>Student Id : S190243109</p>
+            <p className='text-md sm:text-xl'>Student Id : {user?.studentId}</p>
           </div>
         </div>
         <div className='w-full xl:w-[49%] h-[249px] flex flex-col bg-white rounded-lg  p-2'>

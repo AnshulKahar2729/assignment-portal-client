@@ -17,21 +17,17 @@ import TeacherCourses from './component/teacherFolder/Courses/TeacherCourses';
 import TeacherSettings from './component/teacherFolder/TeacherSettings';
 import StudentCourseDetails from './component/studentFolder/Courses/StudentCourseDetails';
 import UploadPage from './component/studentFolder/submission/UploadPage';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TeacherCourseDetails from './component/teacherFolder/Courses/TeacherCourseDetails';
 import FilesPage from './component/CommonComponents/FilesPage';
 import Assignments from './component/CommonComponents/Assignment';
-import Students from './component/teacherFolder/Students/Students';
-import StudentDetails from './component/teacherFolder/Students/faculty/StudentDetails';
-import StudentAssignments from './component/teacherFolder/Students/faculty/StudentAssignments';
 
 
 function App() {
-
   const role = 'teacher';
   const isAuthenticated = true;
   const [clickedHamburger,setClickedHamburger] = useState(false);
-
+  
 
   return (
 
@@ -41,8 +37,8 @@ function App() {
          ?
          <Routes>
           <Route path='/' element={<IndexPage/>} />
-          <Route path='/login' element={<LoginPage/>} />
-          <Route path='/signup' element={<SignUpPage/>} />
+          <Route path='/login' element={<LoginPage handleAuth={handleAuth}/>} />
+          <Route path='/signup' element={<SignUpPage handleAuth={handleAuth}/>} />
          </Routes>
          :
          <div className='relative PageLayout flex flex-col sm:flex-row'>
