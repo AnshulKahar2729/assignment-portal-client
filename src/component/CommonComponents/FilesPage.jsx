@@ -72,9 +72,11 @@ function FilesPage({ role }) {
                 <div className="flex flex-col gap-1">
                   <p>Submitted : {item.title}</p>
                   <p>Course : {item.title}</p>
-                  <a href={item.file} target="blank">Download</a>
                 </div>
-                <p>Date : Date of Submission</p>
+                <div>
+                  <a className="text-[#245DE1] bg-white px-2 py-1 text-sm rounded-md" target="blank" href={item.file}>Download</a>
+                  <p>Date : Date of Submission</p>
+              </div>
               </div>
             ))}
           </div>

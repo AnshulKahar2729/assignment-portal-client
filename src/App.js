@@ -161,7 +161,7 @@ import StudentAssignments from './component/teacherFolder/Students/faculty/Stude
 
 function App() {
 
-  const role = 'student';
+  const role = 'teacher';
   const isAuthenticated = true;
   const [clickedHamburger,setClickedHamburger] = useState(false);
 
@@ -201,10 +201,10 @@ function App() {
               <Route path='/settings' element={<TeacherSettings/>} />
               <Route path='/courses/coursedetails/*' element={<TeacherCourseDetails/>} />
               <Route path='/courses/coursedetails/files' element={<FilesPage role={role}/>} />
-              <Route path='/assignments' element={<Assignments/>} />
+              <Route path='/assignments' element={<Assignments role={role}/>} />
               <Route path='/students/*' element={<Students/>} />
-              <Route path='/students/studentdetails/*' element={<StudentDetails/>} />
-              <Route path='/students/studentdetails/studentAssignmentInfo' element={<StudentAssignments/>} />
+              <Route path='/assignments/studentdetails/*' element={<StudentDetails/>} />
+              <Route path='/assignments/studentdetails/studentAssignmentInfo' element={<StudentAssignments/>} />
              </Routes>
             }
           </div>

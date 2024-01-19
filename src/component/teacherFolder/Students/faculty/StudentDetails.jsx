@@ -34,14 +34,15 @@ function StudentFaculty() {
           }
         </div>
         <div className='hideScrollbar flex flex-col w-full h-full rounded-b-lg overflow-y-scroll bg-white'>
-          <Link to='/students/studentdetails/studentAssignmentInfo'><FacultyBar windowWidth={windowWidth}/></Link>
-          <Link to='/students/studentdetails/studentAssignmentInfo'><FacultyBar windowWidth={windowWidth}/></Link>
-          <Link to='/students/studentdetails/studentAssignmentInfo'><FacultyBar windowWidth={windowWidth}/></Link>
-          <Link to='/students/studentdetails/studentAssignmentInfo'><FacultyBar windowWidth={windowWidth}/></Link>
-          <Link to='/students/studentdetails/studentAssignmentInfo'><FacultyBar windowWidth={windowWidth}/></Link>
-          <Link to='/students/studentdetails/studentAssignmentInfo'><FacultyBar windowWidth={windowWidth}/></Link>
-          <Link to='/students/studentdetails/studentAssignmentInfo'><FacultyBar windowWidth={windowWidth}/></Link>
+          <Link to='/assignments/studentdetails/studentAssignmentInfo'><FacultyBar windowWidth={windowWidth}/></Link>
+          <Link to='/assignments/studentdetails/studentAssignmentInfo'><FacultyBar windowWidth={windowWidth}/></Link>
+          <Link to='/assignments/studentdetails/studentAssignmentInfo'><FacultyBar windowWidth={windowWidth}/></Link>
+          <Link to='/assignments/studentdetails/studentAssignmentInfo'><FacultyBar windowWidth={windowWidth}/></Link>
+          <Link to='/assignments/studentdetails/studentAssignmentInfo'><FacultyBar windowWidth={windowWidth}/></Link>
+          <Link to='/assignments/studentdetails/studentAssignmentInfo'><FacultyBar windowWidth={windowWidth}/></Link>
+          <Link to='/assignments/studentdetails/studentAssignmentInfo'><FacultyBar windowWidth={windowWidth}/></Link>
         </div>
+        <Link className='w-full flex items-center justify-center' to='/assignments'><button className='rounded-md'>Back</button></Link>
       </div>
     </>
   )
