@@ -1,15 +1,27 @@
 import CourseCard from '../../CommonComponents/CourseCard';
 import StudentImg from '../../../assets/ProfImg.png';
 import {Data} from '../datas/Data';
-import React , { useState } from 'react';
+import React , { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 
 function StudentCourses() {
 
-  const [courses,setCourses] = useState(Data);
+  const [courses,setCourses] = useState([]);
 
+  useEffect(() => {
+    const apiUrl = 'https://assignment-portal-server.onrender.com/api/profile';
+
+    axios.get(apiUrl)
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
 
   return (
     <div className=' w-full sm:h-full  p-2 overflow-y-scroll gap-2 sm:gap-10 flex flex-col'>

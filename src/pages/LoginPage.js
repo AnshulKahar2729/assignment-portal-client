@@ -5,7 +5,7 @@ import RegisterImg from "../assets/login.avif";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 
-const LoginPage = () => {
+const LoginPage = ({handleAuth}) => {
   const [email, setEmail] = useState("");
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
@@ -26,16 +26,17 @@ const LoginPage = () => {
 
       if (data) {
         navigate("/");
-        // localStorage.setItem("token", data.token);
-        Cookies.set('token', data.token, { expires: 1 }); // expires in 1 day
+        localStorage.setItem("token", data.token);
+        // Cookies.set('token', data.token, { expires: 1 }); // expires in 1 day
         console.log(data);
         
         // Retrieve the token from the cookie (for anshul)
           // const retrievedToken = Cookies.get('token');
           // console.log('Retrieved Token:', retrievedToken);
+
         alert("Logged In Successfully")
       }
-
+      handleAuth()
       console.log('logged In Successfully')
 
     } catch (error) {

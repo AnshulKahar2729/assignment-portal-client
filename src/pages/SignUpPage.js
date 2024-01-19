@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import RegisterImg from "../assets/login.avif";
 import Cookies from 'js-cookie';
 
-const SignUpPage = () => {
+const SignUpPage = ({handleAuth}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +28,7 @@ const SignUpPage = () => {
 
     try {
       // if role student 
-      if(role == "student"){
+      if(role === "student"){
         const { data } = await axios.post("https://assignment-portal-server.onrender.com/api/register", {
         name,
         email,
@@ -40,14 +40,15 @@ const SignUpPage = () => {
       });
       if (data) {
         navigate("/");
-        // localStorage.setItem("token", data.token);
-        Cookies.set('token', data.token, { expires: 1 }); // expires in 1 day
+        localStorage.setItem("token", data.token);
+        // Cookies.set('token', data.token, { expires: 1 }); // expires in 1 day
 
         // Retrieve the token from the cookie (for anshul)
           // const retrievedToken = Cookies.get('token');
           // console.log('Retrieved Token:', retrievedToken);
         alert("Registered Successfully")
       }
+      handleAuth(true);
       console.log('user created Successfully');
 
       // for teacher 
@@ -160,7 +161,7 @@ const SignUpPage = () => {
                   </select>
                 </div>
                 {/* added fields */}
-                {role == "student" &&
+                {role === "student" &&
                 <>
                   {/* Year  */}
                   <label htmlFor="year" className="block mb-2 mt-5">
