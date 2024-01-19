@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
-function Assignments() {
+function Assignments({role}) {
 
     const [assignment,setAssignment] = useState([]);
 
@@ -49,32 +50,48 @@ function Assignments() {
 
   return (
     <div className=" w-full sm:h-full flex flex-col items-center gap-5 overflow-y-scroll p-2 ">
+      {role ? (
+        <div className="w-full bg-green flex justify-between p-4 bg-white rounded-lg sm:px-10 items-center">
+          <p className="text-2xl text-[#245DE1] font-semibold">Resourses</p>
+          <Link to="/courses/coursedetails/files">
+            <button className="rounded-md text-lg bg-green-500">
+              Upload Files
+            </button>
+          </Link>
+        </div>
+      ) : null}
+
       {assignment.map((item) => (
-        <div className="bg-white w-full h-fit rounded-lg border border-[#245DE1]">
-          <div className="h-14 p-5  flex items-center bg-[#245DE1] text-white rounded-t-lg">
-            <p className="text-md">
-              Posted material : {item.title}
-            </p>
-          </div>
-          <div className="p-5 gap-3 grid">
-            <p className="w-full text-sm font-semibold text-[#245DE1]">
-              Posted : DATE_OF_POST
-            </p>
-            <div className="w-full p-1 flex flex-col lg:flex-row lg:flex-wrap justify-center gap-x-8 gap-y-4">
-              <div className="h-20 lg:w-[45%] w-[95%] border rounded-md flex overflow-hidden">
+        
+          <div className="bg-white w-full h-fit rounded-lg border border-[#245DE1]">
+            <div className="h-14 p-5  flex justify-between items-center bg-[#245DE1] text-white  rounded-t-lg">
+              <p className="text-md line-clamp-1 sm:line-clamp-2">Posted material : {item.title}</p>
+              <Link to='/assignments/studentdetails'><button className='bg-white rounded-md text-[12px] sm:text-lg py-2 px-4 text-[#245DE1] hover:text-green-500'>Student's Uploads</button></Link>
+            </div>
+            <div className="p-5 gap-3 grid">
+              <p className="w-full text-sm font-semibold text-[#245DE1]">
+                Posted : DATE_OF_POST
+              </p>
+              <div className="w-full p-1 flex flex-col lg:flex-row lg:flex-wrap justify-center gap-x-8 gap-y-4">
+                <div className="h-20 lg:w-[45%] w-[95%] border rounded-md flex overflow-hidden">
                   <div className="cursor-pointer w-[35%] h-full border-r  bg-[#245DE1] text-white border-[#245DE1]">
-                <a className='w-full h-full flex items-center justify-center' target='blank' href={item.file}>
-                    Download
-                </a>
+                    <a
+                      className="w-full h-full flex items-center justify-center"
+                      target="blank"
+                      href={item.file}
+                    >
+                      Download
+                    </a>
                   </div>
-                <div className="w-[65%] h-full p-3 item-center text-sm flex flex-col justify-between font-semibold text-[#245DE1]">
-                  <p>{item.title}</p>
-                  <p>{getFileTypeFromUrl(item.file)}</p>
+                  <div className="w-[65%] h-full p-3 item-center text-sm flex flex-col justify-between font-semibold text-[#245DE1]">
+                    <p>{item.title}</p>
+                    <p>{getFileTypeFromUrl(item.file)}</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        
       ))}
     </div>
   );
