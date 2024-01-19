@@ -15,6 +15,7 @@ import StudentSettings from './component/studentFolder/StudentSettings';
 import TeacherDashboard from './component/teacherFolder/TeacherDashboard';
 import TeacherCourses from './component/teacherFolder/Courses/TeacherCourses';
 import TeacherSettings from './component/teacherFolder/TeacherSettings';
+import StudentDetails from './component/teacherFolder/Students/faculty/StudentDetails';
 import StudentCourseDetails from './component/studentFolder/Courses/StudentCourseDetails';
 import UploadPage from './component/studentFolder/submission/UploadPage';
 import { useState, useEffect } from 'react';
@@ -26,7 +27,7 @@ import StudentAssignments from './component/teacherFolder/Students/faculty/Stude
 
 function App() {
   const role = 'teacher';
-  const isAuthenticated = true;
+  const isAuthenticated = !true;
   const [clickedHamburger,setClickedHamburger] = useState(false);
   
 
@@ -38,8 +39,8 @@ function App() {
          ?
          <Routes>
           <Route path='/' element={<IndexPage/>} />
-          <Route path='/login' element={<LoginPage handleAuth={handleAuth}/>} />
-          <Route path='/signup' element={<SignUpPage handleAuth={handleAuth}/>} />
+          {/* <Route path='/login' element={<LoginPage handleAuth={handleAuth}/>} /> */}
+          {/* <Route path='/signup' element={<SignUpPage handleAuth={handleAuth}/>} /> */}
          </Routes>
          :
          <div className='relative PageLayout flex flex-col sm:flex-row'>
@@ -66,7 +67,7 @@ function App() {
               <Route path='/courses/coursedetails/*' element={<TeacherCourseDetails/>} />
               <Route path='/courses/coursedetails/files' element={<FilesPage role={role}/>} />
               <Route path='/assignments' element={<Assignments role={role}/>} />
-              <Route path='/assignments/studentdetails/*' element={<StudentCourseDetails/>} />
+              <Route path='/assignments/studentdetails/*' element={<StudentDetails/>} />
               <Route path='/assignments/studentdetails/studentAssignmentInfo' element={<StudentAssignments/>} />
              </Routes>
             }
