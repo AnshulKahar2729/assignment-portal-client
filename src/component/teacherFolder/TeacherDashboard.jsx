@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Calendar from '../calendar/Calendar';
-import Deadline from '../calendar/Deadline';
 import { FaUserCircle } from "react-icons/fa";
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { UserContext } from '../../store/userContext';
+import RecentPosts from '../calendar/RecentPosts';
 
 
 function TeacherDashboard() {
@@ -74,7 +74,7 @@ function TeacherDashboard() {
         </div>
       </div>
       <div className='w-full flex flex-col-reverse gap-3 xl:flex-row xl:gap-3 p-2'>
-        <div className='w-full xl:w-[49%] rounded-lg p-8 border-l text-white bg-white'><Deadline selectedDate={selectedDate}/></div>
+        <div className='w-full xl:w-[49%] rounded-lg p-8 border-l text-white bg-white'><RecentPosts selectedDate={selectedDate}/></div>
         <div className='w-full xl:w-[49%] bg-white rounded-lg p-8 '><Calendar onSelectDate={handleDateSelect}/></div>
       </div>
     </div>
