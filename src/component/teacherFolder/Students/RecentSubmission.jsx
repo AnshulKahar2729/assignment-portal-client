@@ -22,7 +22,7 @@ function RecentSubmission() {
   }, [assignments]);
 
   return (
-    <div className="w-full rounded-lg bg-white flex flex-col gap-3 overflow-hidden border shadow-lg ">
+    <div className="w-full rounded-lg bg-white flex flex-col gap-3 overflow-hidden border shadow-lg">
       <div className="w-full rounded-lg ">
         <p className="w-full text-center font-bold  text-white p-[15px] bg-[#245DE1] border-b">Recent Submissions</p>
         <div className="hideScrollbar flex flex-col px-4 gap-3 w-full  rounded-lg overflow-y-scroll h-[300px] sm:h-[450px] xl:h-[590px]">

@@ -1,5 +1,5 @@
 import React from 'react'
-import RecentSubmission from '../../../studentFolder/submission/RecentSubmission'
+import RecentSubmission from '../../../teacherFolder/Students/RecentSubmission'
 import { Link } from 'react-router-dom'
 
 function StudentAssignments() {

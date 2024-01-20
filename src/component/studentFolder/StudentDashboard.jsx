@@ -9,9 +9,7 @@ import { UserContext } from '../../store/userContext';
 
 function StudentDashboard() {
 
-  // useEffect(() => {
-    const {user} = useContext(UserContext);
-  // }, []);
+  const {user} = useContext(UserContext);
   const [selectedDate, setSelectedDate] = useState(null);
 
 
@@ -23,6 +21,8 @@ function StudentDashboard() {
     // Handle the case when user is still null (loading state)
     return <div>Loading...</div>;
   }
+
+  
 
   return (
     <div className='hideScrollbar w-full sm:h-full flex flex-col overflow-y-scroll text-[#245DE1]'>

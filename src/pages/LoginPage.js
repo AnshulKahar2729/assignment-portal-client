@@ -27,12 +27,8 @@ const LoginPage = ({handleAuth}) => {
       if (data) {
         localStorage.setItem("token", data.token);
         navigate("/");
-        // Cookies.set('token', data.token, { expires: 1 }); // expires in 1 day
         console.log(data);
         
-        // Retrieve the token from the cookie (for anshul)
-          // const retrievedToken = Cookies.get('token');
-          // console.log('Retrieved Token:', retrievedToken);
 
         alert("Logged In Successfully")
       }

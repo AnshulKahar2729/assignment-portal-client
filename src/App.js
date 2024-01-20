@@ -20,7 +20,7 @@ import StudentCourseDetails from './component/studentFolder/Courses/StudentCours
 import UploadPage from './component/studentFolder/submission/UploadPage';
 import { useState, useEffect, useContext } from 'react';
 import TeacherCourseDetails from './component/teacherFolder/Courses/TeacherCourseDetails';
-import StudentAssignments from './component/studentFolder/submission/RecentSubmission';
+import StudentAssignments from './component/teacherFolder/Students/faculty/StudentAssignments';
 import FilesPage from './component/CommonComponents/FilesPage';
 import Assignments from './component/CommonComponents/Assignment';
 import { UserContext, UserProvider } from './store/userContext';

@@ -61,10 +61,23 @@ function TeacherCourses() {
       </div>
 
       <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-24 xl:gap-28 m-auto'>
-          {
+          {/* {
             courses.map((course) => <Link to='/courses/coursedetails'><CourseCard key={course.id} course={course} /></Link>)
-          }
+          } */}
+          {/* , divisionName, className, profName */}
+          <CourseCard courseName="BXE" className="SE" profName="Nilesh Sir" divisionName="D"  />
+          <CourseCard courseName="BEE" className="FE" profName="Bharti Ma'am" divisionName="A"  />
+          <CourseCard courseName="CHEM" className="TE" profName="Sinu Ma'am" divisionName="B"  />
       </div>
+      
+      {/* <div className='p-8 bg-white pb-12'>
+        <h2 className='text-lg font-bold mb-4'>Create New Course</h2>
+        <form className='flex gap-4' onSubmit={handleCourseCreate}>
+          <input className='border-2 px-2' type="text" placeholder='Course Name' value={createCourseName} onChange={(event) => setCreateCourseName(event.target.value)} />
+          <button>Create</button>
+        </form>
+      </div> */}
+
 
     </div>
   )
