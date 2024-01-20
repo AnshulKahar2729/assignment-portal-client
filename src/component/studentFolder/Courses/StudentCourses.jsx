@@ -12,18 +12,17 @@ function StudentCourses() {
 
   const {user} = useContext(UserContext);
   const [enrolledCourses,setEnrolledCourses] = useState([]);
-  const [allcourses,setAllCourses] = useState([]);
+  const [allCourses,setAllCourses] = useState([]);
 
-  
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get("https://assignment-portal-server.onrender.com/api/course?role=student", {
-          studentId: user.userId
+        const { data } = await axios.post("http://localhost:4000/api/course?role=student", {
+          studentId: user?.studentId
         });
 
-        console.log('Faculty fetched successfully:', data);
-        setAllCourses(data)
+        console.log('Courses fetched successfully:', data.sendCourses);
+        setAllCourses(data.sendCourses)
   
       } catch (error) {
         console.log(error);
@@ -44,15 +43,19 @@ function StudentCourses() {
         </div>
       </div>
       </div>
+      {/* all coursees  */}
       <h2 className='text-lg'>Enrolled Courses:</h2>
       <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-24 xl:gap-28 m-auto'>
-          {/* {
-            enrolledCourses.map((course) => <Link to='/courses/coursedetails'><CourseCard key={course.id} course={course} /></Link>)
-          } */}
-          
-          <Link to='/courses/coursedetails'><CourseCard courseName="BXE" className="SE" profName="Nilesh Sir" divisionName="D"  /></Link>
-          <Link to='/courses/coursedetails'><CourseCard courseName="BEE" className="FE" profName="Bharti Ma'am" divisionName="A"  /></Link>
-          <Link to='/courses/coursedetails'><CourseCard courseName="CHEM" className="TE" profName="Sinu Ma'am" divisionName="B"  /></Link>
+          {allCourses?.map((item) => (
+            <Link to='/courses/coursedetails'><CourseCard name={item.name} profName="Bharti Ma'am" numberOfStudents={item.numberOfStudents}  enrollBtn={false}  /></Link>
+          ))}
+      </div>
+      {/* all coursees  */}
+      <h2 className='text-lg'>All Courses:</h2>
+      <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-24 xl:gap-28 m-auto'>
+          {allCourses?.map((item) => (
+            <Link to='/courses/coursedetails'><CourseCard name={item.name} profName="Bharti Ma'am" numberOfStudents={item.numberOfStudents} enrollBtn={true}  /></Link>
+          ))}
       </div>
 
       {/* <h2 className='text-lg'>other Courses:</h2>
