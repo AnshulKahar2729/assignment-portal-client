@@ -7,7 +7,9 @@ function TeacherSettings() {
   const handleLogout = () => {
     localStorage.removeItem('token');
     navigate('/');
+    window.location.reload();
   }
+
   return (
     <div className='w-full sm:h-full  p-2'>
       <div className='w-full h-full rounded-md bg-white p-2'>
