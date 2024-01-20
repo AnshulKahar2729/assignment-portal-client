@@ -9,16 +9,17 @@ function RecentSubmission() {
         const response = await fetch("https://assignment-portal-server.onrender.com/api/submittedassignment?role=student");
         const data = await response.json();
         setAssignments(data);
-        console.log(data);
+        console.log('Submitted Assignment  :::::> ',data);
       } catch (error) {
         console.error("Error getting Assignments : ", error);
       }
     };
     fetchData();
   }, []);
+  console.log('Submitted Assignment  :::::> ',assignments);
 
   useEffect(() => {
-    console.log('Assignment ------>',assignments);
+    // console.log('Assignment ------>',assignments);
   }, [assignments]);
 
   return (

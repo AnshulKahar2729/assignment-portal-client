@@ -30,7 +30,7 @@ function StudentFaculty() {
     // const temp = ["65a6d84a5c5973d1f509ea3b","65aab8a0eb269294ed452b9b","65aaba19eb269294ed452bae", "65aabb30eb269294ed452bb2"];
     const fetchData = async () => {
       try {
-        const { data } = await axios.post("hhttps://assignment-portal-server.onrender.com/api/teacher", {
+        const { data } = await axios.post("https://assignment-portal-server.onrender.com/api/teacher", {
           coursesIdArr: user?.enrolledCourses
         });
         
