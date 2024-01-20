@@ -1,27 +1,36 @@
 import CourseCard from '../../CommonComponents/CourseCard';
 import StudentImg from '../../../assets/ProfImg.png';
 import {Data} from '../datas/Data';
-import React , { useState, useEffect } from 'react';
+import React , { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { UserContext } from '../../../store/userContext';
 
 
 
 function StudentCourses() {
 
-  const [courses,setCourses] = useState([]);
+  const {user} = useContext(UserContext);
+  const [enrolledCourses,setEnrolledCourses] = useState([]);
+  const [allcourses,setAllCourses] = useState([]);
 
+  
   useEffect(() => {
-    const apiUrl = 'https://assignment-portal-server.onrender.com/api/profile';
+    const fetchData = async () => {
+      try {
+        const { data } = await axios.get("https://assignment-portal-server.onrender.com/api/course?role=student", {
+          studentId: user.userId
+        });
 
-    axios.get(apiUrl)
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
+        console.log('Faculty fetched successfully:', data);
+        setAllCourses(data)
+  
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  },[])
 
   return (
     <div className=' w-full sm:h-full  p-2 overflow-y-scroll gap-2 sm:gap-10 flex flex-col'>
@@ -35,11 +44,22 @@ function StudentCourses() {
         </div>
       </div>
       </div>
+      <h2 className='text-lg'>Enrolled Courses:</h2>
+      <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-24 xl:gap-28 m-auto'>
+          {/* {
+            enrolledCourses.map((course) => <Link to='/courses/coursedetails'><CourseCard key={course.id} course={course} /></Link>)
+          } */}
+          
+          <Link to='/courses/coursedetails'><CourseCard courseName="BXE" className="SE" profName="Nilesh Sir" divisionName="D"  /></Link>
+          <Link to='/courses/coursedetails'><CourseCard courseName="BEE" className="FE" profName="Bharti Ma'am" divisionName="A"  /></Link>
+          <Link to='/courses/coursedetails'><CourseCard courseName="CHEM" className="TE" profName="Sinu Ma'am" divisionName="B"  /></Link>
+      </div>
+      {/* <h2 className='text-lg'>other Courses:</h2>
       <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-24 xl:gap-28 m-auto'>
           {
-            courses.map((course) => <Link to='/courses/coursedetails'><CourseCard key={course.id} course={course} /></Link>)
+            enrolledCourses.map((course) => <Link to='/courses/coursedetails'><CourseCard key={course.id} course={course} /></Link>)
           }
-      </div>
+      </div> */}
     </div>
   )
 }

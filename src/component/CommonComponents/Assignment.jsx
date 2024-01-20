@@ -61,7 +61,7 @@ function Assignments({role}) {
         </div>
       ) : null}
 
-      {assignment.map((item) => (
+      {/* {assignment.map((item) => (
         
           <div className="bg-white w-full h-fit rounded-lg border border-[#245DE1]">
             <div className="h-14 p-5  flex justify-between items-center bg-[#245DE1] text-white  rounded-t-lg">
@@ -70,7 +70,7 @@ function Assignments({role}) {
             </div>
             <div className="p-5 gap-3 grid">
               <p className="w-full text-sm font-semibold text-[#245DE1]">
-                Posted : DATE_OF_POST
+                Posted : 12th Jan 2024
               </p>
               <div className="w-full p-1 flex flex-col lg:flex-row lg:flex-wrap justify-center gap-x-8 gap-y-4">
                 <div className="h-20 lg:w-[45%] w-[95%] border rounded-md flex overflow-hidden">
@@ -92,7 +92,91 @@ function Assignments({role}) {
             </div>
           </div>
         
-      ))}
+      ))} */}
+                <div className="bg-white w-full h-fit rounded-lg border border-[#245DE1]">
+            <div className="h-14 p-5  flex justify-between items-center bg-[#245DE1] text-white  rounded-t-lg">
+              <p className="text-md line-clamp-1 sm:line-clamp-2">Posted material : FDS Assignment</p>
+              <Link to='/assignments/studentdetails'><button className='bg-white rounded-md text-[12px] sm:text-lg py-2 px-4 text-[#245DE1] hover:text-green-500'>Student's Uploads</button></Link>
+            </div>
+            <div className="p-5 gap-3 grid">
+              <p className="w-full text-sm font-semibold text-[#245DE1]">
+                Posted : 12th Jan 2024
+              </p>
+              <div className="w-full p-1 flex flex-col lg:flex-row lg:flex-wrap justify-center gap-x-8 gap-y-4">
+                <div className="h-20 lg:w-[45%] w-[95%] border rounded-md flex overflow-hidden">
+                  <div className="cursor-pointer w-[35%] h-full border-r  bg-[#245DE1] text-white border-[#245DE1]">
+                    <a
+                      className="w-full h-full flex items-center justify-center"
+                      target="blank"
+                      href=''
+                    >
+                      Download
+                    </a>
+                  </div>
+                  <div className="w-[65%] h-full p-3 item-center text-sm flex flex-col justify-between font-semibold text-[#245DE1]">
+                    <p>BXE Assignment</p>
+                    {/* <p>{getFileTypeFromUrl(item.file)}</p> */}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white w-full h-fit rounded-lg border border-[#245DE1]">
+            <div className="h-14 p-5  flex justify-between items-center bg-[#245DE1] text-white  rounded-t-lg">
+              <p className="text-md line-clamp-1 sm:line-clamp-2">Posted material : Physics Assignment</p>
+              <Link to='/assignments/studentdetails'><button className='bg-white rounded-md text-[12px] sm:text-lg py-2 px-4 text-[#245DE1] hover:text-green-500'>Student's Uploads</button></Link>
+            </div>
+            <div className="p-5 gap-3 grid">
+              <p className="w-full text-sm font-semibold text-[#245DE1]">
+                Posted : 14th Jan 2024
+              </p>
+              <div className="w-full p-1 flex flex-col lg:flex-row lg:flex-wrap justify-center gap-x-8 gap-y-4">
+                <div className="h-20 lg:w-[45%] w-[95%] border rounded-md flex overflow-hidden">
+                  <div className="cursor-pointer w-[35%] h-full border-r  bg-[#245DE1] text-white border-[#245DE1]">
+                    <a
+                      className="w-full h-full flex items-center justify-center"
+                      target="blank"
+                      // href={item.file}
+                    >
+                      Download
+                    </a>
+                  </div>
+                  <div className="w-[65%] h-full p-3 item-center text-sm flex flex-col justify-between font-semibold text-[#245DE1]">
+                    <p>Chem Assignment</p>
+                    {/* <p>{getFileTypeFromUrl(item.file)}</p> */}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white w-full h-fit rounded-lg border border-[#245DE1]">
+            <div className="h-14 p-5  flex justify-between items-center bg-[#245DE1] text-white  rounded-t-lg">
+              <p className="text-md line-clamp-1 sm:line-clamp-2">Posted material : BEE Assignment</p>
+              <Link to='/assignments/studentdetails'><button className='bg-white rounded-md text-[12px] sm:text-lg py-2 px-4 text-[#245DE1] hover:text-green-500'>Student's Uploads</button></Link>
+            </div>
+            <div className="p-5 gap-3 grid">
+              <p className="w-full text-sm font-semibold text-[#245DE1]">
+                Posted : 9th Jan 2024
+              </p>
+              <div className="w-full p-1 flex flex-col lg:flex-row lg:flex-wrap justify-center gap-x-8 gap-y-4">
+                <div className="h-20 lg:w-[45%] w-[95%] border rounded-md flex overflow-hidden">
+                  <div className="cursor-pointer w-[35%] h-full border-r  bg-[#245DE1] text-white border-[#245DE1]">
+                    <a
+                      className="w-full h-full flex items-center justify-center"
+                      target="blank"
+                      href=''
+                    >
+                      Download
+                    </a>
+                  </div>
+                  <div className="w-[65%] h-full p-3 item-center text-sm flex flex-col justify-between font-semibold text-[#245DE1]">
+                    <p>Assignemt</p>
+                    {/* <p>{getFileTypeFromUrl(item.file)}</p> */}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
   );
 }

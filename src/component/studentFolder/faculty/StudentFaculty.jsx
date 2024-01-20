@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import FacultyBar from './FacultyBar';
 import Cookies from 'js-cookie';
+import axios from 'axios';
+import { UserContext } from '../../../store/userContext';
 
 
 function StudentFaculty() {
 
+  const {user} = useContext(UserContext);
   const [windowWidth,setWindowWidth] = useState(window.innerWidth);
+  const [facultyData,setFacultyData] = useState([]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -20,69 +24,27 @@ function StudentFaculty() {
 
   },[]);
 
-
-
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const token = await Cookies.get('token');
-  //       if (token) {
-  //         console.log('Token------->', token);
-  //       } else {
-  //         console.error('Token not found');
-  //       }
-  //     } catch (error) {
-  //       console.error('Error getting token:', error);
-  //     }
-  //   };
-  
-  //   fetchData();
-  // }, []);
-
-  const [facultyData,setFacultyData] = useState('');
-
+  console.log("heyyy",user?.enrolledCourses)
 
   useEffect(() => {
+    // const temp = ["65a6d84a5c5973d1f509ea3b","65aab8a0eb269294ed452b9b","65aaba19eb269294ed452bae", "65aabb30eb269294ed452bb2"];
     const fetchData = async () => {
       try {
-        const token = Cookies.get('token');
-        const response = await fetch(
-          "https://assignment-portal-server.onrender.com/api/profile?role=teacher", {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const { data } = await axios.post("http://localhost:4000/api/teacher", {
+          coursesIdArr: user?.enrolledCourses
+        });
         
-        if (response.ok) {
-          const data = await response.json();
-          setFacultyData(data);
-        } else {
-          console.error("Error getting data. Status:", response.status);
-        }
+
+        console.log('Faculty fetched successfully:', data)
+        setFacultyData(data)
+        
+  
       } catch (error) {
-        console.error("Error getting data:", error);
+        console.log(error);
       }
     };
     fetchData();
-  },[])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  },[user])
   return (
     <>
       <div className='flex flex-col sm:h-full w-full p-2 overflow-hidden'>
@@ -96,6 +58,12 @@ function StudentFaculty() {
           }
         </div>
         <div className='hideScrollbar flex flex-col w-full h-full rounded-b-lg overflow-y-scroll bg-white'>
+          {/* <FacultyBar windowWidth={windowWidth}/> */}
+          {facultyData.length !== 0 && facultyData?.map((item, idx) => (
+            <FacultyBar windowWidth={windowWidth} name={item.name} subject={item.courseName} />
+            // <div >item</div>
+            ))}
+          {/* <FacultyBar windowWidth={windowWidth}/>
           <FacultyBar windowWidth={windowWidth}/>
           <FacultyBar windowWidth={windowWidth}/>
           <FacultyBar windowWidth={windowWidth}/>
@@ -113,9 +81,7 @@ function StudentFaculty() {
           <FacultyBar windowWidth={windowWidth}/>
           <FacultyBar windowWidth={windowWidth}/>
           <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
+          <FacultyBar windowWidth={windowWidth}/> */}
         </div>
       </div>
     </>
