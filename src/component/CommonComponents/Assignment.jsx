@@ -55,7 +55,7 @@ function Assignments({role}) {
           <p className="text-2xl text-[#245DE1] font-semibold">Resourses</p>
           <Link to="/courses/coursedetails/files">
             <button className="rounded-md text-lg bg-green-500">
-              Upload Files
+              Create Assignment
             </button>
           </Link>
         </div>
@@ -66,7 +66,9 @@ function Assignments({role}) {
           <div className="bg-white w-full h-fit rounded-lg border border-[#245DE1]">
             <div className="h-14 p-5  flex justify-between items-center bg-[#245DE1] text-white  rounded-t-lg">
               <p className="text-md line-clamp-1 sm:line-clamp-2">Posted material : {item.title}</p>
-              <Link to='/assignments/studentdetails'><button className='bg-white rounded-md text-[12px] sm:text-lg py-2 px-4 text-[#245DE1] hover:text-green-500'>Student's Uploads</button></Link>
+              {
+                role === "teacher" ? <Link to='/assignments/studentdetails'><button className='bg-white rounded-md text-[12px] sm:text-lg py-2 px-4 text-[#245DE1] hover:text-green-500'>Student's Uploads</button></Link> : null
+              }
             </div>
             <div className="p-5 gap-3 grid">
               <p className="w-full text-sm font-semibold text-[#245DE1]">
