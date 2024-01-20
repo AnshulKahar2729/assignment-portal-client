@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import AssignmentItem from './AssignmentItem';
 
 function Assignments() {
 
-    const [assignment,setAssignment] = useState([]);
+    const [assignments,setAssignments] = useState([]);
 
     useEffect(() => {
         try{
             const fetchData = async () => {
                 try {
                   const response = await fetch(
-                    "https://assignment-portal-server.onrender.com/api/assignment?role=teacher"
+                    "https://assignment-portal-server.onrender.com/api/assignment?role=student"
                   );
                   const data = await response.json();
-                  setAssignment(data);
-                  // console.log(data);
+                  setAssignments(data);
+                  console.log(data);
                 } catch (error) {
                   console.error("Error getting Assignments : ", error);
                 }
@@ -28,13 +29,14 @@ function Assignments() {
     },[])
 
 
+
   return (
     <div className=" w-full sm:h-full flex flex-col items-center gap-5 h-screen p-2 ">
       <p className="w-full bg-[#245DE1] text-xl text-white text-center p-2 rounded-t-md">
         Assignments
       </p>
       <div className="w-full flex flex-col gap-2 overflow-y-scroll">
-        {assignment.map((item) => (
+        {/* {assignment.map((item) => (
           <div
             key={item._id}
             className="w-full flex flex-col bg-white gap-2 rounded-md p-1 sm:px-10 sm:py-4 text-[#245DE1]"
@@ -60,7 +62,36 @@ function Assignments() {
               </Link>
             </div>
           </div>
+        ))} */}
+
+        {assignments?.map((item) => (
+          <AssignmentItem key={item._id} name={item.title} url={item.file} assignmentId={item._id}/>
         ))}
+
+
+        
+      {/* <button onClick={openModal}>Open Modal</button>
+
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        // style={customStyles}
+        contentLabel="Example Modal"
+        className='z-50 right-0 bg-red-400 ml-auto w-3/4 h-full'
+      >
+        <h2>Hello</h2>
+        <button onClick={closeModal}>close</button>
+        <div>I am a modal</div>
+        <form>
+          <input />
+          <button>tab navigation</button>
+          <button>stays</button>
+          <button>inside</button>
+          <button>the modal</button>
+        </form>
+      </Modal> */}
+
       </div>
     </div>
   );

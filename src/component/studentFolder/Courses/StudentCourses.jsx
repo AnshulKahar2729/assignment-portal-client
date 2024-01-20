@@ -17,7 +17,7 @@ function StudentCourses() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.post("http://localhost:4000/api/course?role=student", {
+        const { data } = await axios.post("https://assignment-portal-server.onrender.com/api/course?role=student", {
           studentId: user?.studentId
         });
 
