@@ -21,7 +21,11 @@ export const UserProvider = ({ children }) => {
                 });
                 const data = await response.json();
                 console.log('data is hereeeee:', data);
-                setUser(data);
+
+                const role = data.studentId ? 'student' : 'teacher';
+                const userWithRole = { ...data, role };
+
+                setUser(userWithRole);
             } catch (error) {
                 console.log(error);
             }
