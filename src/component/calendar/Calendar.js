@@ -7,10 +7,11 @@ const Day = ({ date, currentMonth, onClick }) => (
       isToday(date) ? 'bg-blue-600 text-white' : ''
     }`}
     onClick={() => onClick(date)}
-  >
+    >
     {format(date, 'd')}
   </td>
 );
+
 
 const Calendar = ({ onSelectDate }) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -18,11 +19,11 @@ const Calendar = ({ onSelectDate }) => {
   const nextMonth = () => {
     setCurrentMonth(addMonths(currentMonth, 1));
   };
-
+  
   const prevMonth = () => {
     setCurrentMonth(subMonths(currentMonth, 1));
   };
-
+  
   const handleDayClick = (date) => {
     onSelectDate(date);
   };
