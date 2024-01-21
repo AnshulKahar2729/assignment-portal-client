@@ -93,6 +93,9 @@ function App() {
               <Route path='/assignments' element={<AssignmentTeacher role={role}/>} />
               <Route path='/assignments/studentdetails/*' element={<StudentDetails/>} />
               <Route path='/assignments/studentdetails/studentAssignmentInfo' element={<StudentAssignments/>} />
+              <Route path='/assignments' element={<Assignments role={role}/>} />
+              {/* <Route path='/assignments/studentdetails/*' element={<StudentCourseDetails/> } /> */}
+              {/* <Route path='/assignments/studentdetails/studentAssignmentInfo' element={<StudentAssignments/>} /> */}
              </Routes>
             }
           </div>
