@@ -9,9 +9,7 @@ import { UserContext } from '../../store/userContext';
 
 function StudentDashboard() {
 
-  // useEffect(() => {
-    const {user} = useContext(UserContext);
-  // }, []);
+  const {user} = useContext(UserContext);
   const [selectedDate, setSelectedDate] = useState(null);
 
 
@@ -23,6 +21,8 @@ function StudentDashboard() {
     // Handle the case when user is still null (loading state)
     return <div>Loading...</div>;
   }
+
+  
 
   return (
     <div className='hideScrollbar w-full sm:h-full flex flex-col overflow-y-scroll text-[#245DE1]'>
@@ -62,7 +62,7 @@ function StudentDashboard() {
           </div>
         </div>
       </div>
-      <div className='w-full flex flex-col-reverse gap-3 xl:flex-row xl:gap-3 p-2'>
+      <div className='w-full h-full flex flex-col-reverse gap-3 xl:flex-row xl:gap-3 p-2'>
         <div className='w-full xl:w-[49%] rounded-lg p-8 border-l text-white bg-white'><Deadline selectedDate={selectedDate}/></div>
         <div className='w-full xl:w-[49%] bg-white rounded-lg p-1 sm:p-8 '><Calendar onSelectDate={handleDateSelect}/></div>
       </div>

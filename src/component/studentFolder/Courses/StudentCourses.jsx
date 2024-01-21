@@ -1,27 +1,35 @@
 import CourseCard from '../../CommonComponents/CourseCard';
 import StudentImg from '../../../assets/ProfImg.png';
 import {Data} from '../datas/Data';
-import React , { useState, useEffect } from 'react';
+import React , { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { UserContext } from '../../../store/userContext';
 
 
 
 function StudentCourses() {
 
-  const [courses,setCourses] = useState([]);
+  const {user} = useContext(UserContext);
+  const [enrolledCourses,setEnrolledCourses] = useState([]);
+  const [allCourses,setAllCourses] = useState([]);
 
   useEffect(() => {
-    const apiUrl = 'https://assignment-portal-server.onrender.com/api/profile';
+    const fetchData = async () => {
+      try {
+        const { data } = await axios.post("https://assignment-portal-server.onrender.com/api/course?role=student", {
+          studentId: user?.studentId
+        });
 
-    axios.get(apiUrl)
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
+        console.log('Courses fetched successfully:', data.sendCourses);
+        setAllCourses(data.sendCourses)
+  
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  },[])
 
   return (
     <div className=' w-full sm:h-full  p-2 overflow-y-scroll gap-2 sm:gap-10 flex flex-col'>
@@ -35,11 +43,28 @@ function StudentCourses() {
         </div>
       </div>
       </div>
+      {/* all coursees  */}
+      <h2 className='text-lg'>Enrolled Courses:</h2>
+      <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-24 xl:gap-28 m-auto'>
+          {allCourses?.map((item) => (
+            <Link to='/courses/coursedetails'><CourseCard name={item.name} profName="Bharti Ma'am" numberOfStudents={item.numberOfStudents}  enrollBtn={false}  /></Link>
+          ))}
+      </div>
+      {/* all coursees  */}
+      <h2 className='text-lg'>All Courses:</h2>
+      <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-24 xl:gap-28 m-auto'>
+          {allCourses?.map((item) => (
+            <Link to='/courses/coursedetails'><CourseCard name={item.name} profName="Bharti Ma'am" numberOfStudents={item.numberOfStudents} enrollBtn={true}  /></Link>
+          ))}
+      </div>
+
+      {/* <h2 className='text-lg'>other Courses:</h2>
       <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-24 xl:gap-28 m-auto'>
           {
-            courses.map((course) => <Link to='/courses/coursedetails'><CourseCard key={course.id} course={course} /></Link>)
+            enrolledCourses.map((course) => <Link to='/courses/coursedetails'><CourseCard key={course.id} course={course} /></Link>)
           }
-      </div>
+      </div> */}
+
     </div>
   )
 }

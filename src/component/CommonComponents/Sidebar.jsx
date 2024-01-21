@@ -48,7 +48,7 @@ function Sidebar({ role,clickedHamburger,setClickedHamburger }) {
                 {
                     url : '/courses',
                     icon : <AiFillFolder className='text-4xl'/>,
-                    title : 'Subjects',
+                    title : 'Courses',
                 },
                 {
                     url : '/facultyinfo',
@@ -71,18 +71,13 @@ function Sidebar({ role,clickedHamburger,setClickedHamburger }) {
                 {
                     url : '/courses',
                     icon : <AiFillFolder className='text-4xl'/>,
-                    title : 'Subjects',
+                    title : 'Courses',
                 },
                 {
                   url : '/assignments',
                   icon : <BsFillPeopleFill className='text-4xl'/>,
                   title : 'Assignments',
                 },
-                // {
-                //   url : '/students',
-                //   icon : <CgProfile className='text-4xl'/>,
-                //   title : 'Students',
-                // },
                 {
                     url : '/settings',
                     icon : <AiFillSetting className='text-4xl'/>,

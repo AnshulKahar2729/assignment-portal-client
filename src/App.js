@@ -15,12 +15,15 @@ import StudentSettings from './component/studentFolder/StudentSettings';
 import TeacherDashboard from './component/teacherFolder/TeacherDashboard';
 import TeacherCourses from './component/teacherFolder/Courses/TeacherCourses';
 import TeacherSettings from './component/teacherFolder/TeacherSettings';
+import StudentDetails from './component/teacherFolder/Students/faculty/StudentDetails';
 import StudentCourseDetails from './component/studentFolder/Courses/StudentCourseDetails';
 import UploadPage from './component/studentFolder/submission/UploadPage';
 import { useState, useEffect, useContext } from 'react';
 import TeacherCourseDetails from './component/teacherFolder/Courses/TeacherCourseDetails';
+import StudentAssignments from './component/teacherFolder/Students/faculty/StudentAssignments';
 import FilesPage from './component/CommonComponents/FilesPage';
-import Assignments from './component/CommonComponents/Assignment';
+import AssignmentStudent from './component/studentFolder/Assignment';
+import AssignmentTeacher from './component/teacherFolder/Assignment';
 import { UserContext, UserProvider } from './store/userContext';
 // import { useNavigate } from 'react-router-dom';
 
@@ -73,7 +76,7 @@ function App() {
               <Route path='/' element={<StudentDashboard/>} />
               <Route path='/submission/*' element={<StudentSubmission/>} />
               <Route path='/submission/uploadPage' element={<UploadPage/>} />
-              <Route path='/assignments' element={<Assignments/>} />
+              <Route path='/assignments' element={<AssignmentStudent/>} />
               <Route path='/courses/*' element={<StudentCourses/>} />
               <Route path='/facultyinfo' element={<StudentFaculty/>} />
               <Route path='/settings' element={<StudentSettings/>} />
@@ -87,6 +90,9 @@ function App() {
               <Route path='/settings' element={<TeacherSettings/>} />
               <Route path='/courses/coursedetails/*' element={<TeacherCourseDetails/>} />
               <Route path='/courses/coursedetails/files' element={<FilesPage role={role}/>} />
+              <Route path='/assignments' element={<AssignmentTeacher role={role}/>} />
+              <Route path='/assignments/studentdetails/*' element={<StudentDetails/>} />
+              <Route path='/assignments/studentdetails/studentAssignmentInfo' element={<StudentAssignments/>} />
               <Route path='/assignments' element={<Assignments role={role}/>} />
               {/* <Route path='/assignments/studentdetails/*' element={<StudentCourseDetails/> } /> */}
               {/* <Route path='/assignments/studentdetails/studentAssignmentInfo' element={<StudentAssignments/>} /> */}

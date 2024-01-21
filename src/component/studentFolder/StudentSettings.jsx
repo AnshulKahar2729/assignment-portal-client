@@ -7,6 +7,7 @@ function StudentSettings() {
   const handleLogout = () => {
     localStorage.removeItem('token');
     navigate('/');
+    window.location.reload();
   }
   return (
     <div className='w-full sm:h-full  p-2'>
