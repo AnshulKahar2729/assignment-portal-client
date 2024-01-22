@@ -36,20 +36,20 @@ function Sidebar({ role,clickedHamburger,setClickedHamburger }) {
                     title : 'Dashboard',
                 },
                 {
-                    url : '/submission',
-                    icon : <BiCalendarMinus className='text-4xl'/>,
-                    title : 'Submission',
-                },
-                {
-                    url : '/assignments',
-                    icon : <BsFillPeopleFill className='text-4xl'/>,
-                    title : 'Assignments',
-                },
-                {
                     url : '/courses',
                     icon : <AiFillFolder className='text-4xl'/>,
                     title : 'Courses',
                 },
+                {
+                    url : '/submission',
+                    icon : <BiCalendarMinus className='text-4xl'/>,
+                    title : 'Submission',
+                },
+                // {
+                //     url : '/assignments',
+                //     icon : <BsFillPeopleFill className='text-4xl'/>,
+                //     title : 'Assignments',
+                // },
                 {
                     url : '/facultyinfo',
                     icon : <CgProfile className='text-4xl'/>,

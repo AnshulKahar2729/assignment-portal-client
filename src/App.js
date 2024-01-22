@@ -75,13 +75,13 @@ function App() {
              <Routes>
               <Route path='/' element={<StudentDashboard/>} />
               <Route path='/submission/*' element={<StudentSubmission/>} />
-              <Route path='/submission/uploadPage' element={<UploadPage/>} />
+              <Route path='/submission/uploadPage/:id' element={<UploadPage/>} />
               <Route path='/assignments' element={<AssignmentStudent/>} />
               <Route path='/courses/*' element={<StudentCourses/>} />
               <Route path='/facultyinfo' element={<StudentFaculty/>} />
               <Route path='/settings' element={<StudentSettings/>} />
-              <Route path='/courses/coursedetails/*' element={<StudentCourseDetails/>} />
-              <Route path='/courses/coursedetails/files' element={<FilesPage role={role}/>} />
+              <Route path='/courses/coursedetails/:id' element={<StudentCourseDetails/>} />
+              <Route path='/courses/coursedetails/files/:courseId' element={<FilesPage role={role}/>} />
              </Routes>
              :
              <Routes>

@@ -1,26 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../../store/userContext";
+import axios from "axios";
 
-function RecentSubmission() {
-  const [assignments, setAssignments] = useState([]);
+function RecentSubmission({assignments}) {
+  // const [assignments, setAssignments] = useState([]);
+  // const {user} = useContext(UserContext);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("https://assignment-portal-server.onrender.com/api/assignment?role=student");
-        const data = await response.json();
-        setAssignments(data);
-        console.log('Submitted Assignment  :::::> ',data);
-      } catch (error) {
-        console.error("Error getting Assignments : ", error);
-      }
-    };
-    fetchData();
-  }, []);
-  console.log('Submitted Assignment  :::::> ',assignments);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const { data } = await axios.post("http://localhost:4000/api/assignment/submittedassignment", {
+  //         studentId: user.studentId
+  //       });
+  
+  //       if (data) {
+  //         console.log(data);
+  //       }
+  //       console.log(data)
+  
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
-  useEffect(() => {
-    // console.log('Assignment ------>',assignments);
-  }, [assignments]);
+  // useEffect(() => {
+  //   // console.log('Assignment ------>',assignments);
+  // }, [assignments]);
 
   return (
     <div className="w-full rounded-lg bg-white flex flex-col gap-3 overflow-hidden border shadow-lg ">
