@@ -8,7 +8,7 @@ const Day = ({ date, currentMonth, onClick, isAssignmentDay }) => (
   <td
     className={`border px-4 py-2 ${isSameMonth(date, currentMonth) ? '' : 'text-gray-900'} ${
       isToday(date) ? 'bg-blue-600 text-white' : ''
-    } ${isAssignmentDay ? 'bg-yellow-300' : ''}`}
+    } ${isAssignmentDay ? 'text-red-600 cursor-pointer' : ''}`}
     onClick={() => onClick(date)}
   >
     {format(date, 'd')}

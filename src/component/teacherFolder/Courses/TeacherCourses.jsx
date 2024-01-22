@@ -36,7 +36,7 @@ function TeacherCourses() {
     }
   }
   
-  handleCourseCreate()
+  // handleCourseCreate()
   console.log('Course created successfully ---->',courses)
 
 
