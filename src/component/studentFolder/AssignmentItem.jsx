@@ -1,16 +1,15 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { SlCloudUpload } from "react-icons/sl";
-import { Link } from 'react-router-dom';
 import { IoMdCloudDone } from "react-icons/io";
+import { CSSTransition } from 'react-transition-group';
 
-
-const AssignmentItem = ({name, url, assignmentId}) => {
-    const [file, setFile] = useState(null);
-    const [displayFile, setDisplayFile] = useState(null);
-    const [title,setTitle] = useState();
-    const [isDraggedOver, setIsDraggedOver] = useState(false);
-    const [modalIsOpen, setIsOpen] = React.useState(false);
+const AssignmentItem = ({ name, url, assignmentId }) => {
+  const [file, setFile] = useState(null);
+  const [displayFile, setDisplayFile] = useState(null);
+  const [title, setTitle] = useState();
+  const [isDraggedOver, setIsDraggedOver] = useState(false);
+  const [modalIsOpen, setIsOpen] = React.useState(false);
 
     // modal 
     function openModal() {
@@ -72,7 +71,7 @@ const AssignmentItem = ({name, url, assignmentId}) => {
 
   return (
           <>
-          <div className="w-full flex flex-col bg-white gap-2 rounded-md p-1 sm:px-10 sm:py-4 text-[#245DE1]">
+          <div className="relative w-full flex flex-col bg-white gap-2 rounded-md p-1 sm:px-10 sm:py-4 text-[#245DE1] ">
             <div className="w-full flex flex-wrap sm:flex-row justify-between items-center">
               <p>Subject Name</p>
               <p>Teacher Name</p>
@@ -98,10 +97,9 @@ const AssignmentItem = ({name, url, assignmentId}) => {
                 onAfterOpen={afterOpenModal}
                 onRequestClose={closeModal}
                 contentLabel="Example Modal"
-                className='z-50 right-0 bg-gray-400 ml-auto w-1/2 h-full'
+                className={`z-50 m-auto sm:w-[50%] h-[90%] p-4 mt-20 sm:mt-0 bg-green-500`}
             >
-                <h2>Hello</h2>
-                <button onClick={closeModal}>close</button>
+                
                 <div className="w-full h-full py-1 sm:px-4 sm:py-4  rounded-lg bg-white flex flex-col gap-3 text-[#245DE1]">
                     <form onSubmit={handleFormSubmit} className="w-full h-full grid gap-2">
                         <p className="w-full border-b text-xl font-bold text-center py-4">
@@ -112,7 +110,7 @@ const AssignmentItem = ({name, url, assignmentId}) => {
                         style={{border:"dashed blue 3px"}}
                         className={`zone ${
                             isDraggedOver ? "hover" : ""
-                        } bg-white  border text-blue-600 h-[300px] sm:h-[300px] w-[300px] sm:w-[300px] rounded-lg shadow-2xl mx-auto`}
+                        } bg-white  border text-blue-600 h-[250px] sm:h-[300px] w-[250px] sm:w-[300px] rounded-lg shadow-2xl mx-auto`}
                         onDragOver={handleDragOver}
                         onDragLeave={handleDragLeave}
                         >
@@ -156,6 +154,7 @@ const AssignmentItem = ({name, url, assignmentId}) => {
                             Upload
                             </button>
                         </div>
+                        <div className='w-full'><button className='w-fit' onClick={closeModal}>close</button></div>
                         </div>
 
                     </form>
