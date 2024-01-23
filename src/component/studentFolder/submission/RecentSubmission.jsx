@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 function RecentSubmission() {
   const [assignments, setAssignments] = useState([]);
 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -16,7 +17,7 @@ function RecentSubmission() {
     };
     fetchData();
   }, []);
-  console.log('Submitted Assignment  :::::> ',assignments);
+  // console.log('Submitted Assignment  :::::> ',assignments);
 
   useEffect(() => {
     // console.log('Assignment ------>',assignments);

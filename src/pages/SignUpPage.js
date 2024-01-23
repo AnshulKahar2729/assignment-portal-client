@@ -87,12 +87,12 @@ const SignUpPage = ({handleAuth}) => {
         <div className="bg-white">
           {/* ... (previous form and other content) */}
           <div className="w-full overflow-hidden p-6">
-            <div className="flex flex-col md:flex-row items-center gap-5 md:pr-10 w-full text-center md:justify-end">
+            {/* <div className="flex flex-col md:flex-row items-center gap-5 md:pr-10 w-full text-center md:justify-end">
               <span className="text-sm text-gray-500">Don't have an account?</span>
               <NavLink className="text-sm bg-blue-600 text-white px-4 rounded-sm py-2" to={"/login"}>
                 Login
               </NavLink>
-            </div>
+            </div> */}
             <div className="mb-4">
               <h1 className="text-4xl font-bold mt-3 text-gray-700">Create your account</h1>
             </div>
