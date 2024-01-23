@@ -33,7 +33,7 @@ function UploadPage({setOpenUploadPage}) {
       const formData = new FormData();
       formData.append("file", file);
       formData.append("title", title);
-      formData.append("studentId", user.studentId);
+      formData.append("studentId", user._id);
   
       try {
         const response = await fetch(

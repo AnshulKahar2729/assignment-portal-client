@@ -1,7 +1,7 @@
 import React, {useContext, useState } from 'react';
 import CourseCard from '../../CommonComponents/CourseCard';
 import StudentImg from '../../../assets/ProfImg.png';
-import {Data} from '../Datas/Data';
+// import {Data} from '../Datas/Data';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -14,7 +14,7 @@ function TeacherCourses() {
   // useEffect(() => {
   const {user} = useContext(UserContext);
   
-  const [courses,setCourses] = useState(Data);
+  // const [courses,setCourses] = useState([]);
   const [createCourseName, setCreateCourseName] = useState("");
   const teacherId = "20678a3c16";
 

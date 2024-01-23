@@ -18,6 +18,7 @@ import TeacherSettings from './component/teacherFolder/TeacherSettings';
 import StudentDetails from './component/teacherFolder/Students/faculty/StudentDetails';
 import StudentCourseDetails from './component/studentFolder/Courses/StudentCourseDetails';
 import UploadPage from './component/studentFolder/submission/UploadPage';
+
 import { useState, useEffect, useContext } from 'react';
 import TeacherCourseDetails from './component/teacherFolder/Courses/TeacherCourseDetails';
 import StudentAssignments from './component/teacherFolder/Students/faculty/StudentAssignments';

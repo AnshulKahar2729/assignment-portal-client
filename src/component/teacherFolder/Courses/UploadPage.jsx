@@ -7,6 +7,8 @@ function UploadPage() {
   const [file, setFile] = useState(null);
   const [displayFile, setDisplayFile] = useState(null);
   const [title,setTitle] = useState();
+  // const [title,setTitle] = useState();
+
   const [isDraggedOver, setIsDraggedOver] = useState(false);
 
   const handleDragOver = (e) => {

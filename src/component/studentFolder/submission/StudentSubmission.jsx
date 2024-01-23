@@ -16,6 +16,7 @@ function StudentSubmission() {
         for(var i=0; i< user.enrolledCourses?.length; i++){
             for(var j =0; j<user.enrolledCourses.assignments?.length; j++){
               setAllAssignments(...allAssignments);
+              // setAllAssignments(...allAssignments);
             }
         }
         console.log("All Assignments:", allAssignments)
