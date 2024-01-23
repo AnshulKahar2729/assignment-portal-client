@@ -5,6 +5,7 @@ import { BsFillPeopleFill } from 'react-icons/bs';
 import { AiFillFolder } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';
 import { AiFillSetting } from 'react-icons/ai';
+import { PiStudentFill } from "react-icons/pi";
 import { Link, useNavigate } from 'react-router-dom';
 import DpuLogo from '../../assets/DpuLogo.png';
 
@@ -77,6 +78,11 @@ function Sidebar({ role,clickedHamburger,setClickedHamburger }) {
                   url : '/assignments',
                   icon : <BsFillPeopleFill className='text-4xl'/>,
                   title : 'Assignments',
+                },
+                {
+                  url : '/studentinfo',
+                  icon : <PiStudentFill className='text-4xl'/>,
+                  title : 'Student Info',
                 },
                 {
                     url : '/settings',

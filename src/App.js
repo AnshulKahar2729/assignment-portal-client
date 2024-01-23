@@ -25,6 +25,8 @@ import FilesPage from './component/CommonComponents/FilesPage';
 import AssignmentStudent from './component/studentFolder/Assignment';
 import AssignmentTeacher from './component/teacherFolder/Assignment';
 import { UserContext, UserProvider } from './store/userContext';
+import Assignments from './component/teacherFolder/Assignment';
+import StudentInfo from './component/teacherFolder/StudentInfo';
 // import { useNavigate } from 'react-router-dom';
 
 function App() {
@@ -94,6 +96,7 @@ function App() {
               <Route path='/assignments/studentdetails/*' element={<StudentDetails/>} />
               <Route path='/assignments/studentdetails/studentAssignmentInfo' element={<StudentAssignments/>} />
               <Route path='/assignments' element={<Assignments role={role}/>} />
+              <Route path='/studentinfo' element={<StudentInfo/>} />
               {/* <Route path='/assignments/studentdetails/*' element={<StudentCourseDetails/> } /> */}
               {/* <Route path='/assignments/studentdetails/studentAssignmentInfo' element={<StudentAssignments/>} /> */}
              </Routes>
