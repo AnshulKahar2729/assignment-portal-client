@@ -65,9 +65,14 @@ function TeacherCourses() {
             courses.map((course) => <Link to='/courses/coursedetails'><CourseCard key={course.id} course={course} /></Link>)
           } */}
           {/* , divisionName, className, profName */}
-          <CourseCard courseName="BXE" className="SE" profName="Nilesh Sir" divisionName="D"  />
+          {/* <CourseCard courseName="BXE" className="SE" profName="Nilesh Sir" divisionName="D"  />
           <CourseCard courseName="BEE" className="FE" profName="Bharti Ma'am" divisionName="A"  />
-          <CourseCard courseName="CHEM" className="TE" profName="Sinu Ma'am" divisionName="B"  />
+          <CourseCard courseName="CHEM" className="TE" profName="Sinu Ma'am" divisionName="B"  /> */}
+          {
+            user.assignedCourses?.map((item) => (
+              <Link to={`/courses/coursedetails/${item._id}`}><CourseCard courseName={item.name} numberOfStudents={item.studentsEnrolled.length}  /></Link>
+            ))
+          }
       </div>
       
       {/* <div className='p-8 bg-white pb-12'>

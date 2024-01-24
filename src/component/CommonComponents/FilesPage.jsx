@@ -7,21 +7,21 @@ function FilesPage({ role }) {
   const { courseId } = useParams();
 
 
-  useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const response = await fetch(
-            `https://assignment-portal-server.onrender.com/api/course/${courseId}?role=student`
-          );
-          const data = await response.json();
-          setData(data);
-          console.log("vikasssssssssssssssssss:", data);
-        } catch (error) {
-          console.error("Error getting Assignments : ", error);
-        }
-      };
-      fetchData();
-  }, []);
+  // useEffect(() => {
+  //     const fetchData = async () => {
+  //       try {
+  //         const response = await fetch(
+  //           `https://assignment-portal-server.onrender.com/api/course/${courseId}?role=student`
+  //         );
+  //         const data = await response.json();
+  //         setData(data);
+  //         console.log("vikasssssssssssssssssss:", data);
+  //       } catch (error) {
+  //         console.error("Error getting Assignments : ", error);
+  //       }
+  //     };
+  //     fetchData();
+  // }, []);
 
 
   // console.log("hey this is id", courseId)
