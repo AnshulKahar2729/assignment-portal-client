@@ -7,11 +7,12 @@ import { CgProfile } from 'react-icons/cg';
 import { AiFillSetting } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import DpuLogo from '../../assets/DpuLogo.png';
+import { PiStudentFill } from "react-icons/pi";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrClose } from "react-icons/gr";
 
-function Sidebar({ role,clickedHamburger,setClickedHamburger }) {
+function Sidebar({ role,clickedHamburger,setClickedHamburger}) {
   const navigate = useNavigate();
   const [selected, setSelected] = useState(() => {
     const storedSelected = localStorage.getItem('selectedSidebar');
@@ -27,6 +28,7 @@ function Sidebar({ role,clickedHamburger,setClickedHamburger }) {
     navigate(url);
     setClickedHamburger(!clickedHamburger);
   };
+
 
     const Navigation = role === 'student' ?
             [
@@ -74,10 +76,15 @@ function Sidebar({ role,clickedHamburger,setClickedHamburger }) {
                     title : 'Courses',
                 },
                 {
-                  url : '/assignments',
-                  icon : <BsFillPeopleFill className='text-4xl'/>,
-                  title : 'Assignments',
+                  url : '/studentinfo',
+                  icon : <PiStudentFill className='text-4xl'/>,
+                  title : 'Student Info',
                 },
+                // {
+                //   url : '/assignments',
+                //   icon : <BsFillPeopleFill className='text-4xl'/>,
+                //   title : 'Assignments',
+                // },
                 {
                     url : '/settings',
                     icon : <AiFillSetting className='text-4xl'/>,
@@ -85,18 +92,16 @@ function Sidebar({ role,clickedHamburger,setClickedHamburger }) {
                 },
             ]
 
-
             useEffect(() => {
-                const storedSelected = localStorage.getItem('selectedSidebar');
-                if (storedSelected) {
-                  setSelected(storedSelected);
-                }
-              }, []);
+              const storedSelected = localStorage.getItem('selectedSidebar');
+              const initialSelected = storedSelected || 'Dashboard';
+              setSelected(initialSelected === 'Settings' ? 'Dashboard' : initialSelected);
+            }, []);
             
               return (
                 <div className="h-full sm:h-full flex flex-col overflow-hidden  items-center bg-white">
                   <div className="w-full flex justify-between items-center sm:justify-start p-2 ">
-                    <div className='w-full pl-2 py-5 flex justify-start md:justify-start sm:justify-center'><Link to='/'><img className='w-20 lg:w-32 xl:w-36' src={DpuLogo} alt="logo" /></Link></div>
+                    <div className='w-full pl-2 py-5 flex justify-start md:justify-start sm:justify-center'><Link to='/' onClick={() => handleClick('Dashboard', '/')} ><img className='w-20 lg:w-32 xl:w-36' src={DpuLogo} alt="logo" /></Link></div>
                     <div onClick={handleHamburgerClick} className="p-2 font-bold text-4xl text-[#245DE1] block sm:hidden">
                       {clickedHamburger ? <GrClose/> : <GiHamburgerMenu /> }
                     </div>

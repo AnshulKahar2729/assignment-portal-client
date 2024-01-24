@@ -1,7 +1,7 @@
 import React, {useContext, useState } from 'react';
 import CourseCard from '../../CommonComponents/CourseCard';
 import StudentImg from '../../../assets/ProfImg.png';
-import {Data} from '../Datas/Data';
+// import {Data} from '../Datas/Data';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -14,7 +14,7 @@ function TeacherCourses() {
   // useEffect(() => {
   const {user} = useContext(UserContext);
   
-  const [courses,setCourses] = useState(Data);
+  // const [courses,setCourses] = useState([]);
   const [createCourseName, setCreateCourseName] = useState("");
   const teacherId = "20678a3c16";
 
@@ -45,7 +45,7 @@ function TeacherCourses() {
       <div className='w-full text-xl sm:text-2xl flex flex-col sm:flex-row sm:justify-between sm:items-center px-7 bg-[#245DE1] text-white rounded-lg'>
         <h2>Courses : </h2>
         <div className='flex w-full justify-between sm:w-fit items-center sm:gap-3 '>
-          <p className=''>Name of Student</p>
+          <p className=''>Teacher Name: {user.name}</p>
           <img className='w-28' src={StudentImg} alt='StudentImg'/>
           {/* <CgProfile className="text-5xl"/> */}
         </div>
@@ -65,9 +65,14 @@ function TeacherCourses() {
             courses.map((course) => <Link to='/courses/coursedetails'><CourseCard key={course.id} course={course} /></Link>)
           } */}
           {/* , divisionName, className, profName */}
-          <CourseCard courseName="BXE" className="SE" profName="Nilesh Sir" divisionName="D"  />
+          {/* <CourseCard courseName="BXE" className="SE" profName="Nilesh Sir" divisionName="D"  />
           <CourseCard courseName="BEE" className="FE" profName="Bharti Ma'am" divisionName="A"  />
-          <CourseCard courseName="CHEM" className="TE" profName="Sinu Ma'am" divisionName="B"  />
+          <CourseCard courseName="CHEM" className="TE" profName="Sinu Ma'am" divisionName="B"  /> */}
+          {
+            user.assignedCourses?.map((item) => (
+              <Link to={`/courses/coursedetails/${item._id}`}><CourseCard courseName={item.name} numberOfStudents={item.studentsEnrolled.length}  /></Link>
+            ))
+          }
       </div>
       
       {/* <div className='p-8 bg-white pb-12'>

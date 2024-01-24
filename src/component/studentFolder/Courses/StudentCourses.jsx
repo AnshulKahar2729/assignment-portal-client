@@ -17,7 +17,7 @@ function StudentCourses() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.post("https://assignment-portal-server.onrender.com/api/course?role=student", {
+        const { data } = await axios.post("http://localhost:4000/api/course?role=student", {
           studentId: user?.studentId
         });
 
@@ -51,12 +51,12 @@ function StudentCourses() {
           ))}
       </div>
       {/* all coursees  */}
-      {/* <h2 className='text-lg'>All Courses:</h2>
+      <h2 className='text-lg'>All Courses:</h2>
       <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-24 xl:gap-28 m-auto'>
           {allCourses?.map((item) => (
             <CourseCard name={item.name} profName={item.teacher.name} numberOfStudents={item.numberOfStudents} enrollBtn={true} courseId={item.courseId}  />
           ))}
-      </div> */}
+      </div>
 
       {/* <h2 className='text-lg'>other Courses:</h2>
       <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-24 xl:gap-28 m-auto'>
