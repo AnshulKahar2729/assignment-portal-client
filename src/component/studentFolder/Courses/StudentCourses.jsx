@@ -58,12 +58,12 @@ function StudentCourses() {
           ))}
       </div> */}
 
-      <h2 className='text-lg'>other Courses:</h2>
+      {/* <h2 className='text-lg'>other Courses:</h2>
       <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-24 xl:gap-28 m-auto'>
           {
             enrolledCourses.map((course) => <Link to='/courses/coursedetails'><CourseCard key={course.id} course={course} /></Link>)
           }
-      </div>
+      </div> */}
 
     </div>
   )

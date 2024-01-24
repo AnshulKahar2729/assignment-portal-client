@@ -75,7 +75,7 @@ function App() {
             {role === 'student' 
              ?
              <Routes>
-              <Route path='/' element={<StudentDashboard/>} />
+              <Route path='/' element={<StudentDashboard userInfo={user}/>} />
               <Route path='/submission/*' element={<StudentSubmission/>} />
               <Route path='/submission/uploadPage/:id' element={<UploadPage/>} />
               <Route path='/assignments' element={<AssignmentStudent/>} />
