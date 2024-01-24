@@ -45,7 +45,7 @@ function TeacherCourses() {
       <div className='w-full text-xl sm:text-2xl flex flex-col sm:flex-row sm:justify-between sm:items-center px-7 bg-[#245DE1] text-white rounded-lg'>
         <h2>Courses : </h2>
         <div className='flex w-full justify-between sm:w-fit items-center sm:gap-3 '>
-          <p className=''>Name of Student</p>
+          <p className=''>Teacher Name: {user.name}</p>
           <img className='w-28' src={StudentImg} alt='StudentImg'/>
           {/* <CgProfile className="text-5xl"/> */}
         </div>

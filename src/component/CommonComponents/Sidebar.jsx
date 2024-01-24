@@ -7,6 +7,7 @@ import { CgProfile } from 'react-icons/cg';
 import { AiFillSetting } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import DpuLogo from '../../assets/DpuLogo.png';
+import { PiStudentFill } from "react-icons/pi";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrClose } from "react-icons/gr";
@@ -73,6 +74,11 @@ function Sidebar({ role,clickedHamburger,setClickedHamburger}) {
                     url : '/courses',
                     icon : <AiFillFolder className='text-4xl'/>,
                     title : 'Courses',
+                },
+                {
+                  url : '/studentinfo',
+                  icon : <PiStudentFill className='text-4xl'/>,
+                  title : 'Student Info',
                 },
                 // {
                 //   url : '/assignments',
