@@ -36,14 +36,14 @@ function UploadPage({courseId}) {
       formData.append("file", file);
       formData.append("title", title);
       formData.append("courseId", courseId);
-      formData.append("teacherId", user.teacherId);
+      formData.append("teacherId", user._id);
       formData.append("endDate", endDate);
 
       console.log(title, courseId, user.teacherId, endDate);
   
       try {
         const response = await fetch(
-          "https://assignment-portal-server.onrender.com/api/assignment?role=teacher",
+          "http://localhost:4000/api/assignment?role=teacher",
           {
             method: "POST",
             body: formData,
