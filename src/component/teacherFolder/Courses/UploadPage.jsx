@@ -1,13 +1,18 @@
-import React,{useState} from 'react';
+import React,{useContext, useState} from 'react';
 import { SlCloudUpload } from "react-icons/sl";
 import { IoMdCloudDone } from "react-icons/io";
+import { UserContext } from '../../../store/userContext';
 
-function UploadPage() {
+function UploadPage({courseId}) {
+
+  
+  const {user} = useContext(UserContext);
+  
     
   const [file, setFile] = useState(null);
   const [displayFile, setDisplayFile] = useState(null);
   const [title,setTitle] = useState();
-  // const [title,setTitle] = useState();
+  const [endDate,setEndDate] = useState("12");
 
   const [isDraggedOver, setIsDraggedOver] = useState(false);
 
@@ -30,6 +35,11 @@ function UploadPage() {
       const formData = new FormData();
       formData.append("file", file);
       formData.append("title", title);
+      formData.append("courseId", courseId);
+      formData.append("teacherId", user.teacherId);
+      formData.append("endDate", endDate);
+
+      console.log(title, courseId, user.teacherId, endDate);
   
       try {
         const response = await fetch(
@@ -117,7 +127,7 @@ function UploadPage() {
             <div className="h-fit justify-center flex">
               <button
                 className="upload border rounded-md hover:bg-[#0c4adc]"
-                onClick={handleUploadClick}
+                onClick={handleFormSubmit}
                 type="submit"
               >
                 Upload
