@@ -35,9 +35,9 @@ function StudentCourses() {
     <div className=' w-full  p-2 overflow-y-auto gap-2 sm:gap-10 flex flex-col pb-8'>
       <div className=''>
       <div className='w-full text-xl sm:text-2xl flex flex-col sm:flex-row sm:justify-between sm:items-center px-7 bg-[#245DE1] text-white rounded-lg'>
-        <h2>Courses : </h2>
+        <h2>Courses </h2>
         <div className='flex w-full justify-between sm:w-fit items-center sm:gap-3 '>
-          <p className=''>Name of Student</p>
+          <p className=''>{user.name}</p>
           <img className='w-28' src={StudentImg} alt='StudentImg'/>
           {/* <CgProfile className="text-5xl"/> */}
         </div>

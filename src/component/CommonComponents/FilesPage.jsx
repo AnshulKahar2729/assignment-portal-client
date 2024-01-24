@@ -15,7 +15,7 @@ function FilesPage({ role }) {
     <div className="w-full sm:h-full flex flex-col p-2 gap-10 overflow-y-scroll">
       <div className="w-full flex justify-between bg-white text-[#245DE1] items-center p-4 rounded-lg">
         <div className="w-full flex justify-between px-10 items-center text-xl font-semibold">
-          Course : {user.name}
+          Course : {user.enrolledCourses[0].name}
           <Link to="/courses/coursedetails">
             <button className="w-fit">Back</button>
           </Link>
