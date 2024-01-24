@@ -35,9 +35,9 @@ function StudentCourses() {
     <div className=' w-full  p-2 overflow-y-auto gap-2 sm:gap-10 flex flex-col pb-8'>
       <div className=''>
       <div className='w-full text-xl sm:text-2xl flex flex-col sm:flex-row sm:justify-between sm:items-center px-7 bg-[#245DE1] text-white rounded-lg'>
-        <h2>Courses : </h2>
+        <h2>Courses </h2>
         <div className='flex w-full justify-between sm:w-fit items-center sm:gap-3 '>
-          <p className=''>Name of Student</p>
+          <p className=''>{user.name}</p>
           <img className='w-28' src={StudentImg} alt='StudentImg'/>
           {/* <CgProfile className="text-5xl"/> */}
         </div>
@@ -58,12 +58,12 @@ function StudentCourses() {
           ))}
       </div> */}
 
-      {/* <h2 className='text-lg'>other Courses:</h2>
+      <h2 className='text-lg'>other Courses:</h2>
       <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-24 xl:gap-28 m-auto'>
           {
             enrolledCourses.map((course) => <Link to='/courses/coursedetails'><CourseCard key={course.id} course={course} /></Link>)
           }
-      </div> */}
+      </div>
 
     </div>
   )

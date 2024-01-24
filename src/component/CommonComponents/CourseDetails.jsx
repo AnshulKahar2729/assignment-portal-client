@@ -33,7 +33,7 @@ function CourseDetails() {
   return (
     <div className=' w-full sm:h-full py-5 flex flex-col gap-10 text-3xl '>
       
-    <h1 className='w-full h-20 text-[#245DE1] border-b border-[#245DE1] flex  items-center font-semibold pl-8'>Course Name : {user.name}</h1>
+    <h1 className='w-full h-20 text-[#245DE1] border-b border-[#245DE1] flex  items-center font-semibold pl-8'>All Material</h1>
       
     <div className='w-full sm:justify-items-center gap-4 flex flex-wrap justify-center sm:grid sm:grid-cols-2 xl:grid-cols-4 sm:my-20'>
       <Link to={`/courses/coursedetails/files/${id}`}><button className=' h-52 w-52 sm:w-56 sm:h-56 shadow-md rounded-lg text-[#245DE1] bg-white hover:bg-[#245DE1] hover:text-white ease-linear hover:scale-105 duration-100 cursor-pointer text-[30px] xl:justify-items-start sm:justify-self-end'  value='Assignment'>Assignment</button></Link>
