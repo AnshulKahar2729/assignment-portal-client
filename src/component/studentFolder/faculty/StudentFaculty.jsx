@@ -59,29 +59,13 @@ function StudentFaculty() {
         </div>
         <div className='hideScrollbar flex flex-col w-full h-full rounded-b-lg overflow-y-scroll bg-white'>
           {/* <FacultyBar windowWidth={windowWidth}/> */}
-          {facultyData.length !== 0 && facultyData?.map((item, idx) => (
-            <FacultyBar windowWidth={windowWidth} name={item.name} subject={item.courseName} />
+          <FacultyBar windowWidth={windowWidth} name="Abhay" subject="DATA STRUCTURES AND ALGORITHM" />
+          <FacultyBar windowWidth={windowWidth} name="Rohan" subject="FUNDAMENTALS OF DATA STRUCTURES" />
+          {/* {facultyData.length !== 0 && facultyData?.map((item, idx) => (
+            <FacultyBar windowWidth={windowWidth} name="Rohan" subject="FUNDAMENTALS OF DATA STRUCTURES" />
             // <div >item</div>
-            ))}
-          {/* <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/>
-          <FacultyBar windowWidth={windowWidth}/> */}
+            ))} */}
+            
         </div>
       </div>
     </>

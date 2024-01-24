@@ -43,10 +43,10 @@ function StudentDashboard() {
         <div className='w-full xl:w-[49%] text-[#245DE1] p-2 md:px-16 xl:px-20 flex justify-center xl:justify-between items-center gap-7 rounded-lg text-xl overflow-y-auto bg-white'>
           <div className='text-[80px] sm:text-[140px] text-[#245DE1]'><FaUserCircle /></div>
           <div className=''>
-            <p className='text-lg sm:text-xl'>Name : {user?.name}</p>
-            <p className='text-md sm:text-xl'>Branch : {user?.branch}</p>
-            <p className='text-md sm:text-xl'>{user?.division} Div : {user?.year}</p>
-            <p className='text-md sm:text-xl'>Student Id : {user?.studentId}</p>
+            <p className='text-lg sm:text-xl'>Name : Vikas Saini</p>
+            <p className='text-md sm:text-xl'>Branch : CS</p>
+            <p className='text-md sm:text-xl'>D Div : Second Year</p>
+            <p className='text-md sm:text-xl'>Student Id : 82265328ac</p>
           </div>
         </div>
         <Updates allAssignments={allAssignments}/>
