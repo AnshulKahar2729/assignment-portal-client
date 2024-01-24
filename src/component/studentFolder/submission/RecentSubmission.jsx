@@ -57,9 +57,9 @@ function RecentSubmission({enrolledCourses}) {
                         {
                           assignment.submissions.map((submission, idx) => (
                             <div className='border-b-2 p-4 border-blue-100'>
-                            <p className='text-gray-700'><span className='text-blue-500'>Subject:</span> <span >{course.name}</span></p>
-                            <p className='text-gray-700'><span className='text-blue-500'>Assignment:</span> <span className=''>{assignment.title}</span></p>
-                            <p className='text-gray-700'><span className='text-blue-500'>Title:</span> <span className=''>{submission.title}</span></p>
+                            <p><span className='text-gray-600'>Subject:</span> <span className='font-bold'>{course.name}</span></p>
+                            <p><span className='text-gray-600'>Assignment:</span> <span className='font-bold'>{assignment.title}</span></p>
+                            <p><span className='text-gray-600'>Title:</span> <span className='font-bold'>{submission.title}</span></p>
                             <div className='flex justify-between items-center'>
                               <a href={submission.file} target="_blank"><button className='mt-2 text-sm bg-blue-600 hover:bg-blue-400 transition-all rounded-sm'>Download</button></a>
                               <p>Submitted on: <span className='text-green-600'>24th Jan</span></p>
